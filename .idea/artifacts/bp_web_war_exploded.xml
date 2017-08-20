@@ -13,6 +13,7 @@
           <element id="archive" name="bp-service-1.0-SNAPSHOT.jar">
             <element id="module-output" name="bp-service" />
           </element>
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.43" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.0.0.M3" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:2.0.0.M3" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.0.0.M3" />
@@ -63,7 +64,6 @@
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.0.0.M3" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.0.RC3" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.0.RC3" />
-          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.40" />
         </element>
       </element>
       <element id="directory" name="META-INF">
