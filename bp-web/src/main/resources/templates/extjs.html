@@ -11,17 +11,84 @@
 //        Ext.Panel是Ext JS中用于创建面板的预定义类。
 //        每个Ext JS类都有不同的属性来执行一些基本的功能。
         Ext.onReady(function() {
-            Ext.create('Ext.Panel', {
+//            var tabPanel = new Ext.TabPanel({
+//                renderTo: 'helloWorldPanel',
+//                width: 500,
+//                height: 300,
+//                activeTab: 0, // 默认显示第一个Tab的内容
+//                defaults: {
+//                    autoScroll: true
+//                },
+//                items: [{
+//                    title: 'Tab-0',
+//                    html: "第一个Tab的内容"
+//                }, {
+//                    title: 'Tab-1',
+//                    html: '我是另一个Tab',
+//                }, {
+//                    title: 'Tab-2',
+//                    html: '这是一个可以关闭的Tab',
+//                    closable: true
+//                }]
+//            });
+
+            var borderPanel = new Ext.Panel({
                 renderTo: 'helloWorldPanel',
-                height: 100,
-                width: 200,
-                title: '面板',
-                html: '第一个ExtJs程序'
+                layout: 'border',
+                tltle: 'Border Layout',
+                width: 1000,
+                height: 800,
+                defaults: {
+                    collapsible: true, // 支持该区域的展开和折叠
+                    split: true, // 支持用户拖放改变该区域的大小
+                    bodyStyle: 'padding:15px'
+                },
+                items: [{
+                    title: 'Footer-s',
+                    region: 'south',
+                    height: 100,
+                    minSize: 75,
+                    maxSize: 250,
+                    html: '这是南边区域 south'
+
+                }, {
+                    titlr: 'Main Content-c',
+                    region: 'center',
+                    collapsible: false,
+                    html: '这是中间区域 center'
+                }, {
+                    title: 'Navigation-w',
+                    region: 'west',
+                    width: 150,
+                    minSize: 100,
+                    maxSize: 250,
+                    html: '这是西边区域 west'
+                }, {
+                    title: 'North',
+                    region: 'north',
+                    height: 100,
+                    html: '这是北边区域 north'
+                }, {
+                    title: 'East',
+                    region: 'east',
+                    width: 150,
+                    html: '这是东边区域 east'
+                }]
             });
+//            Ext.create('Ext.Panel', {
+//                renderTo: 'helloWorldPanel',
+//                height: 100,
+//                width: 200,
+//                title: '面板',
+//                html: '第一个ExtJs程序'
+//            });
         });
+
     </script>
 </head>
 <body>
+<!--This is my HTML page. <br>-->
+<!--<button id="show-btn">button</button>-->
 <div id="helloWorldPanel"></div>
 </body>
 </html>
