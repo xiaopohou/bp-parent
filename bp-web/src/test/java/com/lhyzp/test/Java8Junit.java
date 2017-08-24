@@ -3,9 +3,11 @@ package com.lhyzp.test;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.omg.CosNaming._BindingIteratorImplBase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +22,7 @@ public class Java8Junit {
 
     @Test
     public void hello() {
-        System.out.println("hello world");
+        System.out.println(new BigDecimal(2.52222).setScale(0,BigDecimal.ROUND_HALF_UP));
     }
 
     @Test
@@ -38,6 +40,8 @@ public class Java8Junit {
         System.out.println(operate(10,5,y));
 
     }
+
+
 
     /**
      * optional

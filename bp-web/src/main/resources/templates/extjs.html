@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extjs-示例</title>
+    <link href="http://cdn.bootcss.com/extjs/6.2.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://cdn.bootcss.com/extjs/6.2.0/ext-all.js"></script>
+    <script type="text/javascript">
+//        Ext.onReady（）方法将在Ext JS准备好渲染Ext JS元素时调用。
+//        Ext.create（）方法用于在Ext JS中创建对象，这里我们创建一个简单的面板类Ext.Panel的对象。
+//        Ext.Panel是Ext JS中用于创建面板的预定义类。
+//        每个Ext JS类都有不同的属性来执行一些基本的功能。
+        Ext.onReady(function() {
+            Ext.create('Ext.Panel', {
+                renderTo: 'helloWorldPanel',
+                height: 100,
+                width: 200,
+                title: '面板',
+                html: '第一个ExtJs程序'
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="helloWorldPanel"></div>
+</body>
+</html>
