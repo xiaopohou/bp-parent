@@ -28,10 +28,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.10" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-freemarker:1.5.6.RELEASE" />
-          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.26-incubating" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.3.10.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-thymeleaf:1.5.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf-spring4:2.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf:2.1.5.RELEASE" />
@@ -52,6 +48,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.9" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-websocket:1.5.6.RELEASE" />

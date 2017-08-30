@@ -1,38 +1,22 @@
 package com.lhyzp.api.sys.controller;
 
-import com.google.common.collect.Maps;
-import com.lhyzp.sys.model.Product;
-import freemarker.core.ParseException;
-import freemarker.template.*;
-import org.apache.commons.io.FileUtils;
 import org.apache.poi.hpsf.DocumentSummaryInformation;
 import org.apache.poi.hpsf.SummaryInformation;
 import org.apache.poi.hssf.usermodel.*;
-import org.apache.poi.ss.usermodel.HorizontalAlignment;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.ui.Model;
-import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
-import org.thymeleaf.context.IContext;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
 
 /**
  * 模块
@@ -123,35 +107,35 @@ public class SysModuleController {
      * @return
      */
     @GetMapping("template")
-    public String template(Model model) throws IOException, TemplateException {
+    public String template(Model model) throws IOException {
 
-        model.addAttribute("name","jack");
-        /* ------------------------------------------------------------------------ */
-        /* You should do this ONLY ONCE in the whole application life-cycle:        */
-        /* Create and adjust the configuration singleton */
-        Configuration cfg = new Configuration();
-        cfg.setDirectoryForTemplateLoading(new File("E:\\bp-parent\\bp-web\\src\\main\\resources\\templates")); //需要文件夹绝对路径
-        cfg.setDefaultEncoding("UTF-8");
-        cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
-        /* ------------------------------------------------------------------------ */
-        /* You usually do these for MULTIPLE TIMES in the application life-cycle:   */
-        /* Create a data-model */
-        Map root = new HashMap();
-        root.put("user", "Big Joe");
-        Product latest = new Product();
-        latest.setUrl("products/greenmouse.html");
-        latest.setName("green mouse");
-        root.put("latestProduct", latest);
-        /* Get the template (uses cache internally) */
-        Template temp = cfg.getTemplate("welcom.ftl");
-        /* Merge data-model with template */
-        Writer out = new OutputStreamWriter(System.out);
-
-        String content = FreeMarkerTemplateUtils.processTemplateIntoString(temp, root);
-
-        FileUtils.writeStringToFile(new File("d:/welcome.html"), content);
-
-        temp.process(root, out);
+        //model.addAttribute("name","jack");
+        ///* ------------------------------------------------------------------------ */
+        ///* You should do this ONLY ONCE in the whole application life-cycle:        */
+        ///* Create and adjust the configuration singleton */
+        //Configuration cfg = new Configuration();
+        //cfg.setDirectoryForTemplateLoading(new File("E:\\bp-parent\\bp-web\\src\\main\\resources\\templates")); //需要文件夹绝对路径
+        //cfg.setDefaultEncoding("UTF-8");
+        //cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
+        ///* ------------------------------------------------------------------------ */
+        ///* You usually do these for MULTIPLE TIMES in the application life-cycle:   */
+        ///* Create a data-model */
+        //Map root = new HashMap();
+        //root.put("user", "Big Joe");
+        //Product latest = new Product();
+        //latest.setUrl("products/greenmouse.html");
+        //latest.setName("green mouse");
+        //root.put("latestProduct", latest);
+        ///* Get the template (uses cache internally) */
+        //Template temp = cfg.getTemplate("welcom.ftl");
+        ///* Merge data-model with template */
+        //Writer out = new OutputStreamWriter(System.out);
+        //
+        //String content = FreeMarkerTemplateUtils.processTemplateIntoString(temp, root);
+        //
+        //FileUtils.writeStringToFile(new File("d:/welcome.html"), content);
+        //
+        //temp.process(root, out);
         return "操作成功";
     }
 
