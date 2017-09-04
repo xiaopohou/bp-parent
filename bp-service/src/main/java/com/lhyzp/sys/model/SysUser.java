@@ -48,14 +48,14 @@ public class SysUser implements Serializable{
 
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<SysRole> role;
+    private List<SysRole> roles;
 
-    public List<SysRole> getRole() {
-        return role;
+    public List<SysRole> getRoles() {
+        return roles;
     }
 
-    public void setRole(List<SysRole> role) {
-        this.role = role;
+    public void setRoles(List<SysRole> roles) {
+        this.roles = roles;
     }
 
     public Integer getId() {
