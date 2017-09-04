@@ -1,11 +1,16 @@
 package com.lhyzp.api.sys.controller;
 
+import com.lhyzp.sys.model.SysUser;
 import org.apache.poi.hpsf.DocumentSummaryInformation;
 import org.apache.poi.hpsf.SummaryInformation;
 import org.apache.poi.hssf.usermodel.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -163,6 +168,44 @@ public class SysModuleController {
 
         templateEngine.process("temp", context, write);
         return "temp";
+    }
+
+
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    /**
+     * redis   使用
+     * @return
+     */
+    @GetMapping("redis")
+    public String redis(@RequestParam(value="c",required = false,defaultValue = "0")Short c,@RequestParam(value="id",required = false,defaultValue = "1")Integer id){
+
+
+        SysUser user=new SysUser();
+        user.setId(id);
+
+        //操作视图类
+        ValueOperations<String,SysUser> valueOperations = redisTemplate.opsForValue();
+
+        //判断缓存是否存在
+        Boolean isKey = redisTemplate.hasKey("user_2");
+
+        if(c==1&&isKey){
+            //清除缓存
+            redisTemplate.delete("user_2");
+        }
+
+        if(!isKey){
+            valueOperations.set("user_2",user);
+            return "缓存没有";
+        }else{
+            SysUser userCache=valueOperations.get("user_2");
+            return "缓存读取的："+userCache.toString();
+        }
+
+        //valueOperations.set("abc","123");
     }
 
 }
