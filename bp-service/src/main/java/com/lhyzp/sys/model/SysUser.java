@@ -17,7 +17,7 @@ public class SysUser implements Serializable{
     private Integer id;
 
     @Column(nullable = false,length=30)
-    private String user_name;
+    private String userName;
 
     @Column(nullable = false,length=30,unique = true)
     private String email;
@@ -66,12 +66,12 @@ public class SysUser implements Serializable{
         this.id = id;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getEmail() {
