@@ -48,6 +48,7 @@ public class SysUser implements Serializable{
 
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "sys_user_role", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private List<SysRole> roles;
 
     public List<SysRole> getRoles() {

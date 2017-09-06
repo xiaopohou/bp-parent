@@ -190,18 +190,18 @@ public class SysModuleController {
         ValueOperations<String,SysUser> valueOperations = redisTemplate.opsForValue();
 
         //判断缓存是否存在
-        Boolean isKey = redisTemplate.hasKey("user_2");
+        Boolean isKey = redisTemplate.hasKey("user_0");
 
         if(c==1&&isKey){
             //清除缓存
-            redisTemplate.delete("user_2");
+            redisTemplate.delete("user_0");
         }
 
         if(!isKey){
-            valueOperations.set("user_2",user);
+            valueOperations.set("user_0",user);
             return "缓存没有";
         }else{
-            SysUser userCache=valueOperations.get("user_2");
+            SysUser userCache=valueOperations.get("user_0");
             return "缓存读取的："+userCache.toString();
         }
 
