@@ -3,42 +3,13 @@ package com.lhyzp.utils;
 import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
  * 判断对象、字符串、集合是否为空、不为空
  */
 public final class StringUtils {
-	
-	/**
-	 *  判断数组是否为空
-	 * @param array
-	 * @return boolean
-	 */
-	@SuppressWarnings("unused")
-	private static <T> boolean isEmptyArray(T[] array){
-		if (array == null || array.length == 0){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-	
-	/**
-	 *  判断数组是否不为空
-	 * @param array
-	 * @return boolean
-	 */
-	public static <T> boolean isNotEmptyArray(T[] array){
-		if (array != null && array.length > 0){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-	
 	/**
 	 *  判断字符串是否为空
 	 * @param string
@@ -125,29 +96,55 @@ public final class StringUtils {
 			return false;
 		}
 	}
-	
+
 	/**
-	 * 检验对象是否为空,String 中只有空格在对象中也算空.
-	 * @param object
-	 * @return 为空返回true,否则false.
+	 * 是否为空
+	 *
+	 * @return
 	 */
-	@SuppressWarnings("rawtypes")
-	public static boolean isEmpty(Object object) {
-		if (null == object)
+	public static boolean isEmpty(Object obj) {
+		if (obj == null) {
 			return true;
-		else if (object instanceof String)
-			return "".equals(object.toString().trim());
-		else if (object instanceof Iterable)
-			return !((Iterable) object).iterator().hasNext();
-		else if (object.getClass().isArray())
-			return Array.getLength(object) == 0;
-		else if (object instanceof Map)
-			return ((Map) object).size() == 0;
-		else if (Number.class.isAssignableFrom(object.getClass()))
-			return false;
-		else if (Date.class.isAssignableFrom(object.getClass()))
-			return false;
-		else
-			return false;
+		} else if (obj instanceof String) {
+			String instance = (String) obj;
+			if (instance.trim().length() <= 0 || "null".equalsIgnoreCase(instance)) {
+				return true;
+			}
+		} else if (obj instanceof Integer) {
+			Integer instance = (Integer) obj;
+			if (instance < 0) {
+				return true;
+			}
+		} else if (obj instanceof List<?>) {
+			List<?> instance = (List<?>) obj;
+			if (instance.size() <= 0) {
+				return true;
+			}
+		} else if (obj instanceof Map<?, ?>) {
+			Map<?, ?> instance = (Map<?, ?>) obj;
+			if (instance.size() <= 0) {
+				return true;
+			}
+		} else if (obj instanceof Object[]) {
+			Object[] instance = (Object[]) obj;
+			if (instance.length <= 0) {
+				return true;
+			}
+		} else if (obj instanceof Long) {
+			Long instance = (Long) obj;
+			if (instance < 0) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * 不为空判断
+	 * @param obj
+	 * @return
+	 */
+	public static boolean notEmpty(Object obj) {
+		return !isEmpty(obj);
 	}
 }

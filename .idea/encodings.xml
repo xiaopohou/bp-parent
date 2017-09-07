@@ -3,7 +3,11 @@
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/../bp-parent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../bp-parent/bp-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../bp-parent/bp-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../bp-parent/bp-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../bp-parent/bp-model" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../bp-parent/bp-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../bp-parent/bp-utils" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../bp-parent/bp-web" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

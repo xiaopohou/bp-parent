@@ -16,4 +16,6 @@ public interface SysUserService {
 
     SysUser save(SysUser model);
 
+    SysUser findById(Integer id);
+
 }

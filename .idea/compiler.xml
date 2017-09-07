@@ -7,14 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="bp-common" />
+        <module name="bp-model" />
         <module name="bp-service" />
+        <module name="bp-utils" />
         <module name="bp-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="bp-common" target="1.6" />
+      <module name="bp-model" target="1.6" />
       <module name="bp-parent" target="1.6" />
       <module name="bp-service" target="1.6" />
+      <module name="bp-utils" target="1.6" />
       <module name="bp-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>

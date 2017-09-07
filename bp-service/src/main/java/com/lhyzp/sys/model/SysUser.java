@@ -47,7 +47,7 @@ public class SysUser implements Serializable{
     private Date updateDate;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinTable(name = "sys_user_role", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private List<SysRole> roles;
 

@@ -7,8 +7,8 @@
           <element id="module-output" name="bp-web" />
         </element>
         <element id="directory" name="lib">
-          <element id="archive" name="bp-common-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="bp-common" />
+          <element id="archive" name="bp-utils-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="bp-utils" />
           </element>
           <element id="archive" name="bp-service-1.0-SNAPSHOT.jar">
             <element id="module-output" name="bp-service" />
@@ -16,9 +16,6 @@
           <element id="library" level="project" name="Maven: net.sourceforge.nekohtml:nekohtml:1.9.22" />
           <element id="library" level="project" name="Maven: xerces:xercesImpl:2.11.0" />
           <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.4.01" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:1.4.1.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:1.5.1.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-aop:1.5.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:1.5.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-logging:1.5.1.RELEASE" />
@@ -49,12 +46,15 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.6" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-websocket:1.5.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-messaging:4.3.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-websocket:4.3.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-devtools:1.5.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:1.5.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:1.5.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.6.RELEASE" />
           <element id="library" level="project" name="Maven: io.springfox:springfox-swagger2:2.2.2" />
           <element id="library" level="project" name="Maven: org.mapstruct:mapstruct:1.0.0.CR1" />

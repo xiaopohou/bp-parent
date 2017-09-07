@@ -16,9 +16,9 @@
     </parent>
 
     <modules>
-        <module>bp-web</module>
-        <module>bp-common</module>
         <module>bp-service</module>
+        <module>bp-web</module>
+        <module>bp-utils</module>
     </modules>
 
     <dependencies>
