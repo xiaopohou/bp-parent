@@ -1,7 +1,9 @@
 package com.lhyzp.config;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -51,5 +53,15 @@ public class DruidConfiguration {
         //添加不需要忽略的格式信息.
         filterRegistrationBean.addInitParameter("exclusions","*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
         return filterRegistrationBean;
+    }
+
+    /**
+     * 必须配置才能初始化properties的配置项
+     * @return
+     */
+    @Bean
+    @ConfigurationProperties(prefix="spring.datasource")
+    public DruidDataSource druidDataSource() {
+        return new DruidDataSource();
     }
 }

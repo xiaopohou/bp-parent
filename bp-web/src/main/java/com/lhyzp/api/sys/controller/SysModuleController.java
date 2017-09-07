@@ -107,43 +107,6 @@ public class SysModuleController {
         workbook.write(response.getOutputStream());
     }
 
-    /**
-     * 模板文件生成
-     * @return
-     */
-    @GetMapping("template")
-    public String template(Model model) throws IOException {
-
-        //model.addAttribute("name","jack");
-        ///* ------------------------------------------------------------------------ */
-        ///* You should do this ONLY ONCE in the whole application life-cycle:        */
-        ///* Create and adjust the configuration singleton */
-        //Configuration cfg = new Configuration();
-        //cfg.setDirectoryForTemplateLoading(new File("E:\\bp-parent\\bp-web\\src\\main\\resources\\templates")); //需要文件夹绝对路径
-        //cfg.setDefaultEncoding("UTF-8");
-        //cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
-        ///* ------------------------------------------------------------------------ */
-        ///* You usually do these for MULTIPLE TIMES in the application life-cycle:   */
-        ///* Create a data-model */
-        //Map root = new HashMap();
-        //root.put("user", "Big Joe");
-        //Product latest = new Product();
-        //latest.setUrl("products/greenmouse.html");
-        //latest.setName("green mouse");
-        //root.put("latestProduct", latest);
-        ///* Get the template (uses cache internally) */
-        //Template temp = cfg.getTemplate("welcom.ftl");
-        ///* Merge data-model with template */
-        //Writer out = new OutputStreamWriter(System.out);
-        //
-        //String content = FreeMarkerTemplateUtils.processTemplateIntoString(temp, root);
-        //
-        //FileUtils.writeStringToFile(new File("d:/welcome.html"), content);
-        //
-        //temp.process(root, out);
-        return "操作成功";
-    }
-
     @GetMapping("th")
     public String th(HttpServletRequest request) throws IOException {
 

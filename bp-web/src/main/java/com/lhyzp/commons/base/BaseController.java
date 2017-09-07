@@ -1,9 +1,8 @@
-package com.lhyzp.common;
+package com.lhyzp.commons.base;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.lhyzp.base.ResponseMessage;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -15,6 +14,12 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class BaseController {
 
+    //public SysUser user(){
+    //    return ShiroUtils.getUserEntity();
+    //}
+    //public Long userId(){
+    //    return ShiroUtils.getUserId();
+    //}
 
     /**
      * 获取请求对象
