@@ -5,37 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52b56b81-c4d0-464e-9562-9e9c9a4cdd96" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_1_5_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_actuator_1_5_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/DateFormatUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/DateUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/commons/annotation/OpLog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/commons/exception/Error404Controller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/commons/exception/GlobalExcetionHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/commons/utils/PageUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/commons/utils/SpecificationUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/filter/OpLogAspect.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/filter/WebLogAspect.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/filter/XSSRequestWrapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/filter/XssFilter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/resources/templates/404.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/resources/templates/welcom.ftl" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/.idea/artifacts/bp_web_war_exploded.xml" afterPath="$PROJECT_DIR$/../bp-parent/.idea/artifacts/bp_web_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../bp-parent/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-parent.iml" afterPath="$PROJECT_DIR$/../bp-parent/bp-parent.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/bp-service.iml" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/bp-service.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/SysUserService.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/SysUserService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/impl/SysUserServiceImpl.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/impl/SysUserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/bp-utils.iml" afterPath="$PROJECT_DIR$/../bp-parent/bp-utils/bp-utils.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/pom.xml" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/Application.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/SysModuleController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/SysModuleController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/StringUtils.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/StringUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/SysUserController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/SysUserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/config/DruidConfiguration.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/config/DruidConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/pom.xml" afterPath="$PROJECT_DIR$/../bp-parent/pom.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/common/BaseController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/commons/base/BaseController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/resources/templates/temp.html" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/resources/templates/temp/temp.html" />
     </list>
     <ignored path="$PROJECT_DIR$/../bp-parent/out/" />
     <ignored path="$PROJECT_DIR$/../bp-parent/target/" />
@@ -66,12 +40,16 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SysUserServiceImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SysUserServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/impl/SysUserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="158">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1169#2743#0" expanded="true" />
+                <element signature="e#2742#2743#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,8 +67,8 @@
       <file leaf-file-name="SysUserService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/SysUserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            <state relative-caret-position="247">
+              <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -106,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SysUserController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SysUserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/SysUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="29" column="72" lean-forward="true" selection-start-line="29" selection-start-column="72" selection-end-line="29" selection-end-column="72" />
+            <state relative-caret-position="424">
+              <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -173,7 +151,6 @@
         <option value="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/SysConstant.java" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/constant/SysConstant.java" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/Utils.java" />
-        <option value="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/StringUtils.java" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/base/ResponseMessage.java" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/common/BaseController.java" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/common/Error404Controller.java" />
@@ -195,11 +172,12 @@
         <option value="$PROJECT_DIR$/../bp-parent/bp-web/pom.xml" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/Application.java" />
         <option value="$PROJECT_DIR$/../bp-parent/pom.xml" />
-        <option value="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/SysUserService.java" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/commons/utils/PageUtil.java" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/commons/utils/SpecificationUtil.java" />
-        <option value="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/impl/SysUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/SysUserService.java" />
+        <option value="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/StringUtils.java" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/SysUserController.java" />
+        <option value="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/impl/SysUserServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -1381,7 +1359,7 @@
       <workItem from="1504503450664" duration="8334000" />
       <workItem from="1504577285958" duration="10659000" />
       <workItem from="1504667363624" duration="13843000" />
-      <workItem from="1504744103240" duration="20356000" />
+      <workItem from="1504744103240" duration="21194000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1503198246751</created>
@@ -1488,7 +1466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1504752304457</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="添加spring data jpa">
+      <created>1504769846939</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1504769846939</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1524,7 +1509,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143957000" />
+    <option name="totallyTimeSpent" value="144795000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1549,7 +1534,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24441965" sideWeight="0.4978678" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24441965" sideWeight="0.4978678" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1560,7 +1545,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25692964" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25692964" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1603,17 +1588,6 @@
         <state relative-caret-position="1007">
           <caret line="54" column="5" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="54" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2622">
-          <caret line="142" column="12" lean-forward="false" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
-          <folding>
-            <element signature="e#2692#2693#0" expanded="false" />
-            <element signature="e#2719#2720#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1921,22 +1895,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/SysUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/commons/utils/SpecificationUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../maven-repositoty/jar/org/springframework/data/spring-data-commons/1.13.0.RELEASE/spring-data-commons-1.13.0.RELEASE.jar!/org/springframework/data/domain/PageRequest.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -2011,19 +1969,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/impl/SysUserServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/commons/utils/SpecificationUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        <state relative-caret-position="133">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/SysUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/StringUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2679">
+          <caret line="145" column="7" lean-forward="true" selection-start-line="145" selection-start-column="7" selection-end-line="145" selection-end-column="7" />
+          <folding>
+            <element signature="e#2694#2695#0" expanded="true" />
+            <element signature="e#2721#2722#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/SysUserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="29" column="72" lean-forward="true" selection-start-line="29" selection-start-column="72" selection-end-line="29" selection-end-column="72" />
+        <state relative-caret-position="424">
+          <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/sys/service/impl/SysUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1169#2743#0" expanded="true" />
+            <element signature="e#2742#2743#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

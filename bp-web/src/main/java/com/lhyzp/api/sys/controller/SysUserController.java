@@ -1,5 +1,6 @@
 package com.lhyzp.api.sys.controller;
 
+import com.google.common.collect.Maps;
 import com.lhyzp.commons.base.BaseController;
 import com.lhyzp.commons.utils.PageUtil;
 import com.lhyzp.sys.model.SysUser;
@@ -9,6 +10,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * 系统用户控制器
@@ -27,7 +30,10 @@ public class SysUserController extends BaseController{
                        @RequestParam(value="userName",required = false)String userName,
                        @RequestParam(value="email",required = false)String email){
 
-        Page<SysUser> list = sysUserService.list(userName, email, null);
+        Map<String,Object> map= Maps.newHashMap();
+        map.put("userName",userName);
+        map.put("email",email);
+        Page<SysUser> list = sysUserService.list(map, null);
 
         return json(list.getContent());
     }

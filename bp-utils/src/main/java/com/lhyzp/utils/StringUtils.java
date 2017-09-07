@@ -144,7 +144,7 @@ public final class StringUtils {
 	 * @param obj
 	 * @return
 	 */
-	public static boolean notEmpty(Object obj) {
+	public static boolean isNotEmpty(Object obj) {
 		return !isEmpty(obj);
 	}
 }
