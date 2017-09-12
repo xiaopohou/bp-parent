@@ -2,104 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>vue-demo</title>
-    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
-    <script src="/js/plugin/split/md5.min.js"></script>
+    <title>后台管理</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
 
     <script>
-        console.log(md5('000000'));
+        Ext.onReady(function () {
+            //定义手风琴布局
+            var accordion = Ext.create("Ext.panel.Panel", {
+                title: "west",
+                layout: "accordion",  //设置为手风琴布局
+                layoutConfig: {
+                    animate: true
+                },
+                width: 250,
+                minWidth: 90,
+                region: "west", //设置方位 位于border布局的west
+                split: true,
+                collapsible: true,
+                items: [
+                    { title: "面板一", html: "面板一", iconCls: "save" },
+                    { title: "面板二", html: "面板二", iconCls: "search" },
+                    { title: "面板三", html: "面板三", iconCls: "back" },
+                    { title: "面板四", html: "面板四", iconCls: "12" }
+                ]
+            });
+
+            //整体布局采用border
+            new Ext.Viewport({
+                title: "Viewport",
+                layout: "border", //这里是（border）边界布局
+                defaults: {
+                    bodyStyle: "background-color: #FFFFFF;",
+                    frame: true
+                },
+                items: [
+                    accordion, //这里是（accordion）手风琴布局
+                    //{region: "east", width: 90, title: 'east', collapsible: true },
+                    { region: "north", height: 100, title: 'north', collapsible: true },
+                    { region: "center", split: true, border: true, collapsible: true, title: 'center'},
+                    { region: "south", title: "south", split: true, border: true, collapsible: true, height: 100 }
+                ]
+            });
+        });
     </script>
 
 </head>
 <body>
-
-
-
-
-
-    <h3>1.声明式渲染</h3>
-    <div id="app">{{message}}</div>
-    <div id="app-2">
-        <span v-bind:title="message">鼠标移动到此处停留</span>
-    </div>
-    <h3>2.条件与循环</h3>
-    <div id="app-3">
-        <span v-if="seen">你看到我了</span>
-    </div>
-    <div id="app-4">
-        <ul>
-            <li v-for="todo in todos">
-                {{todo.name}}
-            </li>
-        </ul>
-    </div>
-    <h3>3.处理用户输入</h3>
-    <div id="app-5">
-        <span>{{message}}</span>
-        <button v-on:click="reverseMessage">逆转消息</button>
-    </div>
-    <div id="app-6">
-        <p>{{message}}</p>
-        <input v-model="message"/>
-    </div>
-    <h3>4.组件化应用构建</h3>
-    <div id="app-7">
-        <ol>
-            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
-        </ol>
-    </div>
 </body>
-<script>
-    var app=new Vue({
-        el:'#app',
-        data:{message:'hello word!'}
-    });
-    var app2=new Vue({
-        el:"#app-2",
-        data:{message:"动态绑定提示消息"}
-    });
-    var app3=new Vue({
-        el:"#app-3",
-        data:{seen:true}
-    });
-    var app4=new Vue({
-        el:"#app-4",
-        data:{
-            todos:[
-                {name:"学习JavaScript"},
-                {name:"学习Vue"},
-                {name:"整牛项目"}
-            ]
-        }
-    });
-    var app5=new Vue({
-        el:"#app-5",
-        data:{message:"hello Vue.js"},
-        methods:{
-            reverseMessage:function () {
-                this.message=this.message.split('').reverse().join('');
-            }
-        }
-    });
-    var app6=new Vue({
-        el:"#app-6",
-        data:{
-            message:"hello word!"
-        }
-    });
-    Vue.component('todo-item',{
-        props:['todo'],
-        template:'<li>{{todo.name}}</li>'
-    });
-    var app7=new Vue({
-        el:"#app-7",
-        data:{
-            groceryList:[
-                {name:"蔬菜"},
-                {name:"水果"},
-                {name:"其他一切可以吃的东西"}
-            ]
-        }
-    });
-</script>
 </html>

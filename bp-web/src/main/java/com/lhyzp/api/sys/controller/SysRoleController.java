@@ -1,8 +1,12 @@
 package com.lhyzp.api.sys.controller;
 
+import com.lhyzp.commons.base.BaseController;
+import com.lhyzp.commons.utils.SpecificationFactory;
 import com.lhyzp.sys.model.SysRole;
 import com.lhyzp.sys.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -10,15 +14,20 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("api/role")
-public class SysRoleController {
+public class SysRoleController extends BaseController{
 
     @Autowired
     private SysRoleService sysRoleService;
 
     @GetMapping
-    public Object list(){
+    public String list(@RequestParam(value="page",required = false,defaultValue = "1")Integer page,
+                       @RequestParam(value="size",required = false,defaultValue = "10")Integer size,
+                       @RequestParam(value="sort",required = false,defaultValue = "id")String sort,
+                       @RequestParam(value="name",required = false)String name){
 
-        return sysRoleService.list();
+        Specification specification = Specifications.where(SpecificationFactory.like("name", name));
+
+        return json(sysRoleService.list(specification,null));
     }
 
     @PostMapping

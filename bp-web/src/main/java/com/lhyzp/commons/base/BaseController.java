@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  * 基础controller
  * Created by Administrator on 2017-9-7.
  */
-public class BaseController {
+public abstract class BaseController {
 
     //public SysUser user(){
     //    return ShiroUtils.getUserEntity();
