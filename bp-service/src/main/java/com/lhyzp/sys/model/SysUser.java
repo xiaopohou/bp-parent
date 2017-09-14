@@ -31,7 +31,7 @@ public class SysUser implements Serializable{
     @Column(nullable = false,length=1,columnDefinition = "int(1) default 1")
     private Integer state;
 
-    @Column(nullable = false,length=11)
+    @Column(nullable = false,length=11,unique = true)
     private String phone;
 
     @Column(nullable = false,updatable = false)
