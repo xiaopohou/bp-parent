@@ -27,7 +27,7 @@ public class SysModule implements Serializable{
     private String permCode;
 
     @Column(nullable = false,length = 11)
-    private Integer pId;
+    private Integer parentId;
 
     @Column(nullable = false,length=1)
     private Integer active;
@@ -39,7 +39,7 @@ public class SysModule implements Serializable{
     private Integer permType;
 
     @Column(nullable = false,length=1)
-    private Integer open;
+    private Integer expand;
 
     @Column(length=20)
     private String className;
@@ -96,12 +96,12 @@ public class SysModule implements Serializable{
         this.permCode = permCode == null ? null : permCode.trim();
     }
 
-    public Integer getpId() {
-        return pId;
+    public Integer getParentId() {
+        return parentId;
     }
 
-    public void setpId(Integer pId) {
-        this.pId = pId;
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
     }
 
     public Integer getActive() {
@@ -128,12 +128,12 @@ public class SysModule implements Serializable{
         this.permType = permType;
     }
 
-    public Integer getOpen() {
-        return open;
+    public Integer getExpand() {
+        return expand;
     }
 
-    public void setOpen(Integer open) {
-        this.open = open;
+    public void setExpand(Integer expand) {
+        this.expand = expand;
     }
 
     public String getClassName() {
