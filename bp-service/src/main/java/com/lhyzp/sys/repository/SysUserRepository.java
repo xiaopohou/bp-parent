@@ -12,5 +12,10 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface SysUserRepository extends JpaRepository<SysUser,Integer>,JpaSpecificationExecutor<SysUser>{
-    Page<SysUser> findByUserNameLike(String userName, Pageable pageable);
+
+    SysUser findByEmail(String mail);
+
+
+
+
 }

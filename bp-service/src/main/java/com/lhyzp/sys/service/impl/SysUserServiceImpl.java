@@ -42,21 +42,16 @@ public class SysUserServiceImpl implements SysUserService {
             @Override
             public Predicate toPredicate(Root<SysUser> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 
-                //http://www.cnblogs.com/Donnnnnn/p/6277872.html
-
                 List<Predicate> predicates= Lists.newArrayList();
-
-                //连接的时候，要以声明的根查询对象（这里是root，也可以自己创建）进行join
-                //Join<Z,X>是Join生成的对象，这里的Z是被连接的对象，X是目标对象，
-                //  连接的属性字段是被连接的对象在目标对象的属性，这里是我们在MyOrder内声明的customer
-                //join的第二个参数是可选的，默认是JoinType.INNER(内连接 inner join)，也可以是JoinType.LEFT（左外连接 left join）
-                Join<SysUser,SysRole> join = root.join("roles",JoinType.LEFT);
 
                 if(StringUtils.isNotEmpty(map.get("userName"))){
                     predicates.add(cb.like(root.get("userName").as(String.class),"%"+map.get("userName")+"%"));
                 }
                 if(StringUtils.isNotEmpty(map.get("email"))){
                     predicates.add(cb.like(root.get("email").as(String.class),"%"+map.get("email")+"%"));
+                }
+                if(StringUtils.isNotEmpty(map.get("phone"))){
+                    predicates.add(cb.like(root.get("phone").as(String.class),"%"+map.get("phone")+"%"));
                 }
 
                 Predicate[] arrayPredicates = new Predicate[predicates.size()];
@@ -85,4 +80,15 @@ public class SysUserServiceImpl implements SysUserService {
     public SysUser findById(Integer id) {
         return sysUserRepository.findOne(id);
     }
+
+    @Override
+    public void delete(Integer id) {
+        sysUserRepository.delete(id);
+    }
+
+    @Override
+    public SysUser findByEmail(String mail) {
+        return sysUserRepository.findByEmail(mail);
+    }
+
 }

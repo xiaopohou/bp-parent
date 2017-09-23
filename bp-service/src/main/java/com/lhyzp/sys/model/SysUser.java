@@ -51,6 +51,10 @@ public class SysUser implements Serializable{
     @JoinTable(name = "sys_user_role", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private List<SysRole> roles;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_detail_id")
+    private SysUserDetail userDetail;
+
     public List<SysRole> getRoles() {
         return roles;
     }
@@ -145,5 +149,13 @@ public class SysUser implements Serializable{
 
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public SysUserDetail getUserDetail() {
+        return userDetail;
+    }
+
+    public void setUserDetail(SysUserDetail userDetail) {
+        this.userDetail = userDetail;
     }
 }

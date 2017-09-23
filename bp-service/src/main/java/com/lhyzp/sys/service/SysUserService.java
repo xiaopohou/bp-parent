@@ -1,5 +1,6 @@
 package com.lhyzp.sys.service;
 
+import com.lhyzp.base.BaseService;
 import com.lhyzp.sys.model.SysUser;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CachePut;
@@ -13,12 +14,13 @@ import java.util.Map;
 /**
  * Created by Administrator on 2017-9-4.
  */
-public interface SysUserService {
+public interface SysUserService extends BaseService<SysUser>{
 
-    Page<SysUser> list(Map<String,Object> map, Pageable pageable);
-
-    SysUser save(SysUser model);
-
-    SysUser findById(Integer id);
+    /**
+     * 根据邮箱获取用户
+     * @param mail
+     * @return
+     */
+    SysUser findByEmail(String mail);
 
 }
