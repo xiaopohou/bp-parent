@@ -36,4 +36,10 @@ public class SysRoleController extends BaseController{
         return "OK";
     }
 
+    @GetMapping("{id}")
+    public String get(@PathVariable("id")Integer id){
+
+        return json("");
+    }
+
 }

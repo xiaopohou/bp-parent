@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 /**
@@ -28,6 +29,14 @@ public class TestRedis {
 
         if(map.containsKey("b")){
             System.out.println("b的key存在");
+        }
+    }
+
+    @Test
+    public void test2(){
+        System.out.println(BigDecimal.valueOf(500));
+        if(BigDecimal.valueOf(500l).compareTo(BigDecimal.valueOf(100l))==1){
+            System.out.println("大于成立");
         }
     }
 }

@@ -2,7 +2,11 @@ package com.lhyzp.commons.base;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.lhyzp.base.DataTable;
 import com.lhyzp.base.ResponseMessage;
+import com.lhyzp.commons.utils.ShiroUtils;
+import com.lhyzp.sys.model.SysUser;
+import org.springframework.data.domain.Page;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -14,12 +18,12 @@ import javax.servlet.http.HttpServletRequest;
  */
 public abstract class BaseController {
 
-    //public SysUser user(){
-    //    return ShiroUtils.getUserEntity();
-    //}
-    //public Long userId(){
-    //    return ShiroUtils.getUserId();
-    //}
+    public SysUser user(){
+        return ShiroUtils.getUserEntity();
+    }
+    public Integer userId(){
+        return ShiroUtils.getUserId();
+    }
 
     /**
      * 获取请求对象
@@ -37,6 +41,19 @@ public abstract class BaseController {
      */
     public String json(Object object){
         return JSON.toJSONString(object, SerializerFeature.DisableCircularReferenceDetect);
+    }
+
+    /**
+     * json转换
+     * @param list
+     * @return
+     */
+    public String json(Page<?> list){
+        DataTable dt=new DataTable();
+        dt.setRows(list.getContent());
+        dt.setPage(list.getNumber());
+        dt.setTotal(list.getTotalElements());
+        return JSON.toJSONString(dt, SerializerFeature.DisableCircularReferenceDetect);
     }
 
     /**
