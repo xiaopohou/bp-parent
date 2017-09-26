@@ -22,6 +22,9 @@ public class SysEnum {
     @Column(nullable = false,length=30)
     private String parent;
 
+    @Column(nullable = false,length=4)
+    private Integer sortNo;//排序号
+
     public Integer getId() {
         return id;
     }
@@ -52,5 +55,13 @@ public class SysEnum {
 
     public void setParent(String parent) {
         this.parent = parent;
+    }
+
+    public Integer getSortNo() {
+        return sortNo;
+    }
+
+    public void setSortNo(Integer sortNo) {
+        this.sortNo = sortNo;
     }
 }
