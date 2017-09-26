@@ -25,11 +25,14 @@ public class SysUser implements Serializable{
     @Column(nullable = false,length=32)
     private String password;
 
-    @Column(nullable = false,length=1,columnDefinition = "int(1) default 1")
-    private Integer active;
+    @Column(nullable = false,length=1)
+    private Integer active=1;
 
-    @Column(nullable = false,length=1,columnDefinition = "int(1) default 1")
-    private Integer state;
+    @Column(nullable = false,length=1)
+    private Integer state=1;
+
+    @Column(length=1,nullable = false)
+    private Integer valid=1;
 
     @Column(nullable = false,length=11,unique = true)
     private String phone;
@@ -37,23 +40,33 @@ public class SysUser implements Serializable{
     @Column(nullable = false,updatable = false)
     private Integer createUser;
 
+    @Temporal(TemporalType.TIMESTAMP)   //日期类型注解
     @Column(nullable = false,updatable = false)
     private Date createDate;
 
     @Column(insertable = false)
     private Integer updateUser;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(insertable = false)
     private Date updateDate;
 
 
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)//fetch:懒加载、急加载    cascade:级联操作方式
     @JoinTable(name = "sys_user_role", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private List<SysRole> roles;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_detail_id")
     private SysUserDetail userDetail;
+
+    public Integer getValid() {
+        return valid;
+    }
+
+    public void setValid(Integer valid) {
+        this.valid = valid;
+    }
 
     public List<SysRole> getRoles() {
         return roles;
