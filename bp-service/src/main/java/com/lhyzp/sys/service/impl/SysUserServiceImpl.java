@@ -1,7 +1,6 @@
 package com.lhyzp.sys.service.impl;
 
 import com.google.common.collect.Lists;
-import com.lhyzp.sys.model.SysRole;
 import com.lhyzp.sys.model.SysUser;
 import com.lhyzp.sys.repository.SysUserRepository;
 import com.lhyzp.sys.service.SysUserService;

@@ -2,7 +2,7 @@ package com.lhyzp.api.sys.controller;
 
 import com.lhyzp.commons.base.BaseController;
 import com.lhyzp.commons.utils.SpecificationFactory;
-import com.lhyzp.sys.model.SysRole;
+import com.lhyzp.sys.model.SysRoleInfo;
 import com.lhyzp.sys.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
@@ -31,7 +31,7 @@ public class SysRoleController extends BaseController{
     }
 
     @PostMapping
-    public String save(@RequestBody SysRole model){
+    public String save(@RequestBody SysRoleInfo model){
         sysRoleService.save(model);
         return "OK";
     }

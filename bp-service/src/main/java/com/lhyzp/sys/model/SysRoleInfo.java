@@ -4,11 +4,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * 角色
+ * 角色表
  */
 @Entity
 @Table
-public class SysRole implements Serializable{
+public class SysRoleInfo implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
