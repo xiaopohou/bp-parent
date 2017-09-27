@@ -48,6 +48,12 @@ public class TestRedis {
     }
 
     @Test
+    public void test4(){
+        HelloAnnotation obj=new HelloAnnotation();
+        obj.resolve(HelloAnnotation.class);
+    }
+
+    @Test
     public void test3() throws IOException {
         CloseableHttpClient httpclient = HttpClients.createDefault(); //创建httpclient
         HttpGet httpGet = new HttpGet("http://www.lhyzp.com"); //创建get 请求
