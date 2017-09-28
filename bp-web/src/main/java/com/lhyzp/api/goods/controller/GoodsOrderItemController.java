@@ -6,10 +6,7 @@ import com.lhyzp.goods.model.GoodsStock;
 import com.lhyzp.goods.service.GoodsOrderItemService;
 import com.lhyzp.goods.service.GoodsStockService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Administrator on 2017-9-28.
@@ -24,13 +21,13 @@ public class GoodsOrderItemController extends BaseController{
     @Autowired
     private GoodsOrderItemService goodsOrderItemService;
 
-    @PostMapping
-    public String addOrUpdate(@RequestBody  GoodsOrderItem model) throws InterruptedException {
+    @GetMapping
+    public String addOrUpdate(GoodsOrderItem model) throws InterruptedException {
 
         Thread.sleep(1000);//模拟网络延时
 
         //检查库存数量
-        GoodsStock stock = goodsStockService.findById(model.getStockId());
+        GoodsStock stock = goodsStockService.findById(model.getStock().getId());
         if(stock.getAmount()<model.getAmount()){
             return error("库存数量不足");
         }

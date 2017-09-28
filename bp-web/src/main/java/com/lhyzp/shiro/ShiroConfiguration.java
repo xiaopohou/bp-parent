@@ -37,7 +37,7 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/api/account/login", "anon");
         filterChainDefinitionMap.put("/code", "anon");
 
-        filterChainDefinitionMap.put("/**", "authc");//拦截的url
+        //filterChainDefinitionMap.put("/**", "authc");//拦截的url
 
         // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
         shiroFilterFactoryBean.setLoginUrl("/login");

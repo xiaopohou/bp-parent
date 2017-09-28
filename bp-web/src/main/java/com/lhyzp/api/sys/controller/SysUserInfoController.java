@@ -43,7 +43,7 @@ public class SysUserInfoController extends BaseController{
     }
 
     @PostMapping
-    public String save(SysUserInfo model){
+    public String save(@RequestBody SysUserInfo model){
         sysUserInfoService.save(model);
         return success();
     }
