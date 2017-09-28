@@ -1,9 +1,9 @@
 package com.lhyzp.sys.service.impl;
 
 import com.google.common.collect.Lists;
-import com.lhyzp.sys.model.SysUser;
-import com.lhyzp.sys.repository.SysUserRepository;
-import com.lhyzp.sys.service.SysUserService;
+import com.lhyzp.sys.model.SysUserInfo;
+import com.lhyzp.sys.repository.SysUserInfoRepository;
+import com.lhyzp.sys.service.SysUserInfoService;
 import com.lhyzp.utils.DateUtils;
 import com.lhyzp.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +23,14 @@ import java.util.Map;
  * Created by Administrator on 2017-9-4.
  */
 @Service
-public class SysUserServiceImpl implements SysUserService {
+public class SysUserInfoServiceImpl implements SysUserInfoService {
 
     @Autowired
-    private SysUserRepository sysUserRepository;
+    private SysUserInfoRepository sysUserInfoRepository;
 
     @Override
-    public Page<SysUser> list(final Map<String,Object> map, Pageable pageable) {
-        Page<SysUser> userList = sysUserRepository.findAll(new Specification<SysUser>() {
+    public Page<SysUserInfo> list(final Map<String,Object> map, Pageable pageable) {
+        Page<SysUserInfo> userList = sysUserInfoRepository.findAll(new Specification<SysUserInfo>() {
             /**
              * @param *root: 代表查询的实体类.
              * @param query: 可以从中可到 Root 对象, 即告知 JPA Criteria 查询要查询哪一个实体类. 还可以
@@ -39,7 +39,7 @@ public class SysUserServiceImpl implements SysUserService {
              * @return: *Predicate 类型, 代表一个查询条件.
              */
             @Override
-            public Predicate toPredicate(Root<SysUser> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+            public Predicate toPredicate(Root<SysUserInfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 
                 List<Predicate> predicates= Lists.newArrayList();
 
@@ -61,9 +61,9 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    public SysUser save(SysUser model) {
+    public SysUserInfo save(SysUserInfo model) {
         model.setCreateDate(DateUtils.getCurrentDate());
-        return sysUserRepository.save(model);
+        return sysUserInfoRepository.save(model);
     }
 
 
@@ -74,20 +74,20 @@ public class SysUserServiceImpl implements SysUserService {
     //allEntries：true表示清除value中的全部缓存，默认为false
 
     //将缓存保存进andCache，并使用参数中的userId加上一个字符串(这里使用方法名称)作为缓存的key
-    //@Cacheable(value="SysUserCache",key="'findByIdSysUser_'+#id")
+    //@Cacheable(value="SysUserInfoCache",key="'findByIdSysUserInfo_'+#id")
     @Override
-    public SysUser findById(Integer id) {
-        return sysUserRepository.findOne(id);
+    public SysUserInfo findById(Integer id) {
+        return sysUserInfoRepository.findOne(id);
     }
 
     @Override
     public void delete(Integer id) {
-        sysUserRepository.delete(id);
+        sysUserInfoRepository.delete(id);
     }
 
     @Override
-    public SysUser findByEmail(String mail) {
-        return sysUserRepository.findByEmail(mail);
+    public SysUserInfo findByEmail(String mail) {
+        return sysUserInfoRepository.findByEmail(mail);
     }
 
 }

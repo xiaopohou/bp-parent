@@ -2,6 +2,7 @@ package com.lhyzp.goods.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * 商品库存
@@ -9,7 +10,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table
-public class StockGoods implements Serializable{
+public class GoodsStock implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +21,15 @@ public class StockGoods implements Serializable{
 
     @Column(nullable = false,length = 4)
     private Integer amount;//数量
+
+    @Column(nullable = false,length=10)
+    private String version;
+
+
+    //一对多，多的一方为关系维护端，关系维护端负责外间更新，关系被维护端没有权利更新外检记录
+    //mappedBy = "" 关系被维护端
+    @OneToMany(mappedBy = "stock",cascade = CascadeType.ALL)
+    private Set<GoodsOrderItem> items;
 
     public Integer getId() {
         return id;
@@ -43,5 +53,21 @@ public class StockGoods implements Serializable{
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public Set<GoodsOrderItem> getItems() {
+        return items;
+    }
+
+    public void setItems(Set<GoodsOrderItem> items) {
+        this.items = items;
     }
 }

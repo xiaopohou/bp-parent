@@ -30,9 +30,6 @@ public class OperationLog {
     @Column(length=80)
     private String method;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private SysUser user;
 
     public Integer getId() {
         return id;
@@ -80,13 +77,5 @@ public class OperationLog {
 
     public void setMethod(String method) {
         this.method = method;
-    }
-
-    public SysUser getUser() {
-        return user;
-    }
-
-    public void setUser(SysUser user) {
-        this.user = user;
     }
 }
