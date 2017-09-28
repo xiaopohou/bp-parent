@@ -5,7 +5,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.lhyzp.base.DataTable;
 import com.lhyzp.base.ResponseMessage;
 import com.lhyzp.commons.utils.ShiroUtils;
-import com.lhyzp.sys.model.SysUser;
+import com.lhyzp.sys.model.SysUserInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public abstract class BaseController {
 
-    public SysUser user(){
+    public SysUserInfo user(){
         return ShiroUtils.getUserEntity();
     }
     public Integer userId(){

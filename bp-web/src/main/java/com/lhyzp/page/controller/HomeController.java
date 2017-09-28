@@ -1,6 +1,6 @@
 package com.lhyzp.page.controller;
 
-import com.lhyzp.sys.service.SysUserService;
+import com.lhyzp.sys.service.SysUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomeController {
 
     @Autowired
-    private SysUserService sysUserService;
+    private SysUserInfoService sysUserInfoService;
 
     @RequestMapping("/")
     public String index(){
@@ -24,7 +24,7 @@ public class HomeController {
 
     @RequestMapping("home")
     public String home(@RequestParam(value = "id",required = false)Integer id, ModelMap map){
-        map.addAttribute("user",sysUserService.findById(id));
+        map.addAttribute("user",sysUserInfoService.findById(id));
         return "extjs";
     }
     @RequestMapping("login")

@@ -1,14 +1,10 @@
 package com.lhyzp.shiro;
 
-import com.lhyzp.sys.model.SysUser;
+import com.lhyzp.sys.model.SysUserInfo;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
-import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.*;
 
 /**
  * 身份验证核心类
@@ -39,7 +35,7 @@ public class MyShiroRealm extends AuthorizingRealm {
 
         String email = (String) token.getPrincipal();
         String password = new String((char[]) token.getCredentials());
-		SysUser user=new SysUser();
+		SysUserInfo user=new SysUserInfo();
 		user.setEmail(email);
         //
         ////用户检测

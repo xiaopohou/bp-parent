@@ -2,8 +2,8 @@ package com.lhyzp.api.sys.controller;
 
 import com.google.common.collect.Maps;
 import com.lhyzp.commons.base.BaseController;
-import com.lhyzp.sys.model.SysUser;
-import com.lhyzp.sys.service.SysUserService;
+import com.lhyzp.sys.model.SysUserInfo;
+import com.lhyzp.sys.service.SysUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,10 +17,10 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("api/user")
-public class SysUserController extends BaseController{
+public class SysUserInfoController extends BaseController{
 
     @Autowired
-    private SysUserService sysUserService;
+    private SysUserInfoService sysUserInfoService;
 
     @GetMapping
     public String list(@RequestParam(value="page",required = false,defaultValue = "0")Integer page,
@@ -35,7 +35,7 @@ public class SysUserController extends BaseController{
         map.put("userName",userName);
         map.put("email",email);
         map.put("phone",phone);
-        Page<SysUser> list = sysUserService.list(map, new PageRequest(page,size,new Sort(sort)));
+        Page<SysUserInfo> list = sysUserInfoService.list(map, new PageRequest(page,size,new Sort(sort)));
 
 
 
@@ -43,15 +43,14 @@ public class SysUserController extends BaseController{
     }
 
     @PostMapping
-    public String save(SysUser model){
-        model.setCreateUser(userId());
-        sysUserService.save(model);
+    public String save(SysUserInfo model){
+        sysUserInfoService.save(model);
         return success();
     }
 
     @GetMapping("{id}")
     public String get(@PathVariable("id")Integer id){
-        SysUser record = sysUserService.findById(id);
+        SysUserInfo record = sysUserInfoService.findById(id);
         return json(record);
     }
 

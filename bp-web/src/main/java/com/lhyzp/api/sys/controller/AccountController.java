@@ -2,7 +2,7 @@ package com.lhyzp.api.sys.controller;
 
 import com.lhyzp.commons.base.BaseController;
 import com.lhyzp.commons.utils.ShiroUtils;
-import com.lhyzp.sys.model.SysUser;
+import com.lhyzp.sys.model.SysUserInfo;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +23,7 @@ public class AccountController extends BaseController{
      * @return
      */
     @RequestMapping(value="login",method= RequestMethod.POST)
-    public String login(SysUser user, String code){
+    public String login(SysUserInfo user, String code){
         try{
             /*验证码*/
             //String imgCode=(String) ShiroUtils.getSession().getAttribute("code");
