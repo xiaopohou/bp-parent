@@ -32,7 +32,7 @@ public class GoodsOrderItemServiceImpl implements GoodsOrderItemService{
     @Transactional
     @Override
     public GoodsOrderItem save(GoodsOrderItem model) {
-        int s = goodsStockService.updateStockAmount(model.getAmount(), model.getStockId());
+        int s = goodsStockService.updateStockAmount(model.getAmount(), model.getStock().getId());
         if(s>0){
             return goodsOrderItemRepository.save(model);
         }

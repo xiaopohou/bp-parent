@@ -40,7 +40,7 @@ public class SysUserInfo implements Serializable{
     private Date createDate;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false,insertable = false)
+    @Column(insertable = false)
     private Date updateDate;
 
     @ManyToMany(fetch = FetchType.LAZY)//延迟加载、立即加载
