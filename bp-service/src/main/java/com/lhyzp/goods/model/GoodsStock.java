@@ -33,8 +33,8 @@ public class GoodsStock implements Serializable{
 
     //一对多，多的一方为关系维护端，关系维护端负责外间更新，关系被维护端没有权利更新外检记录
     //mappedBy = "" 关系被维护端
-    @OneToMany(mappedBy = "stock",cascade = CascadeType.ALL)
-    private Set<GoodsOrderItem> items;
+//    @OneToMany(mappedBy = "stock",cascade = CascadeType.ALL)
+//    private Set<GoodsOrderItem> items;
 
     public Integer getId() {
         return id;
@@ -68,11 +68,11 @@ public class GoodsStock implements Serializable{
         this.version = version;
     }
 
-    public Set<GoodsOrderItem> getItems() {
-        return items;
-    }
-
-    public void setItems(Set<GoodsOrderItem> items) {
-        this.items = items;
-    }
+//    public Set<GoodsOrderItem> getItems() {
+//        return items;
+//    }
+//
+//    public void setItems(Set<GoodsOrderItem> items) {
+//        this.items = items;
+//    }
 }
