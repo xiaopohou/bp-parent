@@ -13,12 +13,15 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.client.ClientHttpRequest;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,52 +37,34 @@ public class GoodsStockController extends BaseController{
     private GoodsStockService goodsStockService;
 
     @GetMapping
-    public String killTest(){
-        // 创建默认的httpClient实例.
-        CloseableHttpClient httpclient = HttpClients.createDefault();
+    public String killTest(Integer amount){
+        //httpClient工厂
+        final SimpleClientHttpRequestFactory httpRequestFactory = new SimpleClientHttpRequestFactory();
         //开50个线程模拟并发秒杀下单
-        for (int i = 0; i < 50; i++) {
-            new Thread(()->{
-                // 创建httppost
-                HttpPost httppost = new HttpPost("https://127.0.0.1:8080/api/goods/order");
-                // 创建参数队列
-                List<NameValuePair> formparams = new ArrayList<NameValuePair>();
-                formparams.add(new BasicNameValuePair("stockId", "1"));
-                formparams.add(new BasicNameValuePair("amount", "1"));
-                UrlEncodedFormEntity uefEntity;
-                try {
-                    uefEntity = new UrlEncodedFormEntity(formparams, "UTF-8");
-                    httppost.setEntity(uefEntity);
-                    System.out.println("executing request " + httppost.getURI());
-                    CloseableHttpResponse response = httpclient.execute(httppost);
+        for (int i = 0; i < 150; i++) {
+            //购买人姓名
+            final String consumerName = "consumer" + i;
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    ClientHttpRequest request = null;
                     try {
-                        HttpEntity entity = response.getEntity();
-                        if (entity != null) {
-                            System.out.println("--------------------------------------");
-                            System.out.println("Response content: " + EntityUtils.toString(entity, "UTF-8"));
-                            System.out.println("--------------------------------------");
+                        URI uri = new URI("http://127.0.0.1:8080/api/goods/order?amount="+amount+"&stock.id=1&user.id=1");
+                        request = httpRequestFactory.createRequest(uri, HttpMethod.POST);
+                        InputStream body = request.execute().getBody();
+                        BufferedReader br = new BufferedReader(new InputStreamReader(body));
+                        String line = "";
+                        String result = "";
+                        while ((line = br.readLine()) != null) {
+                            result += line;//获得页面内容或返回内容
                         }
-                    } finally {
-                        response.close();
-                    }
-                } catch (ClientProtocolException e) {
-                    e.printStackTrace();
-                } catch (UnsupportedEncodingException e1) {
-                    e1.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } finally {
-                    // 关闭连接,释放资源
-                    try {
-                        httpclient.close();
-                    } catch (IOException e) {
+                        System.out.println(consumerName+":"+result);
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             }).start();
         }
-
-
         return success();
     }
 
