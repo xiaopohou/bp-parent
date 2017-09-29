@@ -1,8 +1,10 @@
 package com.lhyzp.goods.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.lhyzp.sys.model.SysUserInfo;
-import org.omg.CORBA.PRIVATE_MEMBER;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -17,13 +19,19 @@ public class GoodsOrderItem implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Column(nullable = false,length=15)
+    private String orderNumber;//订单号
+
     @Column(nullable = false)
     private Integer amount;//秒杀的数量
 
     @ManyToOne(optional = false)//optional:是否可选,表示外键是否可以为空
     @JoinColumn(name = "stock_id")//指明外键的名称
+    @JsonIgnoreProperties("items")  //注明该变量中的哪个属性不被序列化
     private GoodsStock stock;
 
+
+    @JsonIgnoreProperties("roles")
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")
     private SysUserInfo user;
@@ -58,5 +66,13 @@ public class GoodsOrderItem implements Serializable {
 
     public void setUser(SysUserInfo user) {
         this.user = user;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
     }
 }

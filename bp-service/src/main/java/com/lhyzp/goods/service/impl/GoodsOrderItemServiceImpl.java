@@ -4,6 +4,7 @@ import com.lhyzp.goods.model.GoodsOrderItem;
 import com.lhyzp.goods.repository.GoodsOrderItemRepository;
 import com.lhyzp.goods.service.GoodsOrderItemService;
 import com.lhyzp.goods.service.GoodsStockService;
+import com.lhyzp.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -34,6 +35,7 @@ public class GoodsOrderItemServiceImpl implements GoodsOrderItemService{
     public GoodsOrderItem save(GoodsOrderItem model) {
         int s = goodsStockService.updateStockAmount(model.getAmount(), model.getStock().getId());
         if(s>0){
+            model.setOrderNumber(String.valueOf(System.currentTimeMillis()));
             return goodsOrderItemRepository.save(model);
         }
 

@@ -21,7 +21,7 @@ public interface GoodsStockRepository extends JpaRepository<GoodsStock,Integer>,
      * @param id
      * @return
      */
-    @Query("update GoodsStock s set s.amount=s.amount-:num where s.id=:id")
+    @Query("update GoodsStock s set s.amount=s.amount-:num where s.id=:id and s.amount>:num")
     @Modifying(clearAutomatically = true)
     int updateStockAmount(@Param("num")Integer num,@Param("id")Integer id);
 

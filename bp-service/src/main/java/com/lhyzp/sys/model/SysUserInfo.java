@@ -1,5 +1,7 @@
 package com.lhyzp.sys.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -24,6 +26,7 @@ public class SysUserInfo implements Serializable{
     private String email;
 
     @Column(nullable = false,length=32)
+    @JsonIgnore  //标注该属性不被序列化
     private String password;
 
     @Column(length=11,unique = true)
