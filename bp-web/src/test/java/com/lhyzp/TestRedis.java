@@ -1,6 +1,7 @@
 package com.lhyzp;
 
 import com.google.common.collect.Maps;
+import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -11,8 +12,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.crypto.Mac;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
 /**
@@ -40,11 +47,33 @@ public class TestRedis {
     }
 
     @Test
-    public void test2(){
-        System.out.println(BigDecimal.valueOf(500));
-        if(BigDecimal.valueOf(500l).compareTo(BigDecimal.valueOf(100l))==1){
-            System.out.println("大于成立");
+    public void test2() throws Exception {
+
+        String str="123";
+        String key="ndE2jdZNFixH9G6Aidsfyf7lYT3PxW";
+        String s = sha256_HMAC(str, key);
+        System.out.println(s);
+    }
+
+    /**
+     * sha256_HMAC加密
+     * @param message 消息
+     * @param secret  秘钥
+     * @return 加密后字符串
+     */
+    private static String sha256_HMAC(String message, String secret) {
+        String hash = "";
+        try {
+            Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
+            SecretKeySpec secret_key = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
+            sha256_HMAC.init(secret_key);
+            byte[] bytes = sha256_HMAC.doFinal(message.getBytes());
+            hash = EncryptDemo.byteArrayToHexString(bytes);
+            return hash;
+        } catch (Exception e) {
+            System.out.println("Error HmacSHA256 ===========" + e.getMessage());
         }
+        return hash;
     }
 
     @Test
