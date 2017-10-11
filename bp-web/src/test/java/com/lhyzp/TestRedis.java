@@ -39,6 +39,9 @@ public class TestRedis {
         if(map.containsKey("a")){
             System.out.println("key存在");
             Object c = map.get("c");
+            if(map.get("c")==null){
+                System.out.println("key为c的map不存在");
+            }
         }
 
         if(map.containsKey("b")){
