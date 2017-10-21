@@ -1,4 +1,4 @@
-package com.lhyzp.commons.exception;
+package com.lhyzp.exception;
 
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.stereotype.Controller;

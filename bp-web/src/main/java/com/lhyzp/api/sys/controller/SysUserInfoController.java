@@ -1,7 +1,7 @@
 package com.lhyzp.api.sys.controller;
 
 import com.google.common.collect.Maps;
-import com.lhyzp.commons.base.BaseController;
+import com.lhyzp.base.BaseController;
 import com.lhyzp.sys.model.SysUserInfo;
 import com.lhyzp.sys.service.SysUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +29,14 @@ public class SysUserInfoController extends BaseController{
                        @RequestParam(value="order",required = false,defaultValue = "id")String order,
                        @RequestParam(value="userName",required = false)String userName,
                        @RequestParam(value="email",required = false)String email,
-                       @RequestParam(value="phone",required = false)String phone){
+                       @RequestParam(value="phone",required = false)String phone,
+                       @RequestParam(value="dept",required = false)String dept){
 
         Map<String,Object> map= Maps.newHashMap();
         map.put("userName",userName);
         map.put("email",email);
         map.put("phone",phone);
+        map.put("dept",dept);
         Page<SysUserInfo> list = sysUserInfoService.list(map, new PageRequest(page,size,new Sort(sort)));
 
 

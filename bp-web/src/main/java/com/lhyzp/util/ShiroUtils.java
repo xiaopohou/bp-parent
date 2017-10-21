@@ -1,4 +1,4 @@
-package com.lhyzp.commons.utils;
+package com.lhyzp.util;
 
 import com.lhyzp.sys.model.SysUserInfo;
 import org.apache.shiro.SecurityUtils;

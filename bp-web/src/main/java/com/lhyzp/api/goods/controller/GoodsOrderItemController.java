@@ -1,7 +1,7 @@
 package com.lhyzp.api.goods.controller;
 
 import com.google.common.collect.Maps;
-import com.lhyzp.commons.base.BaseController;
+import com.lhyzp.base.BaseController;
 import com.lhyzp.goods.model.GoodsOrderItem;
 import com.lhyzp.goods.model.GoodsStock;
 import com.lhyzp.goods.service.GoodsOrderItemService;

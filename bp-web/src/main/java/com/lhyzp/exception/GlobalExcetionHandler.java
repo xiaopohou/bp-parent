@@ -1,9 +1,9 @@
-package com.lhyzp.commons.exception;
+package com.lhyzp.exception;
 
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.lhyzp.base.ResponseMessage;
+import com.lhyzp.bases.ResponseMessage;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

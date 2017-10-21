@@ -1,7 +1,7 @@
 package com.lhyzp.api.sys.controller;
 
-import com.lhyzp.commons.base.BaseController;
-import com.lhyzp.commons.utils.ShiroUtils;
+import com.lhyzp.base.BaseController;
+import com.lhyzp.util.ShiroUtils;
 import com.lhyzp.sys.model.SysUserInfo;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;

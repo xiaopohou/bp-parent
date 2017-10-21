@@ -1,18 +1,12 @@
 package com.lhyzp.filter;
 
-import com.alibaba.fastjson.JSON;
-import com.lhyzp.commons.annotation.OpLog;
-import com.lhyzp.utils.DateUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 
 /**
@@ -25,7 +19,7 @@ import java.lang.reflect.Method;
 public class OpLogAspect {
 
     //@annotation是针对方法的注解
-    @Pointcut("@annotation(com.lhyzp.commons.annotation.OpLog)")
+    @Pointcut("@annotation(com.lhyzp.annotation.OpLog)")
     public void opLogPointCut() {
 
     }

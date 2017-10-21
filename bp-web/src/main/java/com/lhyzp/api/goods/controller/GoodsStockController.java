@@ -1,17 +1,7 @@
 package com.lhyzp.api.goods.controller;
 
-import com.lhyzp.commons.base.BaseController;
+import com.lhyzp.base.BaseController;
 import com.lhyzp.goods.service.GoodsStockService;
-import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.client.ClientHttpRequest;
@@ -22,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.*;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Administrator on 2017-9-28.
