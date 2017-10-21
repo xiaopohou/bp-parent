@@ -3,6 +3,7 @@ package com.lhyzp.bases;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,7 +25,7 @@ public interface BaseService<T> {
 
     void delete(Integer id);
 
-    void batchDelete(Integer[] ids);
+    void batchDelete(List<T> ids);
 
     T findById(Integer id);
 
