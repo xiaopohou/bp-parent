@@ -1,13 +1,14 @@
 package com.lhyzp.sys.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * 数据字典
  */
 @Entity
 @Table
-public class SysEnum {
+public class SysEnum implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,7 +21,7 @@ public class SysEnum {
     private String value;
 
     @Column(nullable = false,length=30)
-    private String parent;
+    private String parent;//父级value值,为字典类型时,为parent
 
     @Column(nullable = false,length=4)
     private Integer sortNo;//排序号

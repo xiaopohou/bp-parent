@@ -1,6 +1,8 @@
 package com.lhyzp.sys.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.lhyzp.utils.DateUtils;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,17 +22,20 @@ public class SysUserInfo implements Serializable{
     private Integer id;
 
     @Column(nullable = false,length=30)
-    private String userName;
+    private String userName;//姓名
 
     @Column(nullable = false,length=25,unique = true)
-    private String email;
+    private String email;//邮箱
 
     @Column(nullable = false,length=32)
-    @JsonIgnore  //标注该属性不被序列化
+    //@JsonIgnore  //标注该属性不被序列化
     private String password;
 
     @Column(length=11,unique = true)
     private String phone;
+
+    @Column(length=18,unique = true)
+    private String idCard;//身份证号
 
     @Column(nullable = false,length=1)
     private Short active=1;
@@ -40,15 +45,27 @@ public class SysUserInfo implements Serializable{
 
     @Temporal(TemporalType.TIMESTAMP)//日期类型
     @Column(nullable = false,updatable = false)
-    private Date createDate;
+    private Date createDate= DateUtils.getCurrentDate();
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(insertable = false)
     private Date updateDate;
 
+    //用户角色 多对多
     @ManyToMany(fetch = FetchType.LAZY)//延迟加载、立即加载
     @JoinTable(name="sys_user_role",joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(name="role_id",referencedColumnName = "id"))
-    private Set<SysRoleInfo> roles;
+    @JsonIgnoreProperties({"modules","remark"})  //注明该变量中的哪个属性不被序列化
+    private Set<SysRole> roles;
+
+
+    //一对多，多的一方为关系维护端，关系维护端负责外间更新，关系被维护端没有权利更新外检记录
+    //mappedBy = "" 关系被维护端
+
+    //用户部门 多对多
+    @ManyToMany()
+    @JoinTable(name="sys_user_dept",joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(name="dept_id",referencedColumnName = "id"))
+    @JsonIgnoreProperties("remark")
+    private Set<SysDept> depts;
 
     public Integer getId() {
         return id;
@@ -90,6 +107,14 @@ public class SysUserInfo implements Serializable{
         this.phone = phone;
     }
 
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
+
     public Short getActive() {
         return active;
     }
@@ -122,11 +147,19 @@ public class SysUserInfo implements Serializable{
         this.updateDate = updateDate;
     }
 
-    public Set<SysRoleInfo> getRoles() {
+    public Set<SysRole> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<SysRoleInfo> roles) {
+    public void setRoles(Set<SysRole> roles) {
         this.roles = roles;
+    }
+
+    public Set<SysDept> getDepts() {
+        return depts;
+    }
+
+    public void setDepts(Set<SysDept> depts) {
+        this.depts = depts;
     }
 }

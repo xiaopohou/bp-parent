@@ -1,6 +1,7 @@
 package com.lhyzp.sys.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Date;
  */
 @Entity
 @Table
-public class OperationLog {
+public class SysOperationLog implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,15 +22,20 @@ public class OperationLog {
     @Column(length=15,nullable = false)
     private String ip;
 
+    //一对一的关系
+    @OneToOne(optional = false)//optional:是否可选,表示外键是否可以为空
+    @JoinColumn(name="user_id")//指明外键的名称
+    private SysUserInfo user;
+
     @Column(updatable = false)
-    private Date createDate;//创建日期
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date operationDate;//操作日期
 
     @Column(length=200)
-    private String params;
+    private String params;//参数
 
-    @Column(length=80)
-    private String method;
-
+    @Column(length=80,nullable = false)
+    private String method;//方法名
 
     public Integer getId() {
         return id;
@@ -55,12 +61,20 @@ public class OperationLog {
         this.ip = ip;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public SysUserInfo getUser() {
+        return user;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setUser(SysUserInfo user) {
+        this.user = user;
+    }
+
+    public Date getOperationDate() {
+        return operationDate;
+    }
+
+    public void setOperationDate(Date operationDate) {
+        this.operationDate = operationDate;
     }
 
     public String getParams() {

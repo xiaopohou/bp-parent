@@ -15,46 +15,40 @@ public class SysModule implements Serializable{
     private Integer id;
 
     @Column(length=20,nullable = false)
-    private String name;
+    private String name;//模块名称
 
-    @Column(nullable = false,length = 50)
-    private String url;
+    @Column(length = 50)
+    private String url;//菜单url
 
     @Column(length = 20)
-    private String icon;
+    private String icon;//图标
 
     @Column(nullable = false,length = 30,unique = true)
-    private String permCode;
+    private String permCode;//权限编码
 
     @Column(nullable = false,length = 11)
-    private Integer parentId;
+    private Integer parentId;//父级ID
+
+    @Column(nullable = false)
+    private Short active=1;//启用,默认启用
+
+    @Column(nullable = false)
+    private Short sortNo;//排序
+
+    @Column(nullable = false)
+    private Short permType;//权限类型  1-菜单  2-按钮  3-其他权限
 
     @Column(nullable = false,length=1)
-    private Integer active;
-
-    @Column(nullable = false,length=4)
-    private Integer sortNo;
-
-    @Column(nullable = false,length=4)
-    private Integer permType;
-
-    @Column(nullable = false,length=1)
-    private Integer expand;
+    private Integer expand=0;//是否展开
 
     @Column(length=20)
-    private String className;
+    private String className;//类名,控制样式
 
-    @Column(nullable = false,length=4)
-    private Integer bPosition;
+    @Column(nullable = false)
+    private Short bPosition=1;//位置,按钮权限位置,从1开始
 
-    @Column(nullable = false,length=1)
-    private Integer fieldControl;
-
-    @Column(nullable = false,length=30)
-    private String tableName;
-
-    @Column(nullable = false,length=20)
-    private String code;
+    @Column(nullable = false,length=20,unique = true)
+    private String code;//编码   格式：M001
 
     public Integer getId() {
         return id;
@@ -69,7 +63,7 @@ public class SysModule implements Serializable{
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getUrl() {
@@ -77,7 +71,7 @@ public class SysModule implements Serializable{
     }
 
     public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
+        this.url = url;
     }
 
     public String getIcon() {
@@ -85,7 +79,7 @@ public class SysModule implements Serializable{
     }
 
     public void setIcon(String icon) {
-        this.icon = icon == null ? null : icon.trim();
+        this.icon = icon;
     }
 
     public String getPermCode() {
@@ -93,7 +87,7 @@ public class SysModule implements Serializable{
     }
 
     public void setPermCode(String permCode) {
-        this.permCode = permCode == null ? null : permCode.trim();
+        this.permCode = permCode;
     }
 
     public Integer getParentId() {
@@ -104,27 +98,27 @@ public class SysModule implements Serializable{
         this.parentId = parentId;
     }
 
-    public Integer getActive() {
+    public Short getActive() {
         return active;
     }
 
-    public void setActive(Integer active) {
+    public void setActive(Short active) {
         this.active = active;
     }
 
-    public Integer getSortNo() {
+    public Short getSortNo() {
         return sortNo;
     }
 
-    public void setSortNo(Integer sortNo) {
+    public void setSortNo(Short sortNo) {
         this.sortNo = sortNo;
     }
 
-    public Integer getPermType() {
+    public Short getPermType() {
         return permType;
     }
 
-    public void setPermType(Integer permType) {
+    public void setPermType(Short permType) {
         this.permType = permType;
     }
 
@@ -141,31 +135,15 @@ public class SysModule implements Serializable{
     }
 
     public void setClassName(String className) {
-        this.className = className == null ? null : className.trim();
+        this.className = className;
     }
 
-    public Integer getbPosition() {
+    public Short getbPosition() {
         return bPosition;
     }
 
-    public void setbPosition(Integer bPosition) {
+    public void setbPosition(Short bPosition) {
         this.bPosition = bPosition;
-    }
-
-    public Integer getFieldControl() {
-        return fieldControl;
-    }
-
-    public void setFieldControl(Integer fieldControl) {
-        this.fieldControl = fieldControl;
-    }
-
-    public String getTableName() {
-        return tableName;
-    }
-
-    public void setTableName(String tableName) {
-        this.tableName = tableName == null ? null : tableName.trim();
     }
 
     public String getCode() {
@@ -173,6 +151,6 @@ public class SysModule implements Serializable{
     }
 
     public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
+        this.code = code;
     }
 }

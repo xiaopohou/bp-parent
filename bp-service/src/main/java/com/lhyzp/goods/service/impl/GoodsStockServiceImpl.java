@@ -37,6 +37,11 @@ public class GoodsStockServiceImpl implements GoodsStockService{
     }
 
     @Override
+    public void batchDelete(Integer[] ids) {
+
+    }
+
+    @Override
     public GoodsStock findById(Integer id) {
         return goodsStockRepository.findOne(id);
     }

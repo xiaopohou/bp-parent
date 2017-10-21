@@ -1,6 +1,7 @@
 package com.lhyzp.sys.service.impl;
 
 import com.google.common.collect.Lists;
+import com.lhyzp.sys.model.SysDept;
 import com.lhyzp.sys.model.SysUserInfo;
 import com.lhyzp.sys.repository.SysUserInfoRepository;
 import com.lhyzp.sys.service.SysUserInfoService;
@@ -41,6 +42,8 @@ public class SysUserInfoServiceImpl implements SysUserInfoService {
             @Override
             public Predicate toPredicate(Root<SysUserInfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 
+                Join<SysUserInfo,SysDept> join=root.join("depts");//关联查询
+
                 List<Predicate> predicates= Lists.newArrayList();
 
                 if(StringUtils.isNotEmpty(map.get("userName"))){
@@ -52,6 +55,10 @@ public class SysUserInfoServiceImpl implements SysUserInfoService {
                 if(StringUtils.isNotEmpty(map.get("phone"))){
                     predicates.add(cb.like(root.get("phone").as(String.class),"%"+map.get("phone")+"%"));
                 }
+                if(StringUtils.isNotEmpty(map.get("dept"))){
+                    Path<String> deptCode=join.get("code");//关联表字段的查询
+                    predicates.add(cb.like(deptCode,"%"+map.get("dept")+"%"));
+                }
 
                 Predicate[] arrayPredicates = new Predicate[predicates.size()];
                 return cb.and(predicates.toArray(arrayPredicates));
@@ -62,11 +69,13 @@ public class SysUserInfoServiceImpl implements SysUserInfoService {
 
     @Override
     public SysUserInfo save(SysUserInfo model) {
-        model.setCreateDate(DateUtils.getCurrentDate());
         return sysUserInfoRepository.save(model);
     }
 
+    @Override
+    public void batchDelete(Integer[] ids) {
 
+    }
     //@CacheEvict 支持如下几个参数：
     //value：缓存位置名称，不能为空，同上
     //key：缓存的key，默认为空，同上

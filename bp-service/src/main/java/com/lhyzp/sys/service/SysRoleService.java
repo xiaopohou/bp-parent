@@ -1,6 +1,7 @@
 package com.lhyzp.sys.service;
 
-import com.lhyzp.sys.model.SysRoleInfo;
+import com.lhyzp.sys.model.SysRole;
+import com.lhyzp.sys.model.SysRole;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -10,7 +11,7 @@ import org.springframework.data.jpa.domain.Specification;
  */
 public interface SysRoleService {
 
-    Page<SysRoleInfo> list(Specification specification, Pageable pageable);
+    Page<SysRole> list(Specification specification, Pageable pageable);
 
-    SysRoleInfo save(SysRoleInfo model);
+    SysRole save(SysRole model);
 }

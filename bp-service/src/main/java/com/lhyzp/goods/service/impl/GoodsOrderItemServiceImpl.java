@@ -48,6 +48,11 @@ public class GoodsOrderItemServiceImpl implements GoodsOrderItemService{
     }
 
     @Override
+    public void batchDelete(Integer[] ids) {
+
+    }
+
+    @Override
     public GoodsOrderItem findById(Integer id) {
         return goodsOrderItemRepository.findOne(id);
     }
