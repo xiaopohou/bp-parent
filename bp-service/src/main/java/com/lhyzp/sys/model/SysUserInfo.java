@@ -45,7 +45,7 @@ public class SysUserInfo implements Serializable{
 
     @Temporal(TemporalType.TIMESTAMP)//日期类型
     @Column(nullable = false,updatable = false)
-    private Date createDate= DateUtils.getCurrentDate();
+    private Date createDate;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(insertable = false)

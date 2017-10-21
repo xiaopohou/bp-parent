@@ -9,6 +9,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by Administrator on 2017-9-4.
  */
@@ -19,13 +22,27 @@ public class SysRoleServiceImpl implements SysRoleService{
     private SysRoleRepository sysRoleRepository;
 
     @Override
-    public Page<SysRole> list(Specification specification, Pageable pageable) {
-        Page<SysRole> list = sysRoleRepository.findAll(specification,pageable);
-        return list;
+    public Page<SysRole> list(Map<String, Object> condition, Pageable pageable) {
+        return null;
     }
 
     @Override
     public SysRole save(SysRole model) {
         return sysRoleRepository.save(model);
+    }
+
+    @Override
+    public void delete(Integer id) {
+        sysRoleRepository.delete(id);
+    }
+
+    @Override
+    public void batchDelete(List<SysRole> roles) {
+        sysRoleRepository.deleteInBatch(roles);
+    }
+
+    @Override
+    public SysRole findById(Integer id) {
+        return sysRoleRepository.findOne(id);
     }
 }

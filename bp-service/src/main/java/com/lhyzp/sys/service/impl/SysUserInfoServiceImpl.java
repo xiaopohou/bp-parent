@@ -10,6 +10,7 @@ import com.lhyzp.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -17,8 +18,10 @@ import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by Administrator on 2017-9-4.
@@ -69,13 +72,15 @@ public class SysUserInfoServiceImpl implements SysUserInfoService {
 
     @Override
     public SysUserInfo save(SysUserInfo model) {
+        model.setCreateDate(DateUtils.getCurrentDate());
         return sysUserInfoRepository.save(model);
     }
 
     @Override
-    public void batchDelete(Integer[] ids) {
+    public void batchDelete(List<SysUserInfo> ids) {
 
     }
+
     //@CacheEvict 支持如下几个参数：
     //value：缓存位置名称，不能为空，同上
     //key：缓存的key，默认为空，同上
@@ -99,4 +104,10 @@ public class SysUserInfoServiceImpl implements SysUserInfoService {
         return sysUserInfoRepository.findByEmail(mail);
     }
 
+    @Override
+    public long findByDeptUserCount(String code) {
+        SysUserInfo user=new SysUserInfo();
+        user.setUserName(code);
+        return sysUserInfoRepository.count(Example.of(user));
+    }
 }

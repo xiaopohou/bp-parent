@@ -5,6 +5,7 @@ import com.lhyzp.sys.service.SysLoginLogService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,7 +28,7 @@ public class SysLoginLogServiceImpl implements SysLoginLogService{
     }
 
     @Override
-    public void batchDelete(Integer[] ids) {
+    public void batchDelete(List<SysLoginLog> ids) {
 
     }
 

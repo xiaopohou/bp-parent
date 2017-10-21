@@ -5,6 +5,7 @@ import com.lhyzp.sys.service.SysModuleService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,7 +28,7 @@ public class SysModuleServiceImpl implements SysModuleService{
     }
 
     @Override
-    public void batchDelete(Integer[] ids) {
+    public void batchDelete(List<SysModule> ids) {
 
     }
 

@@ -15,4 +15,11 @@ public interface SysUserInfoService extends BaseService<SysUserInfo>{
      */
     SysUserInfo findByEmail(String mail);
 
+    /**
+     * 获取总人数
+     * @param code
+     * @return
+     */
+    long findByDeptUserCount(String code);
+
 }
