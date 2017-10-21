@@ -1,6 +1,7 @@
 package com.lhyzp.api.sys.controller;
 
 import com.google.common.collect.Maps;
+import com.lhyzp.annotation.OpLog;
 import com.lhyzp.base.BaseController;
 import com.lhyzp.sys.model.SysUserInfo;
 import com.lhyzp.sys.service.SysUserInfoService;
@@ -38,14 +39,18 @@ public class SysUserInfoController extends BaseController{
         map.put("phone",phone);
         map.put("dept",dept);
         Page<SysUserInfo> list = sysUserInfoService.list(map, new PageRequest(page,size,new Sort(sort)));
-
-
-
         return json(list);
     }
 
+    @OpLog("新增用户")
     @PostMapping
     public String save(@RequestBody SysUserInfo model){
+        sysUserInfoService.save(model);
+        return success();
+    }
+
+    @PutMapping
+    public String update(SysUserInfo model){
         sysUserInfoService.save(model);
         return success();
     }
@@ -59,5 +64,16 @@ public class SysUserInfoController extends BaseController{
     @DeleteMapping("{id}")
     public String delete(@PathVariable("id")Integer id){
         return success();
+    }
+
+    /**
+     * 查询部门人数
+     * @param code
+     * @return
+     */
+    @GetMapping("count/dept")
+    public String getDeptUserCount(@RequestParam(value="code")String code){
+
+        return json(sysUserInfoService.findByDeptUserCount(code));
     }
 }
