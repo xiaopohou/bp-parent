@@ -1,6 +1,6 @@
 package com.lhyzp.goods.service;
 
-import com.lhyzp.base.BaseService;
+import com.lhyzp.bases.BaseService;
 import com.lhyzp.goods.model.GoodsStock;
 
 /**
