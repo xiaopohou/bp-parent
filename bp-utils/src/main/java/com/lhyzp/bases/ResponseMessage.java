@@ -1,4 +1,4 @@
-package com.lhyzp.base;
+package com.lhyzp.bases;
 
 import java.io.Serializable;
 

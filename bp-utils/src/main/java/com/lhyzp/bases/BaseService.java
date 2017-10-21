@@ -1,4 +1,4 @@
-package com.lhyzp.base;
+package com.lhyzp.bases;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,6 +23,8 @@ public interface BaseService<T> {
     T save(T model);
 
     void delete(Integer id);
+
+    void batchDelete(Integer[] ids);
 
     T findById(Integer id);
 
