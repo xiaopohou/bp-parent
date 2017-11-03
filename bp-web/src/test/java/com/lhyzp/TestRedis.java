@@ -1,5 +1,6 @@
 package com.lhyzp;
 
+import com.google.common.base.CaseFormat;
 import com.google.common.collect.Maps;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpEntity;
@@ -77,6 +78,11 @@ public class TestRedis {
             System.out.println("Error HmacSHA256 ===========" + e.getMessage());
         }
         return hash;
+    }
+
+    @Test
+    public void test5(){
+        System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_CAMEL,"jobNumber"));
     }
 
     @Test

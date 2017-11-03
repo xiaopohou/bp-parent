@@ -19,8 +19,10 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * 模块
@@ -142,8 +144,13 @@ public class SysModuleController {
      * @return
      */
     @GetMapping("redis")
-    public String redis(@RequestParam(value="c",required = false,defaultValue = "0")Short c,@RequestParam(value="id",required = false,defaultValue = "1")Integer id){
+    public String redis(HttpSession session, @RequestParam(value="c",required = false,defaultValue = "0")Short c, @RequestParam(value="id",required = false,defaultValue = "1")Integer id){
 
+        UUID uid = (UUID) session.getAttribute("uid");
+        if (uid == null) {
+            uid = UUID.randomUUID();
+        }
+        session.setAttribute("uid", uid);
 
         SysUserInfo user=new SysUserInfo();
         user.setId(id);
