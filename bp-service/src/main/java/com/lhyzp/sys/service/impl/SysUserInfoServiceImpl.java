@@ -6,6 +6,7 @@ import com.lhyzp.sys.model.SysUserInfo;
 import com.lhyzp.sys.repository.SysUserInfoRepository;
 import com.lhyzp.sys.service.SysUserInfoService;
 import com.lhyzp.utils.DateUtils;
+import com.lhyzp.utils.PasswordHelper;
 import com.lhyzp.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -78,7 +79,7 @@ public class SysUserInfoServiceImpl implements SysUserInfoService {
 
     @Override
     public void batchDelete(List<SysUserInfo> ids) {
-
+        sysUserInfoRepository.deleteInBatch(ids);
     }
 
     //@CacheEvict 支持如下几个参数：
@@ -105,9 +106,10 @@ public class SysUserInfoServiceImpl implements SysUserInfoService {
     }
 
     @Override
-    public long findByDeptUserCount(String code) {
-        SysUserInfo user=new SysUserInfo();
-        user.setUserName(code);
-        return sysUserInfoRepository.count(Example.of(user));
+    public SysUserInfo loginValidate(String username, String password) {
+
+        SysUserInfo userInfo = sysUserInfoRepository.findByEmail(username);
+
+        return userInfo;
     }
 }

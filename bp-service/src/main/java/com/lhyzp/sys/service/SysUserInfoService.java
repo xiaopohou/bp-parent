@@ -16,10 +16,11 @@ public interface SysUserInfoService extends BaseService<SysUserInfo>{
     SysUserInfo findByEmail(String mail);
 
     /**
-     * 获取总人数
-     * @param code
+     * 登录效验
+     * @param username
+     * @param password
      * @return
      */
-    long findByDeptUserCount(String code);
+    SysUserInfo loginValidate(String username,String password);
 
 }
