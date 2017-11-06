@@ -162,4 +162,9 @@ public class SysUserInfo implements Serializable{
     public void setDepts(Set<SysDept> depts) {
         this.depts = depts;
     }
+
+    @Override
+    public String toString() {
+        return "id="+this.id;
+    }
 }

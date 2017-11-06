@@ -89,9 +89,10 @@ public class SysUserInfoServiceImpl implements SysUserInfoService {
     //allEntries：true表示清除value中的全部缓存，默认为false
 
     //将缓存保存进andCache，并使用参数中的userId加上一个字符串(这里使用方法名称)作为缓存的key
-    //@Cacheable(value="SysUserInfoCache",key="'findByIdSysUserInfo_'+#id")
+    @Cacheable(value="SysUserInfoCache",key="'findByIdSysUserInfo_'+#id")
     @Override
     public SysUserInfo findById(Integer id) {
+        System.out.println("read database");
         return sysUserInfoRepository.findOne(id);
     }
 
