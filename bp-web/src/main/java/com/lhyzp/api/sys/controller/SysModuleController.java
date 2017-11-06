@@ -144,16 +144,10 @@ public class SysModuleController {
      * @return
      */
     @GetMapping("redis")
-    public String redis(HttpSession session, @RequestParam(value="c",required = false,defaultValue = "0")Short c, @RequestParam(value="id",required = false,defaultValue = "1")Integer id){
-
-        UUID uid = (UUID) session.getAttribute("uid");
-        if (uid == null) {
-            uid = UUID.randomUUID();
-        }
-        session.setAttribute("uid", uid);
+    public String redis(@RequestParam(value="c",required = false,defaultValue = "0")Short c){
 
         SysUserInfo user=new SysUserInfo();
-        user.setId(id);
+        user.setId(1);
 
         //操作视图类
         ValueOperations<String,SysUserInfo> valueOperations = redisTemplate.opsForValue();
@@ -164,6 +158,7 @@ public class SysModuleController {
         if(c==1&&isKey){
             //清除缓存
             redisTemplate.delete("user_0");
+            return "缓存被清除";
         }
 
         if(!isKey){
@@ -173,8 +168,6 @@ public class SysModuleController {
             SysUserInfo userCache=valueOperations.get("user_0");
             return "缓存读取的："+userCache.toString();
         }
-
-        //valueOperations.set("abc","123");
     }
 
 }
