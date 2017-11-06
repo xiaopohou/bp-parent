@@ -66,14 +66,4 @@ public class SysUserInfoController extends BaseController{
         return success();
     }
 
-    /**
-     * 查询部门人数
-     * @param code
-     * @return
-     */
-    @GetMapping("count/dept")
-    public String getDeptUserCount(@RequestParam(value="code")String code){
-
-        return json(sysUserInfoService.findByDeptUserCount(code));
-    }
 }
