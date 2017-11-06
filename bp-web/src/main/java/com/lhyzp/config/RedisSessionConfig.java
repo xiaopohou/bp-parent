@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Configuration;
  */
 //@Configuration
 //@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 60)//maxInactiveIntervalInSeconds: 设置Session失效时间，使用Redis Session之后，原Boot的server.session.timeout属性不再生效
-public class SessionConfig {
+public class RedisSessionConfig  {
 
 }
