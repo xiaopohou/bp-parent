@@ -8,7 +8,7 @@ import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 @ServletComponentScan
-@EnableCaching//启用缓存，这个注解很重要
+@EnableCaching//启用缓存
 public class Application {
 
 	public static void main(String[] args) {

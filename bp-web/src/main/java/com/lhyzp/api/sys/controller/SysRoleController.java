@@ -35,7 +35,8 @@ public class SysRoleController extends BaseController{
     @GetMapping("{id}")
     public String get(@PathVariable("id")Integer id){
 
-        return json("");
+        SysRole sysRole = sysRoleService.findById(id);
+        return json(sysRole);
     }
 
 }

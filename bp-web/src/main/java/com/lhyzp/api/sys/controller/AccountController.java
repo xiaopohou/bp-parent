@@ -29,7 +29,7 @@ public class AccountController extends BaseController{
                         @RequestParam(value="rememberMe",defaultValue = "false")boolean rememberMe){
         try{
             Subject subject = SecurityUtils.getSubject();
-            UsernamePasswordToken token = new UsernamePasswordToken(user.getEmail(), user.getPassword());
+            UsernamePasswordToken token = new UsernamePasswordToken(user.getEmail(), user.getPassword(),rememberMe);
             subject.login(token);
         }catch (UnknownAccountException e) {
             return msg(1,e.getMessage());

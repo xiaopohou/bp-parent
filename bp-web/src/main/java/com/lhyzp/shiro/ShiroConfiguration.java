@@ -60,7 +60,7 @@ public class ShiroConfiguration {
 
         //开放的静态资源
         filterChainDefinitionMap.put("/favicon.ico", "anon");
-        filterChainDefinitionMap.put("/static/**", "anon");
+        filterChainDefinitionMap.put("/img/**", "anon");
         filterChainDefinitionMap.put("/api/account/login", "anon");
         filterChainDefinitionMap.put("/code", "anon");
 
@@ -132,12 +132,12 @@ public class ShiroConfiguration {
      * shiro缓存管理器;
      * @return
      */
-    @Bean
-    public EhCacheManager ehCacheManager(){
-        EhCacheManager cacheManager = new EhCacheManager();
-        cacheManager.setCacheManagerConfigFile("classpath:config/ehcache-shiro.xml");
-        return cacheManager;
-    }
+    //@Bean
+    //public EhCacheManager ehCacheManager(){
+    //    EhCacheManager cacheManager = new EhCacheManager();
+    //    cacheManager.setCacheManagerConfigFile("classpath:config/ehcache-shiro.xml");
+    //    return cacheManager;
+    //}
 
 
     /**
