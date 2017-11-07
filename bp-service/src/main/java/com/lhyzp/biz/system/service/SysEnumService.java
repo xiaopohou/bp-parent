@@ -1,7 +1,7 @@
-package com.lhyzp.sys.service;
+package com.lhyzp.biz.system.service;
 
-import com.lhyzp.bases.BaseService;
-import com.lhyzp.sys.model.SysEnum;
+import com.lhyzp.biz.system.model.SysEnum;
+import com.lhyzp.common.BaseService;
 
 /**
  * Created by Administrator on 2017-10-21.
