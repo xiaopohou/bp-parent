@@ -6,6 +6,7 @@ import com.lhyzp.biz.system.service.SysEnumService;
 import com.lhyzp.sys.model.SysRole;
 import com.lhyzp.sys.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -17,16 +18,6 @@ public class SysRoleController extends BaseController{
 
     @Autowired
     private SysRoleService sysRoleService;
-
-    @Autowired
-    private SysEnumService sysEnumService;
-
-
-    @GetMapping("/enum/{id}")
-    public String getUser(@PathVariable("id")Integer id){
-        SysEnum sysEnum = sysEnumService.getObject(id);
-        return json(sysEnum);
-    }
 
     @GetMapping
     public String list(@RequestParam(value="page",required = false,defaultValue = "1")Integer page,
