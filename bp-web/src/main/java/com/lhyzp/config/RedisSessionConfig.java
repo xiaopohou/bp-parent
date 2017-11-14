@@ -9,7 +9,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
  * Created by Administrator on 2017-11-3.
  */
 @Configuration
-@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 60)//maxInactiveIntervalInSeconds: 设置Session失效时间，使用Redis Session之后，原Boot的server.session.timeout属性不再生效
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 360)//maxInactiveIntervalInSeconds: 设置Session失效时间，使用Redis Session之后，原Boot的server.session.timeout属性不再生效
 public class RedisSessionConfig  {
 
 }

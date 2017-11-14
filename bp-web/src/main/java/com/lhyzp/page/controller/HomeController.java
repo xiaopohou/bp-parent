@@ -31,4 +31,8 @@ public class HomeController {
     public String login(){
         return "login";
     }
+    @RequestMapping("im")
+    public String im(){
+        return "im/im";
+    }
 }
