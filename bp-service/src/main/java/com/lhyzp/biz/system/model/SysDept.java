@@ -1,4 +1,4 @@
-package com.lhyzp.sys.model;
+package com.lhyzp.biz.system.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -7,20 +7,14 @@ import java.io.Serializable;
  * 部门表
  * Created by Administrator on 2017-10-21.
  */
-@Entity
 public class SysDept implements Serializable{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(nullable = false,length = 30)
     private String name;//部门名称
 
-    @Column(nullable = false,length=10)
     private String code;//部门编码
 
-    @Column(length=50)
     private String remark;//备注
 
     public Integer getId() {

@@ -1,8 +1,9 @@
 package com.lhyzp.biz.system.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SysUserInfo {
+public class SysUser implements Serializable{
     private Integer id;
 
     private Boolean active;

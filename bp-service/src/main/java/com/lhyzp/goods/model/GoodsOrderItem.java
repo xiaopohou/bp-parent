@@ -1,10 +1,6 @@
 package com.lhyzp.goods.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.lhyzp.sys.model.SysUserInfo;
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -30,11 +26,7 @@ public class GoodsOrderItem implements Serializable {
     @JsonIgnoreProperties("items")  //注明该变量中的哪个属性不被序列化
     private GoodsStock stock;
 
-
-    @JsonIgnoreProperties("roles")
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id")
-    private SysUserInfo user;
+    private Integer userId;
 
     public Integer getId() {
         return id;
@@ -58,14 +50,6 @@ public class GoodsOrderItem implements Serializable {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
-    }
-
-    public SysUserInfo getUser() {
-        return user;
-    }
-
-    public void setUser(SysUserInfo user) {
-        this.user = user;
     }
 
     public String getOrderNumber() {

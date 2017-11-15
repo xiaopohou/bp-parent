@@ -1,5 +1,7 @@
 package com.lhyzp.common;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 import java.util.Map;
 
@@ -7,6 +9,7 @@ import java.util.Map;
  * 基础mapper
  * Created by zhoupeng on 2017/11/7.
  */
+@Mapper
 public interface BaseMapper<T> {
 
     //列表条件查询
