@@ -1,8 +1,7 @@
 package com.lhyzp.shiro;
 
-import com.lhyzp.sys.model.SysUserInfo;
-import com.lhyzp.sys.service.SysUserInfoService;
-import com.lhyzp.utils.PasswordHelper;
+import com.lhyzp.biz.system.model.SysUser;
+import com.lhyzp.biz.system.service.SysUserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -18,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class MyShiroRealm extends AuthorizingRealm {
 
     @Autowired
-    private SysUserInfoService sysUserInfoService;
+    private SysUserService sysUserService;
     //@Autowired
     //private BaseModuleService baseModuleService;
     //
@@ -41,7 +40,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         String password = new String((char[]) token.getCredentials());
 
         //用户检测
-        SysUserInfo user = sysUserInfoService.findByEmail(email);
+        SysUser user = sysUserService.findByEmail(email);
 
         //账号或密码错误
         if(user==null) {
@@ -49,7 +48,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         }
 
         //账号锁定
-        if(user.getActive()==0){
+        if(!user.getActive()){
         	throw new LockedAccountException("账号已被锁定,请联系管理员");
         }
 

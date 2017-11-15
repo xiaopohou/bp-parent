@@ -1,12 +1,9 @@
 package com.lhyzp.api.sys.controller;
 
 import com.lhyzp.base.BaseController;
-import com.lhyzp.biz.system.model.SysEnum;
-import com.lhyzp.biz.system.service.SysEnumService;
-import com.lhyzp.sys.model.SysRole;
-import com.lhyzp.sys.service.SysRoleService;
+import com.lhyzp.biz.system.model.SysRole;
+import com.lhyzp.biz.system.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -26,7 +23,7 @@ public class SysRoleController extends BaseController{
                        @RequestParam(value="name",required = false)String name){
 
 
-        return json(sysRoleService.list(null,null));
+        return json(sysRoleService.list(null));
     }
 
     @PostMapping
@@ -38,7 +35,7 @@ public class SysRoleController extends BaseController{
     @GetMapping("{id}")
     public String get(@PathVariable("id")Integer id){
 
-        SysRole sysRole = sysRoleService.findById(id);
+        SysRole sysRole = sysRoleService.getObject(id);
         return json(sysRole);
     }
 

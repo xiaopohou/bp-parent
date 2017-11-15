@@ -1,6 +1,6 @@
 package com.lhyzp.util;
 
-import com.lhyzp.sys.model.SysUserInfo;
+import com.lhyzp.biz.system.model.SysUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
@@ -19,8 +19,8 @@ public class ShiroUtils {
 		return SecurityUtils.getSubject();
 	}
 
-	public static SysUserInfo getUserEntity() {
-		return (SysUserInfo) SecurityUtils.getSubject().getPrincipal();
+	public static SysUser getUserEntity() {
+		return (SysUser) SecurityUtils.getSubject().getPrincipal();
 	}
 
 	public static Integer getUserId() {

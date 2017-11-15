@@ -1,6 +1,6 @@
 package com.lhyzp.api.sys.controller;
 
-import com.lhyzp.sys.model.SysUserInfo;
+import com.lhyzp.biz.system.model.SysUser;
 import org.apache.poi.hpsf.DocumentSummaryInformation;
 import org.apache.poi.hpsf.SummaryInformation;
 import org.apache.poi.hssf.usermodel.*;
@@ -19,10 +19,8 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.Date;
-import java.util.UUID;
 
 /**
  * 模块
@@ -146,11 +144,11 @@ public class SysModuleController {
     @GetMapping("redis")
     public String redis(@RequestParam(value="c",required = false,defaultValue = "0")Short c){
 
-        SysUserInfo user=new SysUserInfo();
+        SysUser user=new SysUser();
         user.setId(1);
 
         //操作视图类
-        ValueOperations<String,SysUserInfo> valueOperations = redisTemplate.opsForValue();
+        ValueOperations<String,SysUser> valueOperations = redisTemplate.opsForValue();
 
         //判断缓存是否存在
         Boolean isKey = redisTemplate.hasKey("user_0");
@@ -165,7 +163,7 @@ public class SysModuleController {
             valueOperations.set("user_0",user);
             return "缓存没有";
         }else{
-            SysUserInfo userCache=valueOperations.get("user_0");
+            SysUser userCache=valueOperations.get("user_0");
             return "缓存读取的："+userCache.toString();
         }
     }

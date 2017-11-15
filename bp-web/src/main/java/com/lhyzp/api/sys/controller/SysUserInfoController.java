@@ -3,14 +3,14 @@ package com.lhyzp.api.sys.controller;
 import com.google.common.collect.Maps;
 import com.lhyzp.annotation.OpLog;
 import com.lhyzp.base.BaseController;
-import com.lhyzp.sys.model.SysUserInfo;
-import com.lhyzp.sys.service.SysUserInfoService;
+import com.lhyzp.biz.system.model.SysUser;
+import com.lhyzp.biz.system.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,7 +21,7 @@ import java.util.Map;
 public class SysUserInfoController extends BaseController{
 
     @Autowired
-    private SysUserInfoService sysUserInfoService;
+    private SysUserService sysUserService;
 
     @GetMapping
     public String list(@RequestParam(value="page",required = false,defaultValue = "0")Integer page,
@@ -38,26 +38,26 @@ public class SysUserInfoController extends BaseController{
         map.put("email",email);
         map.put("phone",phone);
         map.put("dept",dept);
-        Page<SysUserInfo> list = sysUserInfoService.list(map, new PageRequest(page,size,new Sort(sort)));
+        List<SysUser> list = sysUserService.list(map);
         return json(list);
     }
 
     @OpLog("新增用户")
     @PostMapping
-    public String save(@RequestBody SysUserInfo model){
-        sysUserInfoService.save(model);
+    public String save(@RequestBody SysUser model){
+        sysUserService.save(model);
         return success();
     }
 
     @PutMapping
-    public String update(SysUserInfo model){
-        sysUserInfoService.save(model);
+    public String update(SysUser model){
+        sysUserService.save(model);
         return success();
     }
 
     @GetMapping("{id}")
     public String get(@PathVariable("id")Integer id){
-        SysUserInfo record = sysUserInfoService.findById(id);
+        SysUser record = sysUserService.getObject(id);
         return json(record);
     }
 

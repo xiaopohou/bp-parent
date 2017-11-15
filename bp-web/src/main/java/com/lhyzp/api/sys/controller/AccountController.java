@@ -1,7 +1,7 @@
 package com.lhyzp.api.sys.controller;
 
 import com.lhyzp.base.BaseController;
-import com.lhyzp.sys.model.SysUserInfo;
+import com.lhyzp.biz.system.model.SysUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
@@ -25,7 +25,7 @@ public class AccountController extends BaseController{
      * @return
      */
     @RequestMapping(value="login",method= RequestMethod.POST)
-    public String login(SysUserInfo user, @RequestParam(value="vcode",required = false)String vcode,
+    public String login(SysUser user, @RequestParam(value="vcode",required = false)String vcode,
                         @RequestParam(value="rememberMe",defaultValue = "false")boolean rememberMe){
         try{
             Subject subject = SecurityUtils.getSubject();
