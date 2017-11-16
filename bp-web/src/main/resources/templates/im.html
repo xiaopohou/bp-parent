@@ -105,7 +105,7 @@
     }
 
     function sendToUser() {
-        stompClient.send("/app/message", {}, JSON.stringify({'content': $("#name").val()}));
+        stompClient.send("/app/message2", {}, JSON.stringify({'content': $("#name").val()}));
     }
 
     function showGreeting(message) {

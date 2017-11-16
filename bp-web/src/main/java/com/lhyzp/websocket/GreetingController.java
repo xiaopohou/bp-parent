@@ -36,11 +36,11 @@ public class GreetingController extends BaseController{
         return new Greeting("广播消息:"+message.getName()+"!");
     }
 
-    @MessageMapping("message")
+    @MessageMapping("message2")
     @SendToUser("/message")
     public void userMessage(Greeting message, @RequestParam(value="email")String email){
         List<String> users = Lists.newArrayList();
-        users.add(email);
+        users.add("2@lhyzp.com");
         webSocketService.send2Users(users,message);
     }
 
