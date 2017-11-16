@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>即时通讯</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link href="https://cdn.bootcss.com/semantic-ui/2.2.10/semantic.min.css" rel="stylesheet">
+
+    <link href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/semantic-ui/2.2.10/semantic.min.js"></script>
+
+
+    <script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+<body onload="disconnect()">
+<h1>即时通讯</h1>
+<noscript><h2 style="color: #ff0000">似乎你的浏览器不支持JavaScript！WebSocket依靠JavaScript启用.请启用JavaScript并重新加载此页！</h2></noscript>
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="connect">WebSocket connection:</label>
+                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
+                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="name">你的名字是什么?</label>
+                    <input type="text" id="name" class="form-control" placeholder="请在这里输入你的名字...">
+                </div>
+                <button id="send" class="btn btn-default" type="submit">发送</button>
+                <button id="sendToUser" class="btn btn-default" type="submit">发送指定人</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="conversation" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>消息</th>
+                </tr>
+                </thead>
+                <tbody id="greetings">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script th:inline="javascript">
+
+    var email=[[${email}]];
+
+    var stompClient = null;
+    function setConnected(connected) {
+        $("#connect").prop("disabled", connected);
+        $("#disconnect").prop("disabled", !connected);
+        if (connected) {
+            $("#conversation").show();
+        }
+        else {
+            $("#conversation").hide();
+        }
+        $("#greetings").html("");
+    }
+    function connect() {
+        var socket = new SockJS('/gs-guide-websocket');//1连接SockJS的endpoint是“/gs-guide-websocket”，与后台代码中注册的endpoint要一样。
+        stompClient = Stomp.over(socket);//2创建STOMP协议的webSocket客户端。
+        stompClient.connect({}, function (frame) {//3连接webSocket的服务端。
+            setConnected(true);
+            console.log('Connected: ' + frame);
+
+            //4通过stompClient.subscribe（）订阅服务器的目标是'/topic/greetings'发送过来的地址，与@SendTo中的地址对应。
+            stompClient.subscribe('/topic/greetings', function (greeting) {
+                showGreeting(JSON.parse(greeting.body).content);
+            });
+
+            //接收一对一消息
+            stompClient.subscribe('/user/' + email + '/message', function(message){
+                showGreeting(JSON.parse(message.body).content);
+            });
+        });
+    }
+    function disconnect() {
+        if (stompClient !== null) {
+            stompClient.disconnect();
+        }
+        setConnected(false);
+        console.log("Disconnected");
+    }
+    function sendName() {
+        //通过stompClient.send（）向地址为"/hello"的服务器地址发起请求，与@MessageMapping里的地址对应。
+        // 因为我们配置了registry.setApplicationDestinationPrefixes("/app");所以需要增加前缀/app
+        stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
+    }
+
+    function sendToUser() {
+        stompClient.send("/app/message", {}, JSON.stringify({'content': $("#name").val()}));
+    }
+
+    function showGreeting(message) {
+        $("#greetings").append("<tr><td>" + message + "</td></tr>");
+    }
+    $(function () {
+        $("form").on('submit', function (e) {
+            e.preventDefault();
+        });
+        $( "#connect" ).click(function() { connect(); });
+        $( "#disconnect" ).click(function() { disconnect(); });
+        $( "#send" ).click(function() { sendName(); });
+        $( "#sendToUser" ).click(function() { sendToUser(); });
+    });
+</script>
+
+</body>
+</html>

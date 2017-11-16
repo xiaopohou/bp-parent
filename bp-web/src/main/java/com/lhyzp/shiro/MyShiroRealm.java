@@ -2,6 +2,7 @@ package com.lhyzp.shiro;
 
 import com.lhyzp.biz.system.model.SysUser;
 import com.lhyzp.biz.system.service.SysUserService;
+import com.lhyzp.utils.PasswordHelper;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
