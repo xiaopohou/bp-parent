@@ -1,8 +1,7 @@
 package com.lhyzp.biz.im.service.impl;
 
-import com.lhyzp.biz.im.model.WiselyResponse;
+import com.lhyzp.biz.im.model.Greeting;
 import com.lhyzp.biz.im.service.WebSocketService;
-import com.lhyzp.constant.WebSocketConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
@@ -19,14 +18,16 @@ public class WebSocketServiceImpl implements WebSocketService {
     private SimpMessagingTemplate simpMessagingTemplate;
 
     @Override
-    public void sendMsg(WiselyResponse msg) {
-        simpMessagingTemplate.convertAndSend(WebSocketConstant.PRODUCERPATH,msg);
+    public void sendMsg(Greeting msg) {
+        //广播消息
+        simpMessagingTemplate.convertAndSend("/topic/greetings",msg);
     }
 
     @Override
-    public void send2Users(List<String> users, WiselyResponse msg) {
+    public void send2Users(List<String> users, Greeting msg) {
         users.forEach(userName -> {
-            simpMessagingTemplate.convertAndSendToUser(userName, WebSocketConstant.P2PPUSHPATH, msg);
+            //一对一发送，发送特定的客户端
+            simpMessagingTemplate.convertAndSendToUser(userName, "/message", msg);
         });
     }
 }
