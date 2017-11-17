@@ -13,7 +13,7 @@ import java.util.Map;
 public abstract class BaseServiceImpl<T> implements BaseService<T>{
 
     @Autowired
-    private BaseMapper baseMapper;
+    private BaseMapper<T> baseMapper;
 
     /**
      * 列表条件查询
@@ -45,7 +45,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T>{
      */
     @Override
     public T getObject(Object id) {
-        return (T) baseMapper.getObject(id);
+        return baseMapper.getObject(id);
     }
 
     /**
