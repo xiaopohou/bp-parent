@@ -18,6 +18,7 @@ $(function () {
                 };
             }
         },
-        minimumInputLength: 1
+        minimumInputLength: 1,
+        language: "zh-CN"
     });
 });
