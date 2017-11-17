@@ -24,6 +24,16 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
   
+  <select id="list" parameterType="hashmap" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_user
+    <where>
+      <if test="email!=null and email.trim()!=''"> and email like concat(concat('%',#{email}),'%')</if>
+      <if test="userName!=null and userName.trim()!=''"> and user_name like concat(concat('%',#{userName}),'%')</if>
+    </where>
+  </select>
+  
   <select id="findByEmail" parameterType="String" resultMap="BaseResultMap">
     select <include refid="Base_Column_List"/> from sys_user where email=#{email}
   </select>

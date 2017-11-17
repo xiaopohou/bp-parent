@@ -18,7 +18,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("api/user")
-public class SysUserInfoController extends BaseController{
+public class SysUserController extends BaseController{
 
     @Autowired
     private SysUserService sysUserService;
@@ -31,10 +31,11 @@ public class SysUserInfoController extends BaseController{
                        @RequestParam(value="userName",required = false)String userName,
                        @RequestParam(value="email",required = false)String email,
                        @RequestParam(value="phone",required = false)String phone,
+                       @RequestParam(value="q",required = false)String q,
                        @RequestParam(value="dept",required = false)String dept){
 
         Map<String,Object> map= Maps.newHashMap();
-        map.put("userName",userName);
+        map.put("userName",q);
         map.put("email",email);
         map.put("phone",phone);
         map.put("dept",dept);
