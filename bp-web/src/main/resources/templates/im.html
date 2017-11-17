@@ -62,26 +62,6 @@
 
 <script th:inline="javascript">
     
-    $(function () {
-        $('.js-data-example-ajax').select2({
-            ajax: {
-                url: '/api/user',
-                dataType: 'json',
-                // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-                processResults: function (data) {
-                    // Tranforms the top-level key of the response object from 'items' to 'results'
-                    var d=[];
-                    for(var i=0;i<data.length;i++){
-                        d.push({id:data[i].id,text:data[i].userName});
-                    }
-                    return {
-                        results: d
-                    };
-                }
-            }
-        });
-    });
-
     var email=[[${email}]];
 
     var stompClient = null;
@@ -145,6 +125,8 @@
         $( "#sendToUser" ).click(function() { sendToUser(); });
     });
 </script>
+
+<script src="js/plugin/app.js"></script>
 
 </body>
 </html>
