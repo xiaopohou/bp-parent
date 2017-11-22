@@ -72,7 +72,7 @@
                 <scope>provided</scope>
         </dependency> -->
 
-
+		<!--网页静态资源  webjars-locator：引入时不用写版本号-->
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-locator</artifactId>
@@ -82,8 +82,6 @@
 			<artifactId>bootstrap</artifactId>
 			<version>3.3.7</version>
 		</dependency>
-
-
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>select2</artifactId>
