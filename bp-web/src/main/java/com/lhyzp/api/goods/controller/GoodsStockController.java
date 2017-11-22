@@ -37,7 +37,7 @@ public class GoodsStockController extends BaseController{
                 public void run() {
                     ClientHttpRequest request = null;
                     try {
-                        URI uri = new URI("http://127.0.0.1:8080/api/goods/order?amount="+amount+"&stock.id=1&user.id=1");
+                        URI uri = new URI("http://127.0.0.1:8085/api/goods/order?amount="+amount+"&stock.id=1&user.id=1");
                         request = httpRequestFactory.createRequest(uri, HttpMethod.POST);
                         InputStream body = request.execute().getBody();
                         BufferedReader br = new BufferedReader(new InputStreamReader(body));

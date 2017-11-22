@@ -17,12 +17,6 @@ public class HomeController{
         return "index";
     }
 
-    @RequestMapping("im")
-    public String ws(Model model){
-        model.addAttribute("email", ShiroUtils.getUserEntity().getEmail());
-        return "im";
-    }
-
     @RequestMapping("login")
     public String login(){
         return "login";
