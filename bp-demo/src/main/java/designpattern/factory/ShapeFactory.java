@@ -18,4 +18,17 @@ public class ShapeFactory {
         return null;
     }
 
+
+    public Object getShapeUp(Class<? extends Shape> clazz){
+        Object obj=null;
+        try {
+            obj = clazz.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return obj;
+    }
+
 }

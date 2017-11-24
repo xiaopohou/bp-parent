@@ -18,5 +18,10 @@ public class FactoryPatternDemo {
         Shape rectangle = shapeFactory.getShape("rectangle");
         rectangle.draw();
 
+
+        Object shapeUp = shapeFactory.getShapeUp(Circle.class);
+        Circle circle1=(Circle)shapeUp;
+        circle1.draw();
+
     }
 }
