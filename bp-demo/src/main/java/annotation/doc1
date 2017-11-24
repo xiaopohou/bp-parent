@@ -1,0 +1,353 @@
+什么是注解
+
+        Annotation（注解）就是Java提供了一种元程序中的元素关联任何信息和着任何元数据（metadata）的途径和方法。Annotion(注解)是一个接口，程序可以通过反射来获取指定程序元素的Annotion对象，然后通过Annotion对象来获取注解里面的元数据。
+
+        Annotation(注解)是JDK5.0及以后版本引入的。它可以用于创建文档，跟踪代码中的依赖性，甚至执行基本编译时检查。从某些方面看，annotation就像修饰符一样被使用，并应用于包、类 型、构造方法、方法、成员变量、参数、本地变量的声明中。这些信息被存储在Annotation的“name=value”结构对中。
+
+什么是metadata元数据
+
+        元数据从metadata一词译来，就是“关于数据的数据”的意思。
+
+        元数据的功能作用有很多，比如：你可能用过Javadoc的注释自动生成文档。这就是元数据功能的一种。总的来说，元数据可以用来创建文档，跟踪代码的依赖性，执行编译时格式检查，代替已有的配置文件。如果要对于元数据的作用进行分类，目前还没有明确的定义，不过我们可以根据它所起的作用，大致可分为三类：
+　　 1. 编写文档：通过代码里标识的元数据生成文档
+　 2. 代码分析：通过代码里标识的元数据对代码进行分析
+　　 3. 编译检查：通过代码里标识的元数据让编译器能实现基本的编译检查
+
+Annotation和Annotation类型
+
+        Annotation使用了在java5.0所带来的新语法，它的行为十分类似public、final这样的修饰符。每个Annotation具有一个名字和成员个数>=0。每个Annotation的成员具有被称为name=value对的名字和值（就像javabean一样），name=value装载了Annotation的信息。
+
+        Annotation类型定义了Annotation的名字、类型、成员默认值。一个Annotation类型可以说是一个特殊的java接口，它的成员变量是受限制的，而声明Annotation类型时需要使用新语法。当我们通过java反射api访问Annotation时，返回值将是一个实现了该 annotation类型接口的对象，通过访问这个对象我们能方便的访问到其Annotation成员。后面的章节将提到在java5.0的 java.lang包里包含的3个标准Annotation类型。
+
+注解的分类
+
+        根据注解的参数个数分类：
+
+        1.标记注解，一个没有成员的Annotation类型被称为标记注解，这种类型仅仅使用自身的存在与否来为我们提供信息，比如常见的@Override
+
+        2.单值注解
+
+        3.完整注解
+
+        根据注解使用的方法和用途分类：
+
+        1.JDK内置系统注解
+
+        2.元注解
+
+        3.自定义注解
+
+元注解
+
+        元注解的作用就是负责注解其他注解，java 5.0定义了4个meta-annotation类型，用来提供对爱他的annotation类型做说明。
+
+        java.lang.annotation
+
+        1.@Target
+
+        2.@Retention
+
+        3.@Document
+
+        4.@Inhrited
+
+        @Target
+
+        修饰的对象范围：packages、types（类、接口、枚举、Annotation类型）、类型成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数）。
+
+        作用：用于描述注解的使用范围。
+
+        ElementType取值：
+
+                1.CONSTRUCTOR:用于描述构造器
+
+                2.FIELD:用于描述域
+
+                3.LOCAL_VARIABLE:用于描述局部变量
+
+                4.METHOD:用于描述方法
+
+                5.PACKAGE:用于描述包
+
+                6.PARAMETER:用于描述参数
+
+                7.TYPE:用于描述类、接口(包括注解类型) 或enum声明
+
+                例如：
+
+Name可以注解类的成员变量
+
+@Target(ElementType.FIELD)
+@Documented
+public @interface Name {
+    String value() default "";
+}
+Person可以注解类、接口（包括注解类型）、或者enum声明
+@Target(ElementType.TYPE)
+public @interface Person {
+    String value() default "";
+}
+
+        @Retention
+
+        定义了该Annotation被保留的时间长短：某些Annotation仅出现在源代码中，而被编译器丢弃；而另一些却被编译在class文件中；编译在class文件中的Annotation可能会被虚拟机忽略，而另一些在class被装载时将被读取（请注意并不影响class的执行，因为Annotation与class在使用上是被分离的）。使用这个meta-Annotation可以对 Annotation的“生命周期”限制。
+
+        作用：表示需要在什么级别保存该注释信息，用于描述注解的生命周期（即：被描述的注解在什么范围内有效）
+
+        RetentionPoicy取值
+
+                1.SOURCE:在源文件中有效（即源文件保留）
+
+                2.CLASS:在class文件中有效（即class保留）
+
+                3.RUNTIME:在运行时有效（即运行时保留）
+
+                例如：
+
+Name注解的RetentionPolicy的值为RUNTIME，这样注解处理器可以通过反射，获取到该注解的属性，从而做一些运行时的逻辑处理。
+
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Name {
+    String value() default "";
+}
+
+
+        @Document
+
+        用于描述其它类型的annotation应该被作为被标注的程序成员的公共API，因此可以被例如javadoc此类的工具文档化。Documented是一个标记注解，没有成员。
+
+        作用：表示需要在什么级别保存该注释信息，用于描述注解的生命周期（即：被描述的注解在什么范围内有效）。
+
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Name {
+    String value() default "";
+}
+
+        @Inhrited
+
+        是一个标记注解，@Inherited阐述了某个被标注的类型是被继承的。如果一个使用了@Inherited修饰的annotation类型被用于一个class，则这个annotation将被用于该class的子类。
+
+        @Inherited annotation类型是被标注过的class的子类所继承。类并不从它所实现的接口继承annotation，方法并不从它所重载的方法继承annotation
+
+        当@Inherited annotation类型标注的annotation的Retention是RetentionPolicy.RUNTIME，则反射API增强了这种继承性。如果我们使用java.lang.reflect去查询一个@Inherited annotation类型的annotation时，反射代码检查将展开工作：检查class和其父类，直到发现指定的annotation类型被发现，或者到达类继承结构的顶层。
+
+
+
+自定义注解
+
+        使用@interface自定义注解时，自动继承了java.lang.annotation.Annotation接口，由编译程序自动完成其他细节。在定义注解时，不能继承其他的注解或接口。@interface用来声明一个注解，其中的每一个方法实际上是声明了一个配置参数。方法的名称就是参数的名称，返回值类型就是参数的类型（返回值类型只能是基本类型、Class、String、enum）。可以通过default来声明参数的默认值。
+
+        自定义注解格式：
+
+        public @interface 注解名{注解体}
+
+                1.所有基本数据类型（int,float,boolean,byte,double,char,long,short)
+
+                2.String类型
+
+                3.Class类型
+
+                4.enum类型
+
+                5.Annotation类型
+
+                6.以上所有类型的数组
+
+        Annotation类型里面的参数该怎么设定:
+
+                第一,只能用public或默认(default)这两个访问权修饰.例如,String value();这里把方法设为defaul默认类型；　 　
+                第二,参数成员只能用基本类型byte,short,char,int,long,float,double,boolean八种基本数据类型和 String,Enum,Class,annotations等数据类型,以及这一些类型的数组.例如,String value();这里的参数成员就为String;　　
+                第三,如果只有一个参数成员,最好把参数名称设为"value",后加小括号.例:下面的例子FruitName注解就只有一个参数成员。
+
+                例如：
+
+Name姓名注解：
+
+/**
+ * Created by mingwei on 12/2/16.
+ * <p/>
+ * 姓名注解
+ */
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Name {
+    String value() default "";
+}
+Gander性别注解：
+
+/**
+ * Created by mingwei on 12/2/16.
+ * 性别注解
+ */
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Gender {
+
+    public enum GenderType {
+
+        Male("男"),
+        Female("女"),
+        Other("中性");
+
+        private String genderStr;
+
+        private GenderType(String arg0) {
+            this.genderStr = arg0;
+        }
+
+        @Override
+        public String toString() {
+            return genderStr;
+        }
+    }
+
+    GenderType gender() default GenderType.Male;
+
+}
+Profile个人资料注解：
+
+/**
+ * Created by mingwei on 12/2/16.
+ * 基本资料注解
+ */
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Profile {
+    /**
+     * ID
+     *
+     * @return
+     */
+    public int id() default -1;
+
+    /**
+     * 身高
+     *
+     * @return
+     */
+    public int height() default 0;
+
+    /**
+     * 籍贯
+     *
+     * @return
+     */
+    public String nativePlace() default "";
+}
+
+
+注解元素的默认值
+        注解元素必须有确定的值，要么在定义注解的默认值中指定，要么在使用注解时指定，非基本类型的注解元素的值不可为null。因此, 使用空字符串或0作为默认值是一种常用的做法。这个约束使得处理器很难表现一个元素的存在或缺失的状态，因为每个注解的声明中，所有元素都存在，并且都具有相应的值，为了绕开这个约束，我们只能定义一些特殊的值，例如空字符串或者负数，一次表示某个元素不存在，在定义注解时，这已经成为一个习惯用法。
+
+
+
+注解处理器类库(java.lang.reflect.AnnotatedElement)
+
+        注解元素Java使用Annotation接口来代表程序元素前面的注解，该接口是所有Annotation类型的父接口。除此之外，Java在java.lang.reflect 包下新增了AnnotatedElement接口，该接口代表程序中可以接受注解的程序元素，该接口主要有如下几个实现类：
+
+        Class：类定义
+
+        Constructor：构造器定义
+
+        Field：累的成员变量定义
+
+        Method：类的方法定义
+
+        Package：类的包定义
+
+        当一个Annotation被定义为运行时Annotation后，改注解才是运行时可见的，当class文件被装载时被保存在class文件中的Annotation才会被虚拟姐读取。 AnnotatedElement
+
+接口提供了以下四个方法来访问Annotation的信息：
+
+        方法1：<T extends Annotation> T getAnnotation(Class<T> annotationClass): 返回改程序元素上存在的、指定类型的注解，如果该类型注解不存在，则返回null。
+
+        方法2：Annotation[] getAnnotations():返回该程序元素上存在的所有注解。
+
+        方法3：boolean is AnnotationPresent(Class<?extends Annotation> annotationClass):判断该程序元素上是否包含指定类型的注解，存在则返回true，否则返回false.
+
+        方法4：Annotation[] getDeclaredAnnotations()：返回直接存在于此元素上的所有注释。与此接口中的其他方法不同，该方法将忽略继承的注释。（如果没有注释直接存在于此元素上，则返回长度为零的一个数组。）该方法的调用者可以随意修改返回的数组；这不会对其他调用者返回的数组产生任何影响。
+
+我们为前面定义好的自定义注解写一个简单的处理器：
+
+/**
+ * Created by mingwei on 12/2/16.
+ */
+public class CustomUtils {
+
+    public static void getInfo(Class<?> clazz) {
+        String name = "";
+        String gender = "";
+        String profile = "";
+        Field fields[] = clazz.getDeclaredFields();
+        for (Field field : fields) {
+            if (field.isAnnotationPresent(Name.class)) {
+                Name arg0 = field.getAnnotation(Name.class);
+                name = name + arg0.value();
+                Log.i("Gmw", "name=" + name);
+            }
+            if (field.isAnnotationPresent(Gender.class)) {
+                Gender arg0 = field.getAnnotation(Gender.class);
+                gender = gender + arg0.gender().toString();
+                Log.i("Gmw", "gender=" + gender);
+            }
+            if (field.isAnnotationPresent(Profile.class)) {
+                Profile arg0 = field.getAnnotation(Profile.class);
+                profile = "[id=" + arg0.id() + ",height=" + arg0.height() + ",nativePlace=" + arg0.nativePlace() + "]";
+                Log.i("Gmw", "profile=" + profile);
+            }
+        }
+    }
+
+}
+使用自定义注解：
+/**
+ * Created by mingwei on 12/2/16.
+ */
+public class Person {
+
+    @Name("阿特罗伯斯")
+    private String name;
+
+    @Gender(gender = Gender.GenderType.Male)
+    private String gender;
+
+    @Profile(id = 1001, height = 180, nativePlace = "CN")
+    private String profile;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
+    }
+}
+运行：
+CustomUtils.getInfo(Person.class);
+输出：
+I/Gmw: gender=男
+I/Gmw: name=阿特罗伯斯
+I/Gmw: profile=[id=1001,height=180,nativePlace=CN]
