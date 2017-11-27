@@ -19,7 +19,14 @@
         <module>bp-service</module>
         <module>bp-web</module>
         <module>bp-utils</module>
+        <module>bp-demo</module>
     </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
 
     <dependencies>
 
@@ -150,8 +157,6 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.3</version>
         </dependency>
-
-
 
 
         <dependency>
