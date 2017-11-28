@@ -1,8 +1,6 @@
 package com.lhyzp.page.controller;
 
-import com.lhyzp.util.ShiroUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**

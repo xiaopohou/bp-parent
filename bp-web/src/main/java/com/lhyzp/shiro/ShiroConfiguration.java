@@ -62,7 +62,8 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/favicon.ico", "anon");
         filterChainDefinitionMap.put("/img/**", "anon");
         filterChainDefinitionMap.put("/api/account/login", "anon");
-        filterChainDefinitionMap.put("/code", "anon");
+        filterChainDefinitionMap.put("/api/user/export", "anon");
+        filterChainDefinitionMap.put("/api/user/import", "anon");
 
         filterChainDefinitionMap.put("/**", "authc");//拦截的url
 
