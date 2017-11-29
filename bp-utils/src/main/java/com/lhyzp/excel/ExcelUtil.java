@@ -3,6 +3,7 @@ package com.lhyzp.excel;
 import com.lhyzp.utils.StringUtils;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DateUtil;
 
 import java.beans.IntrospectionException;
@@ -28,7 +29,6 @@ public class ExcelUtil {
     //默认日期转换格式
     private static final String FORMAT="yyyy-MM-dd HH:mm:ss";
     private static SimpleDateFormat sdf= new SimpleDateFormat(FORMAT);
-    private static DecimalFormat df = new DecimalFormat("0");             //数字格式，防止长数字成为科学计数法形式，或者int变为double形式
 
 
     /**
@@ -188,24 +188,25 @@ public class ExcelUtil {
                 //列的值
                 String value = "";
                 //判断格式
-                switch (cell.getCellType()){
-                    case HSSFCell.CELL_TYPE_NUMERIC:
+                switch (cell.getCellTypeEnum()){
+                    case STRING:
+                        value = cell.getStringCellValue();
+                        break;
+                    case BOOLEAN:
+                        value = String.valueOf(cell.getBooleanCellValue());
+                        break;
+                    case FORMULA:
+                        value = cell.getCellFormula();
+                        break;
+                    case NUMERIC:
                         //判断是否为日期格式
                         if(DateUtil.isCellDateFormatted(cell)){
                             value = sdf.format(cell.getDateCellValue());
                         }else {
-
-                            value = df.format(cell.getNumericCellValue()) + "";
+                            // 不是日期格式，则防止当数字过长时以科学计数法显示
+                            cell.setCellType(CellType.STRING);
+                            value = cell.toString();
                         }
-                        break;
-                    case HSSFCell.CELL_TYPE_STRING:
-                        value = cell.getStringCellValue();
-                        break;
-                    case HSSFCell.CELL_TYPE_BOOLEAN:
-                        value = cell.getBooleanCellValue()+"";
-                        break;
-                    case HSSFCell.CELL_TYPE_FORMULA:
-                        value = cell.getCellFormula();
                         break;
                     default:
                         value = cell.getStringCellValue();
