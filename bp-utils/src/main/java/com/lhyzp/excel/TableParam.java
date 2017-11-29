@@ -18,7 +18,7 @@ public class TableParam {
     private Integer readRow=1;
 
     //行高度
-    private float height = 13;
+    private float height = 15;
 
     //是否创建标题行
     private Boolean createHeadRow=true;
