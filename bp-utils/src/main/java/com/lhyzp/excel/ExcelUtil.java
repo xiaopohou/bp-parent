@@ -5,6 +5,7 @@ import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DateUtil;
+import org.apache.poi.xssf.usermodel.*;
 
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
@@ -121,7 +122,93 @@ public class ExcelUtil {
                         String val = convertValue.convert(result);
                         cell.setCellValue(val);
                     }else{
-                        cell.setCellValue(result+"");
+                        cell.setCellValue(String.valueOf(result));
+                    }
+                }
+
+            }
+        }
+
+        return workbook;
+
+    }
+
+    /**
+     * 参数设置导出
+     * @param tableParam Excel参数对象
+     * @param data 数据
+     * @return
+     * @throws IntrospectionException
+     * @throws InvocationTargetException
+     * @throws IllegalAccessException
+     */
+    public static XSSFWorkbook exportExcel2(TableParam tableParam, List<?> data) throws IntrospectionException, InvocationTargetException, IllegalAccessException {
+        /*创建Workbook和Sheet*/
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        /*创建Workbook和Sheet*/
+        XSSFSheet sheet = workbook.createSheet(tableParam.getSheetName());//创建工作表(Sheet)
+
+        Integer startRow = tableParam.getStartRow();
+
+        List<ColumnParam> columnParams = tableParam.getColumnParams();
+        //创建标题
+        if(tableParam.getCreateHeadRow()){
+            /*创建标题行*/
+            XSSFRow row = sheet.createRow(startRow);// 创建行,从0开始
+            //标题行样式
+            XSSFCellStyle style = workbook.createCellStyle();
+            XSSFFont font = workbook.createFont();
+            //加粗
+            //font.setBold(tableParam.getHeadRowStyle().getHeadBold());
+            style.setFont(font);
+            //居中
+            //style.setAlignment(tableParam.getHeadRowStyle().getHorizontalAlignment());
+
+            for(int i=0;i<columnParams.size();i++){
+                // 创建行的单元格,也是从0开始
+                XSSFCell cell = row.createCell(i);
+                // 设置单元格内容
+                cell.setCellValue(columnParams.get(i).getTitle());
+                cell.setCellStyle(style);
+            }
+        }
+        //创建数据
+        for(int k = 0; k<data.size(); k++) {
+            // 创建行,从标题下一行开始
+            XSSFRow _row = sheet.createRow(k+startRow+1);
+            //设置行的高度
+            _row.setHeightInPoints(tableParam.getHeight());
+            for (int j=0;j<columnParams.size();j++) {
+                //获取属性
+                PropertyDescriptor propertyDescriptor = new PropertyDescriptor(columnParams.get(j).getKey(), data.get(k).getClass());
+                //获取get方法
+                Method readMethod = propertyDescriptor.getReadMethod();
+                //执行
+                Object result = readMethod.invoke(data.get(k));
+
+                //设置列宽
+                sheet.setColumnWidth(j,columnParams.get(j).getWidth()*256);
+
+                // 创建行的单元格
+                XSSFCell cell = _row.createCell(j);
+                if(result instanceof Date){
+                    Date date = (Date) result;
+                    String strDate = sdf.format(date);
+                    String format = columnParams.get(j).getFormat();
+                    if(StringUtils.isNotEmptyString(format)){
+                        SimpleDateFormat s=new SimpleDateFormat(format);
+                        strDate = s.format(date);
+                    }
+                    cell.setCellValue(strDate);
+
+                }else{
+                    //如果需要值替换
+                    ConvertValue convertValue = columnParams.get(j).getConvertValue();
+                    if(convertValue!=null){
+                        String val = convertValue.convert(result);
+                        cell.setCellValue(val);
+                    }else{
+                        cell.setCellValue(String.valueOf(result));
                     }
                 }
 
