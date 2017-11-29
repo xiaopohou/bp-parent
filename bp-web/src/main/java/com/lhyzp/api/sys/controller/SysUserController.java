@@ -1,31 +1,22 @@
 package com.lhyzp.api.sys.controller;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.lhyzp.annotation.OpLog;
 import com.lhyzp.base.BaseController;
 import com.lhyzp.biz.system.model.SysUser;
 import com.lhyzp.biz.system.service.SysUserService;
-import com.lhyzp.excel.ExcelUtil;
-import org.apache.poi.hpsf.DocumentSummaryInformation;
-import org.apache.poi.hpsf.SummaryInformation;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
+import com.lhyzp.excel.*;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletResponse;
 import java.beans.IntrospectionException;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -46,10 +37,25 @@ public class SysUserController extends BaseController{
         String[] titles={"ID","姓名","邮箱","手机","身份证号","创建日期","启用"};
         String[] keys={"id","userName","email","phone","idCard","createDate","active"};
 
+        TableParam tableParam=new TableParam();
+        List<ColumnParam> columnParams= Lists.newArrayList(
+                new ColumnParam("ID","id",5),
+                new ColumnParam("姓名","userName",15),
+                new ColumnParam("邮箱","email",15),
+                new ColumnParam("手机","phone",15),
+                new ColumnParam("身份证号","idCard",25),
+                new ColumnParam("创建日期","createDate",25,"yyyy-MM-dd HH:mm:ss"),
+                new ColumnParam("启用","active",new ConvertValueBoolean())
+        );
+        tableParam.setColumnParams(columnParams);
+
+
+
+
         String excelName="excel名称.xls";
 
         List<SysUser> list = sysUserService.list(null);
-        HSSFWorkbook workbook = ExcelUtil.exportExcel(titles,keys,SysUser.class,list);
+        HSSFWorkbook workbook = ExcelUtil.exportExcel(tableParam,list);
 
 
         response.setHeader("content-Type", "application/vnd.ms-excel;charset=UTF-8");
@@ -61,7 +67,22 @@ public class SysUserController extends BaseController{
     @GetMapping("import")
     public void importExcel() throws IOException, InstantiationException, IllegalAccessException, IntrospectionException, InvocationTargetException, ParseException {
         String[] keys={"id","userName","email","phone","idCard","createDate","active"};
-        List<Object> sheet0 = ExcelUtil.importExcel("C:\\Users\\zhoupeng\\Downloads\\excel名称 (16).xls", "Sheet0", keys, SysUser.class);
+
+        TableParam tableParam=new TableParam();
+        List<ColumnParam> columnParams= Lists.newArrayList(
+                new ColumnParam("ID","id",5),
+                new ColumnParam("姓名","userName",15),
+                new ColumnParam("邮箱","email",15),
+                new ColumnParam("手机","phone",15),
+                new ColumnParam("身份证号","idCard",25),
+                new ColumnParam("创建日期","createDate",25,"yyyy-MM-dd"),
+                new ColumnParam("启用","active",new ConvertValueBoolean())
+        );
+        tableParam.setColumnParams(columnParams);
+
+        List<SysUser> list = (List<SysUser>) ExcelUtil.importExcel("C:\\Users\\Administrator\\Downloads\\excel名称 (20).xls", tableParam,SysUser.class);
+
+        list.forEach(user-> System.out.println(user.toString()));
 
 
     }
