@@ -1,11 +1,9 @@
 package com.lhyzp.excel;
 
-import com.google.common.collect.Lists;
 import com.lhyzp.utils.StringUtils;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.HorizontalAlignment;
-import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.DateUtil;
 
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
@@ -15,6 +13,7 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,6 +28,7 @@ public class ExcelUtil {
     //默认日期转换格式
     private static final String FORMAT="yyyy-MM-dd HH:mm:ss";
     private static SimpleDateFormat sdf= new SimpleDateFormat(FORMAT);
+    private static DecimalFormat df = new DecimalFormat("0");             //数字格式，防止长数字成为科学计数法形式，或者int变为double形式
 
 
     /**
@@ -73,10 +73,10 @@ public class ExcelUtil {
             HSSFCellStyle style = workbook.createCellStyle();
             HSSFFont font = workbook.createFont();
             //加粗
-            font.setBold(tableParam.getHeadRowStyle().getHeadBold());
+            //font.setBold(tableParam.getHeadRowStyle().getHeadBold());
             style.setFont(font);
             //居中
-            style.setAlignment(tableParam.getHeadRowStyle().getHorizontalAlignment());
+            //style.setAlignment(tableParam.getHeadRowStyle().getHorizontalAlignment());
 
             for(int i=0;i<columnParams.size();i++){
                 // 创建行的单元格,也是从0开始
@@ -186,7 +186,32 @@ public class ExcelUtil {
                 Class<?> propertyType = propertyDescriptor.getPropertyType();
 
                 //列的值
-                String value = cell.getStringCellValue();
+                String value = "";
+                //判断格式
+                switch (cell.getCellType()){
+                    case HSSFCell.CELL_TYPE_NUMERIC:
+                        //判断是否为日期格式
+                        if(DateUtil.isCellDateFormatted(cell)){
+                            value = sdf.format(cell.getDateCellValue());
+                        }else {
+
+                            value = df.format(cell.getNumericCellValue()) + "";
+                        }
+                        break;
+                    case HSSFCell.CELL_TYPE_STRING:
+                        value = cell.getStringCellValue();
+                        break;
+                    case HSSFCell.CELL_TYPE_BOOLEAN:
+                        value = cell.getBooleanCellValue()+"";
+                        break;
+                    case HSSFCell.CELL_TYPE_FORMULA:
+                        value = cell.getCellFormula();
+                        break;
+                    default:
+                        value = cell.getStringCellValue();
+                        break;
+                }
+
 
                 //判断是否需要转换--传了此参数说明需要转换
                 ConvertValue convertValue = columnParams.get(j).getConvertValue();
@@ -195,7 +220,7 @@ public class ExcelUtil {
                 }
 
                 //判断类型
-                if(propertyType==String.class){
+                if(propertyType == String.class){
                     writeMethod.invoke(instance,value);
                 }else if(propertyType == Integer.class){
                     writeMethod.invoke(instance,Integer.parseInt(value));
@@ -211,7 +236,7 @@ public class ExcelUtil {
                 }else if(propertyType == Boolean.class){
                     writeMethod.invoke(instance,Boolean.parseBoolean(value));
                 }else if(propertyType == Long.class){
-                    writeMethod.invoke(instance,Boolean.parseBoolean(value));
+                    writeMethod.invoke(instance,Long.parseLong(value));
                 }else if(propertyType == Double.class){
                     writeMethod.invoke(instance,Double.parseDouble(value));
                 }else if(propertyType == Float.class){
