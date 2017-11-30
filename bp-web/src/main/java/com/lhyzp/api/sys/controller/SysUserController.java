@@ -23,6 +23,7 @@ import java.beans.IntrospectionException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -80,15 +81,20 @@ public class SysUserController extends BaseController{
         );
         tableParam.setColumnParams(columnParams);
 
+        List<SysUser> list = sysUserService.list(null);
 
-
+        List<Map<String,Object>> mapList=Lists.newArrayList();
+        Map<String,Object> map=Maps.newHashMap();
+        map.put("id",100);
+        map.put("userName","赵丽颖");
+        map.put("email","zhaoliyin@lhyzp.com");
+        map.put("phone","15196785021");
+        map.put("createDate",new Date());
+        map.put("active",true);
+        mapList.add(map);
+        Workbook workbook = ExcelUtil.exportExcelMap(tableParam,mapList);
 
         String excelName="excel名称.xlsx";
-
-        List<SysUser> list = sysUserService.list(null);
-        Workbook workbook = ExcelUtil.exportExcel(tableParam,list);
-
-
         response.setHeader("content-Type", "application/vnd.ms-excel;charset=UTF-8");
         excelName=new String(excelName.getBytes("gbk"),"iso8859-1");
         response.setHeader("Content-Disposition", "attachment;filename="+excelName);
