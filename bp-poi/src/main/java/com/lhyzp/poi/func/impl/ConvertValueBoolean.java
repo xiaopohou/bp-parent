@@ -1,10 +1,12 @@
-package com.lhyzp.excel;
+package com.lhyzp.poi.func.impl;
+
+import com.lhyzp.poi.func.ConvertValue;
 
 /**
  * 布尔类型的是否转换
  * Created by Administrator on 2017-11-29.
  */
-public class ConvertValueBoolean implements ConvertValue{
+public class ConvertValueBoolean implements ConvertValue {
 
 
     @Override

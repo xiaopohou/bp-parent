@@ -1,4 +1,4 @@
-package com.lhyzp.excel;
+package com.lhyzp.poi.entity;
 
 /**
  * 列样式属性

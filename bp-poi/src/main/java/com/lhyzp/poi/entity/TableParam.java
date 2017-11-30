@@ -1,4 +1,4 @@
-package com.lhyzp.excel;
+package com.lhyzp.poi.entity;
 
 import java.util.List;
 
@@ -26,6 +26,9 @@ public class TableParam {
     //标题行设置
     private HeadRowStyle headRowStyle=new HeadRowStyle();
 
+    //导出Excel类型xls/xlsx   默认为xlsx
+    private ExcelType excelType=ExcelType.XLSX;
+
     //数据对象属性数组
     private List<ColumnParam> columnParams;
 
@@ -36,6 +39,10 @@ public class TableParam {
         this.sheetName = sheetName;
         this.startRow = startRow;
         this.height = height;
+    }
+
+    public TableParam(ExcelType excelType) {
+        this.excelType = excelType;
     }
 
     public String getSheetName() {
@@ -92,5 +99,13 @@ public class TableParam {
 
     public void setReadRow(Integer readRow) {
         this.readRow = readRow;
+    }
+
+    public ExcelType getExcelType() {
+        return excelType;
+    }
+
+    public void setExcelType(ExcelType excelType) {
+        this.excelType = excelType;
     }
 }

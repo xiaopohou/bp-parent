@@ -1,10 +1,12 @@
-package com.lhyzp.excel;
+package com.lhyzp.poi.func.impl;
+
+import com.lhyzp.poi.func.ConvertValue;
 
 /**
  * Short类型的是否转换
  * Created by Administrator on 2017-11-29.
  */
-public class ConvertValueShort implements ConvertValue{
+public class ConvertValueShort implements ConvertValue {
     @Override
     public String convert(Object obj) {
         if(obj.equals("1")){
