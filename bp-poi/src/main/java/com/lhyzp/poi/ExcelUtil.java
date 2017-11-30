@@ -8,6 +8,7 @@ import com.lhyzp.poi.util.StringUtils;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.*;
 
 import java.beans.IntrospectionException;
@@ -20,9 +21,7 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * excel导入导出工具类
@@ -35,7 +34,7 @@ public class ExcelUtil {
 
 
     /**
-     * XLS简单导出：设置列参数的导出--表格属性为默认值
+     * 简单导出：设置列参数的导出--表格属性为默认值
      * @param columnParams 列参数对象集合
      * @param data 数据
      * @return
@@ -43,29 +42,15 @@ public class ExcelUtil {
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
-    public static HSSFWorkbook exportXLS(List<ColumnParam> columnParams, List<?> data) throws IntrospectionException, InvocationTargetException, IllegalAccessException {
+    public static Workbook exportExcel(List<ColumnParam> columnParams, List<?> data) throws IntrospectionException, InvocationTargetException, IllegalAccessException {
         TableParam tableParam=new TableParam();
         tableParam.setColumnParams(columnParams);
-        return exportXLS(tableParam,data);
+        return exportExcel(tableParam,data);
 
-    }
-    /**
-     * XLSX简单导出：设置列参数的导出--表格属性为默认值
-     * @param columnParams 列参数对象集合
-     * @param data 数据
-     * @return
-     * @throws IntrospectionException
-     * @throws InvocationTargetException
-     * @throws IllegalAccessException
-     */
-    public static XSSFWorkbook exportXLSX(List<ColumnParam> columnParams, List<?> data) throws IntrospectionException, InvocationTargetException, IllegalAccessException {
-        TableParam tableParam=new TableParam();
-        tableParam.setColumnParams(columnParams);
-        return exportXLSX(tableParam,data);
     }
 
     /**
-     * 参数设置导出
+     * 导出 -- 对象方式
      * @param tableParam Excel参数对象
      * @param data 数据
      * @return
@@ -77,11 +62,11 @@ public class ExcelUtil {
         /*创建Workbook和Sheet*/
         Workbook workbook;
         if(ExcelType.XLSX.equals(tableParam.getExcelType())){
-            workbook = new HSSFWorkbook();
+            workbook = new XSSFWorkbook();
         }else if(ExcelType.XLS.equals(tableParam.getExcelType())){
             workbook = new HSSFWorkbook();
         }else {
-            workbook = new XSSFWorkbook();
+            workbook = new SXSSFWorkbook();
         }
 
         /*创建Workbook和Sheet*/
@@ -94,22 +79,8 @@ public class ExcelUtil {
         if(tableParam.getCreateHeadRow()){
             /*创建标题行*/
             Row row = sheet.createRow(startRow);// 创建行,从0开始
-            //标题行样式
-            CellStyle style = workbook.createCellStyle();
-            Font font = workbook.createFont();
-            //加粗
-            //font.setBold(tableParam.getHeadRowStyle().getHeadBold());
-            style.setFont(font);
-            //居中
-            //style.setAlignment(tableParam.getHeadRowStyle().getHorizontalAlignment());
-
-            for(int i=0;i<columnParams.size();i++){
-                // 创建行的单元格,也是从0开始
-                Cell cell = row.createCell(i);
-                // 设置单元格内容
-                cell.setCellValue(columnParams.get(i).getTitle());
-                cell.setCellStyle(style);
-            }
+            //标题设置
+            setHeadRow(workbook,row,tableParam);
         }
         //创建数据
         for(int k = 0; k<data.size(); k++) {
@@ -130,30 +101,126 @@ public class ExcelUtil {
 
                 // 创建行的单元格
                 Cell cell = _row.createCell(j);
-                if(result instanceof Date){
-                    Date date = (Date) result;
-                    String strDate = sdf.format(date);
-                    String format = columnParams.get(j).getFormat();
-                    if(StringUtils.isNotEmptyString(format)){
-                        SimpleDateFormat s=new SimpleDateFormat(format);
-                        strDate = s.format(date);
-                    }
-                    cell.setCellValue(strDate);
-
-                }else{
-                    //如果需要值替换
-                    ConvertValue convertValue = columnParams.get(j).getConvertValue();
-                    if(convertValue!=null){
-                        String val = convertValue.convert(result);
-                        cell.setCellValue(val);
-                    }else{
-                        cell.setCellValue(String.valueOf(result));
-                    }
-                }
+                //设置单元格值及属性
+                String format = columnParams.get(j).getFormat();//获取日期的格式化的格式字符串
+                ConvertValue convertValue = columnParams.get(j).getConvertValue();//需要转换值的方法对象
+                setCell(cell,result,format,convertValue);
 
             }
         }
         return workbook;
+    }
+
+    /**
+     * 导出--Map集合方式
+     * @param tableParam Excel参数对象
+     * @param data 数据--List<Map<></>>
+     * @return
+     * @throws IntrospectionException
+     * @throws InvocationTargetException
+     * @throws IllegalAccessException
+     */
+    public static Workbook exportExcelMap(TableParam tableParam, List<? extends Map<?,?>> data) throws IntrospectionException, InvocationTargetException, IllegalAccessException {
+        /*创建Workbook和Sheet*/
+        Workbook workbook;
+        if(ExcelType.XLSX.equals(tableParam.getExcelType())){
+            workbook = new XSSFWorkbook();
+        }else if(ExcelType.XLS.equals(tableParam.getExcelType())){
+            workbook = new HSSFWorkbook();
+        }else {
+            workbook = new SXSSFWorkbook();
+        }
+
+        /*创建Workbook和Sheet*/
+        Sheet sheet = workbook.createSheet(tableParam.getSheetName());//创建工作表(Sheet)
+
+        Integer startRow = tableParam.getStartRow();
+
+        List<ColumnParam> columnParams = tableParam.getColumnParams();
+        //创建标题
+        if(tableParam.getCreateHeadRow()){
+            /*创建标题行*/
+            Row row = sheet.createRow(startRow);// 创建行,从0开始
+            //标题设置
+            setHeadRow(workbook,row,tableParam);
+        }
+        //创建数据
+        for(int k = 0; k<data.size(); k++) {
+            // 创建行,从标题下一行开始
+            Row _row = sheet.createRow(k+startRow+1);
+            //设置行的高度
+            _row.setHeightInPoints(tableParam.getHeight());
+            for (int j=0;j<columnParams.size();j++) {
+                //根据key获取map的value值
+                Object result = data.get(k).get(columnParams.get(j).getKey());
+
+                //设置列宽
+                sheet.setColumnWidth(j,columnParams.get(j).getWidth()*256);
+
+                // 创建行的单元格
+                Cell cell = _row.createCell(j);
+                //设置单元格值及属性
+                String format = columnParams.get(j).getFormat();//获取日期的格式化的格式字符串
+                ConvertValue convertValue = columnParams.get(j).getConvertValue();//需要转换值的方法对象
+                setCell(cell,result,format,convertValue);
+            }
+        }
+        return workbook;
+    }
+
+    /**
+     * 标题行设置
+     * @param workbook
+     * @param row
+     * @param tableParam
+     */
+    private static void setHeadRow(Workbook workbook,Row row,TableParam tableParam){
+        //标题行样式
+        CellStyle style = workbook.createCellStyle();
+        Font font = workbook.createFont();
+        //加粗
+        font.setBold(tableParam.getHeadRowStyle().getHeadBold());
+        style.setFont(font);
+        //居中
+        style.setAlignment(tableParam.getHeadRowStyle().getHorizontalAlignment());
+        List<ColumnParam> columnParams = tableParam.getColumnParams();
+        for(int i=0;i<columnParams.size();i++){
+            // 创建行的单元格,也是从0开始
+            Cell cell = row.createCell(i);
+            // 设置单元格内容
+            cell.setCellValue(columnParams.get(i).getTitle());
+            cell.setCellStyle(style);
+        }
+    }
+
+    /**
+     * 单元格cell值设置
+     * @param cell
+     * @param result
+     */
+    private static void setCell(Cell cell, Object result, String format, ConvertValue convertValue){
+        if(result!=null) {
+            if (result instanceof Date) {
+                Date date = (Date) result;
+                String strDate = sdf.format(date);
+                if (StringUtils.isNotEmptyString(format)) {
+                    SimpleDateFormat s = new SimpleDateFormat(format);
+                    strDate = s.format(date);
+                }
+                cell.setCellValue(strDate);
+
+            } else {
+                //如果需要值替换
+                if (convertValue != null) {
+                    String val = convertValue.convert(result);
+                    cell.setCellValue(val);
+                } else {
+                    cell.setCellValue(String.valueOf(result));
+                }
+            }
+        }else{
+            cell.setCellValue("");
+        }
     }
 
     /**
@@ -214,26 +281,10 @@ public class ExcelUtil {
 
                 // 创建行的单元格
                 HSSFCell cell = _row.createCell(j);
-                if(result instanceof Date){
-                    Date date = (Date) result;
-                    String strDate = sdf.format(date);
-                    String format = columnParams.get(j).getFormat();
-                    if(StringUtils.isNotEmptyString(format)){
-                        SimpleDateFormat s=new SimpleDateFormat(format);
-                        strDate = s.format(date);
-                    }
-                    cell.setCellValue(strDate);
-
-                }else{
-                    //如果需要值替换
-                    ConvertValue convertValue = columnParams.get(j).getConvertValue();
-                    if(convertValue!=null){
-                        String val = convertValue.convert(result);
-                        cell.setCellValue(val);
-                    }else{
-                        cell.setCellValue(String.valueOf(result));
-                    }
-                }
+                //设置单元格值及属性
+                String format = columnParams.get(j).getFormat();//获取日期的格式化的格式字符串
+                ConvertValue convertValue = columnParams.get(j).getConvertValue();//需要转换值的方法对象
+                setCell(cell,result,format,convertValue);
 
             }
         }
@@ -298,26 +349,10 @@ public class ExcelUtil {
 
                 // 创建行的单元格
                 XSSFCell cell = _row.createCell(j);
-                if(result instanceof Date){
-                    Date date = (Date) result;
-                    String strDate = sdf.format(date);
-                    String format = columnParams.get(j).getFormat();
-                    if(StringUtils.isNotEmptyString(format)){
-                        SimpleDateFormat s=new SimpleDateFormat(format);
-                        strDate = s.format(date);
-                    }
-                    cell.setCellValue(strDate);
-
-                }else{
-                    //如果需要值替换
-                    ConvertValue convertValue = columnParams.get(j).getConvertValue();
-                    if(convertValue!=null){
-                        String val = convertValue.convert(result);
-                        cell.setCellValue(val);
-                    }else{
-                        cell.setCellValue(String.valueOf(result));
-                    }
-                }
+                //设置单元格值及属性
+                String format = columnParams.get(j).getFormat();//获取日期的格式化的格式字符串
+                ConvertValue convertValue = columnParams.get(j).getConvertValue();//需要转换值的方法对象
+                setCell(cell,result,format,convertValue);
 
             }
         }
