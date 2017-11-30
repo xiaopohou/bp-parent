@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../bp-parent/bp-demo/bp-demo.iml" filepath="$PROJECT_DIR$/../bp-parent/bp-demo/bp-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/../bp-parent/bp-parent.iml" filepath="$PROJECT_DIR$/../bp-parent/bp-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../bp-parent/bp-poi/bp-poi.iml" filepath="$PROJECT_DIR$/../bp-parent/bp-poi/bp-poi.iml" />
       <module fileurl="file://$PROJECT_DIR$/../bp-parent/bp-service/bp-service.iml" filepath="$PROJECT_DIR$/../bp-parent/bp-service/bp-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/../bp-parent/bp-utils/bp-utils.iml" filepath="$PROJECT_DIR$/../bp-parent/bp-utils/bp-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/../bp-parent/bp-web/bp-web.iml" filepath="$PROJECT_DIR$/../bp-parent/bp-web/bp-web.iml" />

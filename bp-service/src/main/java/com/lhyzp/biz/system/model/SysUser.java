@@ -103,4 +103,20 @@ public class SysUser implements Serializable{
     public void setValid(Boolean valid) {
         this.valid = valid;
     }
+
+    @Override
+    public String toString() {
+        return "SysUser{" +
+                "id=" + id +
+                ", active=" + active +
+                ", createDate=" + createDate +
+                ", email='" + email + '\'' +
+                ", idCard='" + idCard + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", updateDate=" + updateDate +
+                ", userName='" + userName + '\'' +
+                ", valid=" + valid +
+                '}';
+    }
 }

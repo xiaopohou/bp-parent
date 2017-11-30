@@ -64,6 +64,7 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/api/account/login", "anon");
         filterChainDefinitionMap.put("/api/user/export", "anon");
         filterChainDefinitionMap.put("/api/user/import", "anon");
+        filterChainDefinitionMap.put("/api/user/export2", "anon");
 
         filterChainDefinitionMap.put("/**", "authc");//拦截的url
 

@@ -6,8 +6,15 @@ import com.lhyzp.annotation.OpLog;
 import com.lhyzp.base.BaseController;
 import com.lhyzp.biz.system.model.SysUser;
 import com.lhyzp.biz.system.service.SysUserService;
-import com.lhyzp.excel.*;
+import com.lhyzp.poi.ExcelUtil;
+import com.lhyzp.poi.entity.ColumnParam;
+import com.lhyzp.poi.entity.ExcelType;
+import com.lhyzp.poi.entity.TableParam;
+import com.lhyzp.poi.func.impl.ConvertValueBoolean;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +23,6 @@ import java.beans.IntrospectionException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -33,11 +39,7 @@ public class SysUserController extends BaseController{
 
     @RequestMapping("/export")
     public void export(HttpServletResponse response) throws IOException, IllegalAccessException, IntrospectionException, InvocationTargetException {
-        //创建标题
-        String[] titles={"ID","姓名","邮箱","手机","身份证号","创建日期","启用"};
-        String[] keys={"id","userName","email","phone","idCard","createDate","active"};
-
-        TableParam tableParam=new TableParam();
+        TableParam tableParam=new TableParam(ExcelType.XLS);
         List<ColumnParam> columnParams= Lists.newArrayList(
                 new ColumnParam("ID","id",5),
                 new ColumnParam("姓名","userName",15),
@@ -55,7 +57,36 @@ public class SysUserController extends BaseController{
         String excelName="excel名称.xls";
 
         List<SysUser> list = sysUserService.list(null);
-        HSSFWorkbook workbook = ExcelUtil.exportExcel(tableParam,list);
+        Workbook workbook = ExcelUtil.exportExcel(tableParam,list);
+
+
+        response.setHeader("content-Type", "application/vnd.ms-excel;charset=UTF-8");
+        excelName=new String(excelName.getBytes("gbk"),"iso8859-1");
+        response.setHeader("Content-Disposition", "attachment;filename="+excelName);
+        workbook.write(response.getOutputStream());
+
+    }
+    @RequestMapping("/export2")
+    public void export2(HttpServletResponse response) throws IOException, IllegalAccessException, IntrospectionException, InvocationTargetException {
+        TableParam tableParam=new TableParam();
+        List<ColumnParam> columnParams= Lists.newArrayList(
+                new ColumnParam("ID","id",5),
+                new ColumnParam("姓名","userName",15),
+                new ColumnParam("邮箱","email",15),
+                new ColumnParam("手机","phone",15),
+                new ColumnParam("身份证号","idCard",25),
+                new ColumnParam("创建日期","createDate",25,"yyyy-MM-dd HH:mm:ss"),
+                new ColumnParam("启用","active",new ConvertValueBoolean())
+        );
+        tableParam.setColumnParams(columnParams);
+
+
+
+
+        String excelName="excel名称.xlsx";
+
+        List<SysUser> list = sysUserService.list(null);
+        Workbook workbook = ExcelUtil.exportExcel(tableParam,list);
 
 
         response.setHeader("content-Type", "application/vnd.ms-excel;charset=UTF-8");
@@ -65,9 +96,7 @@ public class SysUserController extends BaseController{
 
     }
     @GetMapping("import")
-    public void importExcel() throws IOException, InstantiationException, IllegalAccessException, IntrospectionException, InvocationTargetException, ParseException {
-        String[] keys={"id","userName","email","phone","idCard","createDate","active"};
-
+    public void importExcel() throws IOException, InstantiationException, IllegalAccessException, IntrospectionException, InvocationTargetException, ParseException, InvalidFormatException {
         TableParam tableParam=new TableParam();
         List<ColumnParam> columnParams= Lists.newArrayList(
                 new ColumnParam("ID","id",5),
@@ -80,7 +109,7 @@ public class SysUserController extends BaseController{
         );
         tableParam.setColumnParams(columnParams);
 
-        List<SysUser> list = (List<SysUser>) ExcelUtil.importExcel("C:\\Users\\Administrator\\Downloads\\excel名称 (20).xls", tableParam,SysUser.class);
+        List<SysUser> list = (List<SysUser>) ExcelUtil.importExcel("C:\\Users\\Administrator\\Downloads\\excel名称.xls", tableParam,SysUser.class);
 
         list.forEach(user-> System.out.println(user.toString()));
 
