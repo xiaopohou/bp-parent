@@ -375,7 +375,7 @@ public class ExcelUtil {
      * @throws InvocationTargetException
      * @throws ParseException
      */
-    public static List<?> importExcel(String filePath,TableParam tableParam, Class clazz) throws IOException, IllegalAccessException, InstantiationException, IntrospectionException, InvocationTargetException, ParseException, InvalidFormatException {
+    public static List<?> importExcel(String filePath,TableParam tableParam, Class<?> clazz) throws IOException, IllegalAccessException, InstantiationException, IntrospectionException, InvocationTargetException, ParseException, InvalidFormatException {
         FileInputStream fileInputStream=new FileInputStream(filePath);
         return importExcel(fileInputStream,tableParam,clazz);
     }
@@ -393,7 +393,7 @@ public class ExcelUtil {
      * @throws InvocationTargetException
      * @throws ParseException
      */
-    public static List<?> importExcel(InputStream stream,TableParam tableParam, Class clazz) throws IOException, IllegalAccessException, InstantiationException, IntrospectionException, InvocationTargetException, ParseException, InvalidFormatException {
+    public static List<?> importExcel(InputStream stream,TableParam tableParam, Class<?> clazz) throws IOException, IllegalAccessException, InstantiationException, IntrospectionException, InvocationTargetException, ParseException, InvalidFormatException {
         List<Object> list=new ArrayList();
         Workbook workbook = WorkbookFactory.create(stream);//读取Excel
         Sheet sheet= workbook.getSheet(tableParam.getSheetName());//得到Sheet
@@ -497,7 +497,7 @@ public class ExcelUtil {
      * @throws InvocationTargetException
      * @throws ParseException
      */
-    public static List<?> importXLS(InputStream stream,TableParam tableParam, Class clazz) throws IOException, IllegalAccessException, InstantiationException, IntrospectionException, InvocationTargetException, ParseException {
+    public static List<?> importXLS(InputStream stream,TableParam tableParam, Class<?> clazz) throws IOException, IllegalAccessException, InstantiationException, IntrospectionException, InvocationTargetException, ParseException {
         List<Object> list=new ArrayList();
         HSSFWorkbook workbook = new HSSFWorkbook(stream);//读取Excel
         HSSFSheet sheet= workbook.getSheet(tableParam.getSheetName());//得到Sheet
@@ -601,7 +601,7 @@ public class ExcelUtil {
      * @throws InvocationTargetException
      * @throws ParseException
      */
-    public static List<?> importXLSX(InputStream stream,TableParam tableParam, Class clazz) throws IOException, IllegalAccessException, InstantiationException, IntrospectionException, InvocationTargetException, ParseException {
+    public static List<?> importXLSX(InputStream stream,TableParam tableParam, Class<?> clazz) throws IOException, IllegalAccessException, InstantiationException, IntrospectionException, InvocationTargetException, ParseException {
         List<Object> list=new ArrayList();
         XSSFWorkbook workbook = new XSSFWorkbook(stream);//读取Excel
         XSSFSheet sheet= workbook.getSheet(tableParam.getSheetName());//得到Sheet
