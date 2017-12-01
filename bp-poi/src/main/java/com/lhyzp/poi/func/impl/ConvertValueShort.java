@@ -9,7 +9,8 @@ import com.lhyzp.poi.func.ConvertValue;
 public class ConvertValueShort implements ConvertValue {
     @Override
     public String convert(Object obj) {
-        if(obj.equals("1")){
+        String s = obj.toString();
+        if(s.equals("1")){
             return "是";
         }
         return "否";
