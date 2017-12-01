@@ -174,7 +174,7 @@ public class ExcelUtil {
      * @param row
      * @param tableParam
      */
-    private static void setHeadRow(Workbook workbook,Row row,TableParam tableParam){
+    private static void setHeadRow(Workbook workbook, Row row, TableParam tableParam){
         //标题行样式
         CellStyle style = workbook.createCellStyle();
         Font font = workbook.createFont();
@@ -415,30 +415,32 @@ public class ExcelUtil {
 
                 //列的值
                 String value = "";
-                //判断格式
-                switch (cell.getCellTypeEnum()){
-                    case STRING:
-                        value = cell.getStringCellValue();
-                        break;
-                    case BOOLEAN:
-                        value = String.valueOf(cell.getBooleanCellValue());
-                        break;
-                    case FORMULA:
-                        value = cell.getCellFormula();
-                        break;
-                    case NUMERIC:
-                        //判断是否为日期格式
-                        if(DateUtil.isCellDateFormatted(cell)){
-                            value = sdf.format(cell.getDateCellValue());
-                        }else {
-                            // 不是日期格式，则防止当数字过长时以科学计数法显示
-                            cell.setCellType(CellType.STRING);
-                            value = cell.toString();
-                        }
-                        break;
-                    default:
-                        value = cell.getStringCellValue();
-                        break;
+                if(cell!=null) {
+                    //判断格式
+                    switch (cell.getCellTypeEnum()) {
+                        case STRING:
+                            value = cell.getStringCellValue();
+                            break;
+                        case BOOLEAN:
+                            value = String.valueOf(cell.getBooleanCellValue());
+                            break;
+                        case FORMULA:
+                            value = cell.getCellFormula();
+                            break;
+                        case NUMERIC:
+                            //判断是否为日期格式
+                            if (DateUtil.isCellDateFormatted(cell)) {
+                                value = sdf.format(cell.getDateCellValue());
+                            } else {
+                                // 不是日期格式，则防止当数字过长时以科学计数法显示
+                                cell.setCellType(CellType.STRING);
+                                value = cell.toString();
+                            }
+                            break;
+                        default:
+                            value = cell.getStringCellValue();
+                            break;
+                    }
                 }
 
 
@@ -448,30 +450,34 @@ public class ExcelUtil {
                     value = convertValue.convert(value);
                 }
 
-                //判断类型
-                if(propertyType == String.class){
-                    writeMethod.invoke(instance,value);
-                }else if(propertyType == Integer.class){
-                    writeMethod.invoke(instance,Integer.parseInt(value));
-                }else if(propertyType == Short.class){
-                    writeMethod.invoke(instance,Short.parseShort(value));
-                }else if(propertyType == Date.class){
-                    String format = columnParams.get(j).getFormat();
-                    if (StringUtils.isNotEmptyString( format)) {
-                        sdf=new SimpleDateFormat(format);
+                //判断类型---说明：如果传进来为空或空字符串时,统一把值设置为(Object)null,否则invoke赋值会报错
+                if(StringUtils.isEmptyString(value)){
+                    writeMethod.invoke(instance, (Object)null);
+                }else {
+                    if (propertyType == String.class) {
+                        writeMethod.invoke(instance, value);
+                    } else if (propertyType == Integer.class) {
+                        writeMethod.invoke(instance, Integer.parseInt(value));
+                    } else if (propertyType == Short.class) {
+                        writeMethod.invoke(instance, Short.parseShort(value));
+                    } else if (propertyType == Date.class) {
+                        String format = columnParams.get(j).getFormat();
+                        if (StringUtils.isNotEmptyString(format)) {
+                            sdf = new SimpleDateFormat(format);
+                        }
+                        Date date = sdf.parse(value);
+                        writeMethod.invoke(instance, date);
+                    } else if (propertyType == Boolean.class) {
+                        writeMethod.invoke(instance, Boolean.parseBoolean(value));
+                    } else if (propertyType == Long.class) {
+                        writeMethod.invoke(instance, Long.parseLong(value));
+                    } else if (propertyType == Double.class) {
+                        writeMethod.invoke(instance, Double.parseDouble(value));
+                    } else if (propertyType == Float.class) {
+                        writeMethod.invoke(instance, Float.parseFloat(value));
+                    } else if (propertyType == BigDecimal.class) {
+                        writeMethod.invoke(instance, BigDecimal.valueOf(Long.parseLong(value)));
                     }
-                    Date date = sdf.parse(value);
-                    writeMethod.invoke(instance,date);
-                }else if(propertyType == Boolean.class){
-                    writeMethod.invoke(instance,Boolean.parseBoolean(value));
-                }else if(propertyType == Long.class){
-                    writeMethod.invoke(instance,Long.parseLong(value));
-                }else if(propertyType == Double.class){
-                    writeMethod.invoke(instance,Double.parseDouble(value));
-                }else if(propertyType == Float.class){
-                    writeMethod.invoke(instance,Float.parseFloat(value));
-                }else if(propertyType == BigDecimal.class){
-                    writeMethod.invoke(instance,BigDecimal.valueOf(Long.parseLong(value)));
                 }
             }
             list.add(instance);
@@ -513,30 +519,32 @@ public class ExcelUtil {
 
                 //列的值
                 String value = "";
-                //判断格式
-                switch (cell.getCellTypeEnum()){
-                    case STRING:
-                        value = cell.getStringCellValue();
-                        break;
-                    case BOOLEAN:
-                        value = String.valueOf(cell.getBooleanCellValue());
-                        break;
-                    case FORMULA:
-                        value = cell.getCellFormula();
-                        break;
-                    case NUMERIC:
-                        //判断是否为日期格式
-                        if(DateUtil.isCellDateFormatted(cell)){
-                            value = sdf.format(cell.getDateCellValue());
-                        }else {
-                            // 不是日期格式，则防止当数字过长时以科学计数法显示
-                            cell.setCellType(CellType.STRING);
-                            value = cell.toString();
-                        }
-                        break;
-                    default:
-                        value = cell.getStringCellValue();
-                        break;
+                if(cell!=null) {
+                    //判断格式
+                    switch (cell.getCellTypeEnum()) {
+                        case STRING:
+                            value = cell.getStringCellValue();
+                            break;
+                        case BOOLEAN:
+                            value = String.valueOf(cell.getBooleanCellValue());
+                            break;
+                        case FORMULA:
+                            value = cell.getCellFormula();
+                            break;
+                        case NUMERIC:
+                            //判断是否为日期格式
+                            if (DateUtil.isCellDateFormatted(cell)) {
+                                value = sdf.format(cell.getDateCellValue());
+                            } else {
+                                // 不是日期格式，则防止当数字过长时以科学计数法显示
+                                cell.setCellType(CellType.STRING);
+                                value = cell.toString();
+                            }
+                            break;
+                        default:
+                            value = cell.getStringCellValue();
+                            break;
+                    }
                 }
 
 
@@ -546,30 +554,34 @@ public class ExcelUtil {
                     value = convertValue.convert(value);
                 }
 
-                //判断类型
-                if(propertyType == String.class){
-                    writeMethod.invoke(instance,value);
-                }else if(propertyType == Integer.class){
-                    writeMethod.invoke(instance,Integer.parseInt(value));
-                }else if(propertyType == Short.class){
-                    writeMethod.invoke(instance,Short.parseShort(value));
-                }else if(propertyType == Date.class){
-                    String format = columnParams.get(j).getFormat();
-                    if (StringUtils.isNotEmptyString( format)) {
-                        sdf=new SimpleDateFormat(format);
+                //判断类型---说明：如果传进来为空或空字符串时,统一把值设置为(Object)null,否则invoke赋值会报错
+                if(StringUtils.isEmptyString(value)){
+                    writeMethod.invoke(instance, (Object)null);
+                }else {
+                    if (propertyType == String.class) {
+                        writeMethod.invoke(instance, value);
+                    } else if (propertyType == Integer.class) {
+                        writeMethod.invoke(instance, Integer.parseInt(value));
+                    } else if (propertyType == Short.class) {
+                        writeMethod.invoke(instance, Short.parseShort(value));
+                    } else if (propertyType == Date.class) {
+                        String format = columnParams.get(j).getFormat();
+                        if (StringUtils.isNotEmptyString(format)) {
+                            sdf = new SimpleDateFormat(format);
+                        }
+                        Date date = sdf.parse(value);
+                        writeMethod.invoke(instance, date);
+                    } else if (propertyType == Boolean.class) {
+                        writeMethod.invoke(instance, Boolean.parseBoolean(value));
+                    } else if (propertyType == Long.class) {
+                        writeMethod.invoke(instance, Long.parseLong(value));
+                    } else if (propertyType == Double.class) {
+                        writeMethod.invoke(instance, Double.parseDouble(value));
+                    } else if (propertyType == Float.class) {
+                        writeMethod.invoke(instance, Float.parseFloat(value));
+                    } else if (propertyType == BigDecimal.class) {
+                        writeMethod.invoke(instance, BigDecimal.valueOf(Long.parseLong(value)));
                     }
-                    Date date = sdf.parse(value);
-                    writeMethod.invoke(instance,date);
-                }else if(propertyType == Boolean.class){
-                    writeMethod.invoke(instance,Boolean.parseBoolean(value));
-                }else if(propertyType == Long.class){
-                    writeMethod.invoke(instance,Long.parseLong(value));
-                }else if(propertyType == Double.class){
-                    writeMethod.invoke(instance,Double.parseDouble(value));
-                }else if(propertyType == Float.class){
-                    writeMethod.invoke(instance,Float.parseFloat(value));
-                }else if(propertyType == BigDecimal.class){
-                    writeMethod.invoke(instance,BigDecimal.valueOf(Long.parseLong(value)));
                 }
             }
             list.add(instance);
@@ -611,30 +623,32 @@ public class ExcelUtil {
 
                 //列的值
                 String value = "";
-                //判断格式
-                switch (cell.getCellTypeEnum()){
-                    case STRING:
-                        value = cell.getStringCellValue();
-                        break;
-                    case BOOLEAN:
-                        value = String.valueOf(cell.getBooleanCellValue());
-                        break;
-                    case FORMULA:
-                        value = cell.getCellFormula();
-                        break;
-                    case NUMERIC:
-                        //判断是否为日期格式
-                        if(DateUtil.isCellDateFormatted(cell)){
-                            value = sdf.format(cell.getDateCellValue());
-                        }else {
-                            // 不是日期格式，则防止当数字过长时以科学计数法显示
-                            cell.setCellType(CellType.STRING);
-                            value = cell.toString();
-                        }
-                        break;
-                    default:
-                        value = cell.getStringCellValue();
-                        break;
+                if(cell!=null) {
+                    //判断格式
+                    switch (cell.getCellTypeEnum()) {
+                        case STRING:
+                            value = cell.getStringCellValue();
+                            break;
+                        case BOOLEAN:
+                            value = String.valueOf(cell.getBooleanCellValue());
+                            break;
+                        case FORMULA:
+                            value = cell.getCellFormula();
+                            break;
+                        case NUMERIC:
+                            //判断是否为日期格式
+                            if (DateUtil.isCellDateFormatted(cell)) {
+                                value = sdf.format(cell.getDateCellValue());
+                            } else {
+                                // 不是日期格式，则防止当数字过长时以科学计数法显示
+                                cell.setCellType(CellType.STRING);
+                                value = cell.toString();
+                            }
+                            break;
+                        default:
+                            value = cell.getStringCellValue();
+                            break;
+                    }
                 }
 
 
@@ -644,30 +658,34 @@ public class ExcelUtil {
                     value = convertValue.convert(value);
                 }
 
-                //判断类型
-                if(propertyType == String.class){
-                    writeMethod.invoke(instance,value);
-                }else if(propertyType == Integer.class){
-                    writeMethod.invoke(instance,Integer.parseInt(value));
-                }else if(propertyType == Short.class){
-                    writeMethod.invoke(instance,Short.parseShort(value));
-                }else if(propertyType == Date.class){
-                    String format = columnParams.get(j).getFormat();
-                    if (StringUtils.isNotEmptyString( format)) {
-                        sdf=new SimpleDateFormat(format);
+                //判断类型---说明：如果传进来为空或空字符串时,统一把值设置为(Object)null,否则invoke赋值会报错
+                if(StringUtils.isEmptyString(value)){
+                    writeMethod.invoke(instance, (Object)null);
+                }else {
+                    if (propertyType == String.class) {
+                        writeMethod.invoke(instance, value);
+                    } else if (propertyType == Integer.class) {
+                        writeMethod.invoke(instance, Integer.parseInt(value));
+                    } else if (propertyType == Short.class) {
+                        writeMethod.invoke(instance, Short.parseShort(value));
+                    } else if (propertyType == Date.class) {
+                        String format = columnParams.get(j).getFormat();
+                        if (StringUtils.isNotEmptyString(format)) {
+                            sdf = new SimpleDateFormat(format);
+                        }
+                        Date date = sdf.parse(value);
+                        writeMethod.invoke(instance, date);
+                    } else if (propertyType == Boolean.class) {
+                        writeMethod.invoke(instance, Boolean.parseBoolean(value));
+                    } else if (propertyType == Long.class) {
+                        writeMethod.invoke(instance, Long.parseLong(value));
+                    } else if (propertyType == Double.class) {
+                        writeMethod.invoke(instance, Double.parseDouble(value));
+                    } else if (propertyType == Float.class) {
+                        writeMethod.invoke(instance, Float.parseFloat(value));
+                    } else if (propertyType == BigDecimal.class) {
+                        writeMethod.invoke(instance, BigDecimal.valueOf(Long.parseLong(value)));
                     }
-                    Date date = sdf.parse(value);
-                    writeMethod.invoke(instance,date);
-                }else if(propertyType == Boolean.class){
-                    writeMethod.invoke(instance,Boolean.parseBoolean(value));
-                }else if(propertyType == Long.class){
-                    writeMethod.invoke(instance,Long.parseLong(value));
-                }else if(propertyType == Double.class){
-                    writeMethod.invoke(instance,Double.parseDouble(value));
-                }else if(propertyType == Float.class){
-                    writeMethod.invoke(instance,Float.parseFloat(value));
-                }else if(propertyType == BigDecimal.class){
-                    writeMethod.invoke(instance,BigDecimal.valueOf(Long.parseLong(value)));
                 }
             }
             list.add(instance);
