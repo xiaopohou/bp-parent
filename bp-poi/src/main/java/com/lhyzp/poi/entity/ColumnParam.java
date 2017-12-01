@@ -14,8 +14,8 @@ public class ColumnParam {
     //属性名
     private String key;
 
-    //列宽度,默认为10个字符
-    private int width = 10;
+    //列宽度,默认为15个字符
+    private int width = 15;
 
     //日期格式时的转化方式
     private String format;
@@ -78,6 +78,13 @@ public class ColumnParam {
         this.title = title;
         this.key = key;
         this.format = format;
+        this.convertValue = convertValue;
+    }
+
+    public ColumnParam(String title, String key, int width, ConvertValue convertValue) {
+        this.title = title;
+        this.key = key;
+        this.width = width;
         this.convertValue = convertValue;
     }
 
