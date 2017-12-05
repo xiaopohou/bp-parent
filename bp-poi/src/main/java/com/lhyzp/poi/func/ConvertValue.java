@@ -5,6 +5,17 @@ package com.lhyzp.poi.func;
  * Created by Administrator on 2017-11-29.
  */
 public interface ConvertValue {
+    /**
+     * 导出时,值的转换
+     * @param obj
+     * @return
+     */
     String convert(Object obj);
+
+    /**
+     * 导入时,值转换
+     * @param obj
+     * @return
+     */
     String convert(String obj);
 }
