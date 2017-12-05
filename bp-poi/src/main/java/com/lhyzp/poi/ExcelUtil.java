@@ -383,6 +383,24 @@ public class ExcelUtil {
     /**
      * 导入--支持xls和xlsx
      * @param stream 文件流
+     * @param columnParams Excel配置对象
+     * @param clazz Class
+     * @return
+     * @throws IOException
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     * @throws IntrospectionException
+     * @throws InvocationTargetException
+     * @throws ParseException
+     */
+    public static List<?> importExcel(InputStream stream,List<ColumnParam> columnParams, Class<?> clazz) throws IOException, IllegalAccessException, InstantiationException, IntrospectionException, InvocationTargetException, ParseException, InvalidFormatException {
+        TableParam tableParam=new TableParam();
+        tableParam.setColumnParams(columnParams);
+        return importExcel(stream,tableParam,clazz);
+    }
+    /**
+     * 导入--支持xls和xlsx
+     * @param stream 文件流
      * @param tableParam Excel配置对象
      * @param clazz Class
      * @return
@@ -395,7 +413,7 @@ public class ExcelUtil {
      */
     public static List<?> importExcel(InputStream stream,TableParam tableParam, Class<?> clazz) throws IOException, IllegalAccessException, InstantiationException, IntrospectionException, InvocationTargetException, ParseException, InvalidFormatException {
         List<Object> list=new ArrayList();
-        Workbook workbook = WorkbookFactory.create(stream);//读取Excel
+        Workbook workbook=WorkbookFactory.create(stream);
         Sheet sheet= workbook.getSheet(tableParam.getSheetName());//得到Sheet
 
         //数据开始行
