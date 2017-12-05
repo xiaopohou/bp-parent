@@ -476,7 +476,7 @@ public class ExcelUtil {
                     } else if (propertyType == Float.class) {
                         writeMethod.invoke(instance, Float.parseFloat(value));
                     } else if (propertyType == BigDecimal.class) {
-                        writeMethod.invoke(instance, BigDecimal.valueOf(Long.parseLong(value)));
+                        writeMethod.invoke(instance, BigDecimal.valueOf(Double.parseDouble(value)));
                     }
                 }
             }
@@ -580,7 +580,7 @@ public class ExcelUtil {
                     } else if (propertyType == Float.class) {
                         writeMethod.invoke(instance, Float.parseFloat(value));
                     } else if (propertyType == BigDecimal.class) {
-                        writeMethod.invoke(instance, BigDecimal.valueOf(Long.parseLong(value)));
+                        writeMethod.invoke(instance, BigDecimal.valueOf(Double.parseDouble(value)));
                     }
                 }
             }
@@ -684,7 +684,7 @@ public class ExcelUtil {
                     } else if (propertyType == Float.class) {
                         writeMethod.invoke(instance, Float.parseFloat(value));
                     } else if (propertyType == BigDecimal.class) {
-                        writeMethod.invoke(instance, BigDecimal.valueOf(Long.parseLong(value)));
+                        writeMethod.invoke(instance, BigDecimal.valueOf(Double.parseDouble(value)));
                     }
                 }
             }
