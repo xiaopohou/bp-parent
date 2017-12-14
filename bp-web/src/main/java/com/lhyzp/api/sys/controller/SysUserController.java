@@ -11,6 +11,7 @@ import com.lhyzp.poi.entity.ColumnParam;
 import com.lhyzp.poi.entity.ExcelType;
 import com.lhyzp.poi.entity.TableParam;
 import com.lhyzp.poi.func.impl.ConvertValueBoolean;
+import net.coobird.thumbnailator.Thumbnails;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,31 +39,36 @@ public class SysUserController extends BaseController{
 
     @RequestMapping("/export")
     public void export(HttpServletResponse response) throws IOException, IllegalAccessException, IntrospectionException, InvocationTargetException {
-        TableParam tableParam=new TableParam(ExcelType.XLS);
-        List<ColumnParam> columnParams= Lists.newArrayList(
-                new ColumnParam("ID","id",5),
-                new ColumnParam("姓名","userName",15),
-                new ColumnParam("邮箱","email",15),
-                new ColumnParam("手机","phone",15),
-                new ColumnParam("身份证号","idCard",25),
-                new ColumnParam("创建日期","createDate",25,"yyyy-MM-dd HH:mm:ss"),
-                new ColumnParam("启用","active",new ConvertValueBoolean())
-        );
-        tableParam.setColumnParams(columnParams);
+//        TableParam tableParam=new TableParam(ExcelType.XLS);
+//        List<ColumnParam> columnParams= Lists.newArrayList(
+//                new ColumnParam("ID","id",5),
+//                new ColumnParam("姓名","userName",15),
+//                new ColumnParam("邮箱","email",15),
+//                new ColumnParam("手机","phone",15),
+//                new ColumnParam("身份证号","idCard",25),
+//                new ColumnParam("创建日期","createDate",25,"yyyy-MM-dd HH:mm:ss"),
+//                new ColumnParam("启用","active",new ConvertValueBoolean())
+//        );
+//        tableParam.setColumnParams(columnParams);
+//
+//
+//
+//
+//        String excelName="excel名称.xls";
+//
+//        List<SysUser> list = sysUserService.list(null);
+//        Workbook workbook = ExcelUtil.exportExcel(tableParam,list);
+//
+//
+//        response.setHeader("content-Type", "application/vnd.ms-excel;charset=UTF-8");
+//        excelName=new String(excelName.getBytes("gbk"),"iso8859-1");
+//        response.setHeader("Content-Disposition", "attachment;filename="+excelName);
+//        workbook.write(response.getOutputStream());
 
-
-
-
-        String excelName="excel名称.xls";
-
-        List<SysUser> list = sysUserService.list(null);
-        Workbook workbook = ExcelUtil.exportExcel(tableParam,list);
-
-
-        response.setHeader("content-Type", "application/vnd.ms-excel;charset=UTF-8");
-        excelName=new String(excelName.getBytes("gbk"),"iso8859-1");
-        response.setHeader("Content-Disposition", "attachment;filename="+excelName);
-        workbook.write(response.getOutputStream());
+        Thumbnails.of("E:\\15.jpg")
+                .size(200, 200)
+                .outputFormat("png")
+                .toOutputStream(response.getOutputStream());
 
     }
     @RequestMapping("/export2")
