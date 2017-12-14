@@ -2,6 +2,8 @@ package com.lhyzp;
 
 import com.google.common.base.CaseFormat;
 import com.google.common.collect.Maps;
+import net.coobird.thumbnailator.Thumbnails;
+import net.coobird.thumbnailator.geometry.Positions;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -15,6 +17,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import javax.imageio.ImageIO;
+import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
@@ -76,9 +80,26 @@ public class TestRedis {
     }
 
     @Test
-    public void test5(){
-        System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_CAMEL,"jobNumber"));
+    public void test5() throws IOException {
+//        System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_CAMEL,"jobNumber"));
+
+//        Thumbnails.of(new File("E:\\1.jpg"))
+//                .size(160, 160)
+//                .toFile(new File("E:\\thumbnail.jpg"));
+        Thumbnails.of("E:\\14.jpg")
+                .size(160, 160)
+                .toFile("E:\\thumbnail.jpg");
+
+        Thumbnails.of(new File("E:\\14.jpg"))
+                .size(160, 160)
+                .rotate(90)
+                .watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File("E:\\thumbnail.jpg")), 0.5f)
+                .outputQuality(0.8)
+                .toFile(new File("E:\\image-with-watermark.jpg"));
+
+
     }
+
 
     @Test
     public void test4(){
