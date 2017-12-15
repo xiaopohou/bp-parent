@@ -1,7 +1,13 @@
 package com.lhyzp.api.sys.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.lhyzp.annotation.OpLog;
 import com.lhyzp.base.BaseController;
 import com.lhyzp.biz.system.model.SysUser;
@@ -11,6 +17,7 @@ import com.lhyzp.poi.entity.ColumnParam;
 import com.lhyzp.poi.entity.ExcelType;
 import com.lhyzp.poi.entity.TableParam;
 import com.lhyzp.poi.func.impl.ConvertValueBoolean;
+import com.lhyzp.utils.QRCodeUtil;
 import net.coobird.thumbnailator.Thumbnails;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -38,7 +45,7 @@ public class SysUserController extends BaseController{
 
 
     @RequestMapping("/export")
-    public void export(HttpServletResponse response) throws IOException, IllegalAccessException, IntrospectionException, InvocationTargetException {
+    public void export(HttpServletResponse response) throws IOException, IllegalAccessException, IntrospectionException, InvocationTargetException, WriterException {
 //        TableParam tableParam=new TableParam(ExcelType.XLS);
 //        List<ColumnParam> columnParams= Lists.newArrayList(
 //                new ColumnParam("ID","id",5),
@@ -65,10 +72,23 @@ public class SysUserController extends BaseController{
 //        response.setHeader("Content-Disposition", "attachment;filename="+excelName);
 //        workbook.write(response.getOutputStream());
 
-        Thumbnails.of("E:\\15.jpg")
-                .size(200, 200)
-                .outputFormat("png")
-                .toOutputStream(response.getOutputStream());
+        //Thumbnails.of("E:\\15.jpg")
+        //        .size(200, 200)
+        //        .outputFormat("png")
+        //        .toOutputStream(response.getOutputStream());
+
+        JSONObject json = new JSONObject();
+        json.put(
+                "zxing",
+                "https://github.com/zxing/zxing/tree/zxing-3.0.0/javase/src/main/java/com/google/zxing");
+        json.put("author", "shihy");
+        String content = json.toJSONString();// 内容
+        QRCodeUtil.encodeQRCode(response.getOutputStream(),content,300,300);
+
+        //QRCodeUtil.encodeBarCode(response.getOutputStream(),"1234567890",60,40);
+        //QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        //BitMatrix bitMatrix = qrCodeWriter.encode(content, BarcodeFormat.QR_CODE, 300, 300);
+        //MatrixToImageWriter.writeToStream(bitMatrix,"png",response.getOutputStream());
 
     }
     @RequestMapping("/export2")

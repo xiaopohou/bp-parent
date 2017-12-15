@@ -1,10 +1,12 @@
 package com.lhyzp;
 
-import com.google.common.base.CaseFormat;
-import com.google.common.collect.Maps;
+import com.alibaba.fastjson.JSONObject;
+import com.google.zxing.*;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.lhyzp.utils.QRCodeUtil;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
-import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -20,6 +22,9 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -31,22 +36,23 @@ import java.util.Map;
 public class TestRedis {
 
     @Test
-    public void test1(){
-        Map<String,Object> map= Maps.newHashMap();
-        map.put("a",null);
-        map.put("b","1");
+    public void test1() throws WriterException, IOException, NotFoundException {
+        //String filePath = "D://";
+        //String fileName = "zxing.png";
+        //JSONObject json = new JSONObject();
+        //json.put(
+        //        "zxing",
+        //        "https://github.com/zxing/zxing/tree/zxing-3.0.0/javase/src/main/java/com/google/zxing");
+        //json.put("author", "shihy");
+        //String content = json.toJSONString();// 内容
+        //int width = 200; // 图像宽度
+        //int height = 200; // 图像高度
+        //String format = "png";// 图像类型
+        //QRCodeUtil.encodeQRCode(filePath+fileName,content,width,height);
 
-        if(map.containsKey("a")){
-            System.out.println("key存在");
-            Object c = map.get("c");
-            if(map.get("c")==null){
-                System.out.println("key为c的map不存在");
-            }
-        }
+        String s = QRCodeUtil.decodeQRCode("D:\\zxing.png");
+        System.out.println(s);
 
-        if(map.containsKey("b")){
-            System.out.println("b的key存在");
-        }
     }
 
     @Test
