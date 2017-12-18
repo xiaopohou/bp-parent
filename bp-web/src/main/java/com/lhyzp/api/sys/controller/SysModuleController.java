@@ -128,8 +128,10 @@ public class SysModuleController {
         //渲染模板
         FileWriter write = new FileWriter("result.html");
 
-        templateEngine.process("temp", context, write);
-        return "temp";
+        templateEngine.process("temp/temp", context, write);
+
+        write.close();
+        return "temp/temp";
     }
 
 
