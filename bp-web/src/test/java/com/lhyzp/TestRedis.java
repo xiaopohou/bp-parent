@@ -13,6 +13,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.hashids.Hashids;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -22,8 +23,10 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,8 +53,25 @@ public class TestRedis {
         //String format = "png";// 图像类型
         //QRCodeUtil.encodeQRCode(filePath+fileName,content,width,height);
 
-        String s = QRCodeUtil.decodeQRCode("D:\\zxing.png");
-        System.out.println(s);
+        //String s = QRCodeUtil.decodeQRCode("D:\\zxing.png");
+        //System.out.println(s);
+
+
+
+    }
+
+
+    @Test
+    public void test6() throws WriterException, IOException, NotFoundException {
+        //id加密成唯一字符串
+        Hashids hashids=new Hashids("this is my salt");
+        String encodeId = hashids.encode(10000,10001);
+        System.out.println(encodeId);
+
+        //解密
+        long[] decodeIds = hashids.decode(encodeId);
+        System.out.println(Arrays.toString(decodeIds));
+
 
     }
 
