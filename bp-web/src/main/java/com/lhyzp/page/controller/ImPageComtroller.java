@@ -18,4 +18,9 @@ public class ImPageComtroller extends BaseController{
         model.addAttribute("sid", ShiroUtils.getSession().getId());
         return "im/chat";
     }
+
+    @RequestMapping("table")
+    public String table(Model model){
+        return "temp/temp";
+    }
 }
