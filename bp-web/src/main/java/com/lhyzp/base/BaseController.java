@@ -91,18 +91,19 @@ public abstract class BaseController {
     public String success(String message){
         return msg(200,message);
     }
+
     /**
      * 失败消息返回
      * @return
      */
-    public String error(){
+    public String failed(){
         return msg(400,"操作失败");
     }
     /**
      * 失败消息返回
      * @return
      */
-    public String error(String message){
+    public String failed(String message){
         return msg(400,message);
     }
 

@@ -32,11 +32,11 @@ public class GoodsOrderItemController extends BaseController{
         //检查库存数量
         GoodsStock stock = goodsStockService.findById(model.getStock().getId());
         if(stock.getAmount()<model.getAmount()){
-            return error("库存数量不足");
+            return failed("库存数量不足");
         }
         GoodsOrderItem item = goodsOrderItemService.save(model);
         if(item==null){
-            return error("秒杀失败");
+            return failed("秒杀失败");
         }
         return success();
     }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.UndeclaredThrowableException;
 
 /**
  * 全局异常处理
@@ -40,13 +41,25 @@ public class GlobalExcetionHandler{
 	@ExceptionHandler
 	@ResponseBody
 	public String error(Exception ex, HttpServletRequest req) {
+		ResponseMessage rm;
 		//没有权限异常
 		if(ex instanceof UnauthorizedException){
-			ResponseMessage rm=new ResponseMessage(401,"Unauthorized");
+			rm=new ResponseMessage(401,"权限不足");
+			return JSON.toJSONString(rm, SerializerFeature.DisableCircularReferenceDetect);
+		}
+		//自定义异常1
+		if(ex instanceof CustomException){
+			rm=new ResponseMessage(500,ex.getMessage());
+			return JSON.toJSONString(rm, SerializerFeature.DisableCircularReferenceDetect);
+		}
+		//自定义被代理的异常
+		if(ex instanceof UndeclaredThrowableException){
+			ex= (Exception) ((UndeclaredThrowableException) ex).getUndeclaredThrowable();
+			rm=new ResponseMessage(500,ex.getMessage());
 			return JSON.toJSONString(rm, SerializerFeature.DisableCircularReferenceDetect);
 		}
 		logger.error(ex.getMessage(),ex);
-		ResponseMessage rm=new ResponseMessage(500,"Internal Server Error");
+		rm=new ResponseMessage(500,"出错了!!!");
 		return JSON.toJSONString(rm,SerializerFeature.DisableCircularReferenceDetect);
 	}
 }
