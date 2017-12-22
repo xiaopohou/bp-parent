@@ -66,6 +66,12 @@ public class ResponseMessage implements Serializable {
         this.data = data;
     }
 
+    public ResponseMessage(Integer code, String message, String error) {
+        this.code = code;
+        this.message = message;
+        this.error = error;
+    }
+
     public ResponseMessage(Integer code, String message, String error, Object data) {
         this.code = code;
         this.message = message;
