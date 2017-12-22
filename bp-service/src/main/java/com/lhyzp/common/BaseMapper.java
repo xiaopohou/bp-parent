@@ -35,6 +35,9 @@ public interface BaseMapper<T> {
     //删除数据
     int delete(Object id);
 
+    //批量删除数据
+    int deleteBatch(Object[] ids);
+
     int delete(Map<String, Object> map);
 
     //获取记录总条数

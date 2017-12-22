@@ -90,6 +90,11 @@ public abstract class BaseServiceImpl<T> implements BaseService<T>{
         return baseMapper.delete(id);
     }
 
+    @Override
+    public int deleteBatch(Object[] ids) {
+        return baseMapper.deleteBatch(ids);
+    }
+
     /**
      * 获取记录总条数
      *

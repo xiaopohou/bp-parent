@@ -56,6 +56,13 @@ public interface BaseService<T> {
     int delete(Object id);
 
     /**
+     * 批量删除数据
+     * @param id
+     * @return
+     */
+    int deleteBatch(Object[] ids);
+
+    /**
      * 获取记录总条数
      * @return
      */
