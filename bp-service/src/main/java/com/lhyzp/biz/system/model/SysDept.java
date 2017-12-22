@@ -15,6 +15,8 @@ public class SysDept implements Serializable{
 
     private String code;//部门编码
 
+    private Integer parentId;//父级ID
+
     private String remark;//备注
 
     public Integer getId() {
@@ -41,11 +43,30 @@ public class SysDept implements Serializable{
         this.code = code;
     }
 
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+
     public String getRemark() {
         return remark;
     }
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    @Override
+    public String toString() {
+        return "SysDept{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", parentId=" + parentId +
+                ", remark='" + remark + '\'' +
+                '}';
     }
 }

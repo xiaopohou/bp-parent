@@ -1,9 +1,11 @@
 package com.lhyzp.biz.system.model;
 
+import java.io.Serializable;
+
 /**
  * 数据字典
  */
-public class SysEnum {
+public class SysEnum implements Serializable{
     private Integer id;
 
     private String name;
@@ -52,5 +54,16 @@ public class SysEnum {
 
     public void setValue(String value) {
         this.value = value == null ? null : value.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "SysEnum{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", parent='" + parent + '\'' +
+                ", sortNo=" + sortNo +
+                ", value='" + value + '\'' +
+                '}';
     }
 }
