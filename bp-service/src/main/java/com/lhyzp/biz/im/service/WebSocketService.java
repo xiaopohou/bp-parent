@@ -1,6 +1,5 @@
 package com.lhyzp.biz.im.service;
 
-
 import com.lhyzp.biz.im.model.Greeting;
 
 import java.util.List;

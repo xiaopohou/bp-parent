@@ -1,4 +1,4 @@
-package com.lhyzp;
+package com.lhyzp.web;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

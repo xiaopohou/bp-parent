@@ -11,17 +11,23 @@
         <module name="bp-model" />
         <module name="bp-poi" />
         <module name="bp-service" />
-        <module name="bp-utils" />
+        <module name="bp-sys-model" />
+        <module name="bp-sys-service" />
         <module name="bp-web" />
+        <module name="model" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="bp-common" target="1.8" />
       <module name="bp-demo" target="1.8" />
       <module name="bp-parent" target="1.8" />
       <module name="bp-poi" target="1.8" />
       <module name="bp-service" target="1.8" />
+      <module name="bp-sys-model" target="1.8" />
+      <module name="bp-sys-service" target="1.8" />
       <module name="bp-utils" target="1.8" />
       <module name="bp-web" target="1.8" />
+      <module name="model" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

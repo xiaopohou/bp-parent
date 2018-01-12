@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.lhyzp</groupId>
-            <artifactId>bp-utils</artifactId>
+            <artifactId>bp-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

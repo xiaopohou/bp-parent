@@ -26,7 +26,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.lhyzp</groupId>
-			<artifactId>bp-utils</artifactId>
+			<artifactId>bp-common</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -37,8 +37,52 @@
 
 		<dependency>
 			<groupId>com.lhyzp</groupId>
+			<artifactId>bp-sys-service</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lhyzp</groupId>
+			<artifactId>bp-sys-model</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lhyzp</groupId>
 			<artifactId>bp-poi</artifactId>
 			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- 部署到tomcat时，移除内置tomcat -->
+			<!--
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>  -->
+			<!-- end -->
+		</dependency>
+
+		<!-- undertow  web服务器-->
+		<!--
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency> -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -77,6 +121,25 @@
                 <version>7.0.42</version>
                 <scope>provided</scope>
         </dependency> -->
+
+
+		<!--缩略图创建-->
+		<dependency>
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>0.4.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>3.3.1</version>
+		</dependency>
 
 		<!--网页静态资源  webjars-locator：引入时不用写版本号-->
 		<dependency>

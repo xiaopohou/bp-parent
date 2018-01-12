@@ -8,12 +8,14 @@
       <list>
         <option value="$PROJECT_DIR$/../bp-parent/pom.xml" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-web/pom.xml" />
+        <option value="$PROJECT_DIR$/../bp-parent/bp-common/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/../bp-parent/bp-common/pom.xml" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-model/pom.xml" />
+        <option value="$PROJECT_DIR$/../bp-parent/bp-utils/pom.xml" />
+        <option value="$PROJECT_DIR$/../bp-parent/model/pom.xml" />
       </set>
     </option>
   </component>

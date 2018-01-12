@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lhyzp.sys.mapper.SysModuleMapper" >
+  <resultMap id="BaseResultMap" type="com.lhyzp.sys.model.SysModule" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="active" property="active" jdbcType="SMALLINT" />
+    <result column="b_position" property="bPosition" jdbcType="SMALLINT" />
+    <result column="class_name" property="className" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="expand" property="expand" jdbcType="INTEGER" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="perm_code" property="permCode" jdbcType="VARCHAR" />
+    <result column="perm_type" property="permType" jdbcType="SMALLINT" />
+    <result column="sort_no" property="sortNo" jdbcType="SMALLINT" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, active, b_position, class_name, code, expand, icon, name, parent_id, perm_code, 
+    perm_type, sort_no, url
+  </sql>
+  <select id="getObject" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_module
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="delete" parameterType="java.lang.Integer" >
+    delete from sys_module
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="save" parameterType="com.lhyzp.sys.model.SysModule" >
+    insert into sys_module (id, active, b_position, 
+      class_name, code, expand, 
+      icon, name, parent_id, 
+      perm_code, perm_type, sort_no, 
+      url)
+    values (#{id,jdbcType=INTEGER}, #{active,jdbcType=SMALLINT}, #{bPosition,jdbcType=SMALLINT}, 
+      #{className,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{expand,jdbcType=INTEGER}, 
+      #{icon,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
+      #{permCode,jdbcType=VARCHAR}, #{permType,jdbcType=SMALLINT}, #{sortNo,jdbcType=SMALLINT}, 
+      #{url,jdbcType=VARCHAR})
+  </insert>
+  <update id="update" parameterType="com.lhyzp.sys.model.SysModule" >
+    update sys_module
+    set active = #{active,jdbcType=SMALLINT},
+      b_position = #{bPosition,jdbcType=SMALLINT},
+      class_name = #{className,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      expand = #{expand,jdbcType=INTEGER},
+      icon = #{icon,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      perm_code = #{permCode,jdbcType=VARCHAR},
+      perm_type = #{permType,jdbcType=SMALLINT},
+      sort_no = #{sortNo,jdbcType=SMALLINT},
+      url = #{url,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

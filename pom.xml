@@ -16,11 +16,13 @@
     </parent>
 
     <modules>
-        <module>bp-service</module>
-        <module>bp-web</module>
-        <module>bp-utils</module>
+        <module>bp-common</module>
         <module>bp-demo</module>
         <module>bp-poi</module>
+        <module>bp-sys-model</module>
+        <module>bp-sys-service</module>
+        <module>bp-service</module>
+        <module>bp-web</module>
     </modules>
 
     <properties>
@@ -33,32 +35,6 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <!-- 部署到tomcat时，移除内置tomcat -->
-            <!--
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>  -->
-            <!-- end -->
-        </dependency>
-
-        <!-- undertow  web服务器-->
-        <!--
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-undertow</artifactId>
-        </dependency> -->
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
 
@@ -67,12 +43,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
