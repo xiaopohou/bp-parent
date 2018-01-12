@@ -1,6 +1,7 @@
 package com.lhyzp.web.shiro;
 
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -133,12 +134,12 @@ public class ShiroConfiguration {
      * shiro缓存管理器;
      * @return
      */
-    //@Bean
-    //public EhCacheManager ehCacheManager(){
-    //    EhCacheManager cacheManager = new EhCacheManager();
-    //    cacheManager.setCacheManagerConfigFile("classpath:config/ehcache-shiro.xml");
-    //    return cacheManager;
-    //}
+    @Bean
+    public EhCacheManager ehCacheManager(){
+        EhCacheManager cacheManager = new EhCacheManager();
+        cacheManager.setCacheManagerConfigFile("classpath:config/ehcache-shiro.xml");
+        return cacheManager;
+    }
 
 
     /**
