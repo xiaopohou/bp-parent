@@ -1,163 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52b56b81-c4d0-464e-9562-9e9c9a4cdd96" name="Default" comment="添加poi 导出模块">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__com_beust_jcommander_1_72.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__com_github_jai_imageio_jai_imageio_core_1_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__com_google_zxing_core_3_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__com_google_zxing_javase_3_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__net_coobird_thumbnailator_0_4_8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_hashids_hashids_1_0_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_webjars_bower_nprogress_0_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/web/poi/util/StringUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/common/BaseJPAService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/common/BaseServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/goods/service/GoodsOrderItemService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/goods/service/GoodsStockService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/goods/service/impl/GoodsOrderItemServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-model/bp-sys-model.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-model/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/bp-sys-service.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/common/BaseServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/mapper/SysDeptMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/mapper/SysEnumMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/mapper/SysModuleMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/mapper/SysRoleMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/mapper/SysUserMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/SysDeptService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/SysModuleService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/SysRoleService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/impl/SysEnumServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/impl/SysModuleServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/impl/SysRoleServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/api/sys/controller/SysUserController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/base/BaseController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/config/RedisCacheConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/exception/GlobalExcetionHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/filter/WebLogAspect.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/page/controller/SystemPageController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/shiro/MyShiroRealm.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/utils/PasswordHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/utils/QRCodeUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/utils/ShiroUtils.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-common/src/main/java/com/lhyzp/web/common/utils/StringUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/mapper/SysDeptMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/mapper/SysEnumMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/mapper/SysRoleMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/mapper/SysUserMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/mapper/SystemModuleMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/service/SysDeptService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/service/SysRoleService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/service/SystemModuleService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/service/impl/SystemModuleServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/goods/service/GoodsOrderItemService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/web/biz/goods/service/GoodsStockService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/web/biz/goods/service/impl/GoodsOrderItemServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/web/common/BaseServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/web/sys/service/impl/SysEnumServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/web/sys/service/impl/SysRoleServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/bases/BaseService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/common/PasswordHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/common/QRCodeUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/common/ShiroUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/common/api/sys/controller/SysUserController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/common/base/BaseController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/common/config/RedisCacheConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/common/constant/SysConstant.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/common/exception/GlobalExcetionHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/common/filter/WebLogAspect.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/common/page/controller/SystemPageController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/common/shiro/MyShiroRealm.java" afterPath="" />
+    <list default="true" id="52b56b81-c4d0-464e-9562-9e9c9a4cdd96" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__net_sf_ehcache_ehcache_core_2_6_11.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_shiro_shiro_cache_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_shiro_shiro_config_core_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_shiro_shiro_config_ogdl_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_shiro_shiro_core_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_cipher_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_core_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_hash_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_shiro_shiro_ehcache_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_shiro_shiro_event_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_shiro_shiro_lang_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_shiro_shiro_spring_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_shiro_shiro_web_1_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_1_5_8_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_1_2_8_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_springframework_data_spring_data_redis_1_8_8_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_springframework_spring_context_support_4_3_12_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_springframework_spring_oxm_4_3_12_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/service/impl/SysEnumServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/service/impl/SysRoleServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/common/BaseServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/goods/service/GoodsStockService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/goods/service/impl/GoodsOrderItemServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/PasswordHelper.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/QRCodeUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/StringUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/SysUserController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/base/BaseController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/config/RedisCacheConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/constant/SysConstant.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/exception/GlobalExcetionHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/filter/WebLogAspect.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/page/controller/SystemPageController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/shiro/MyShiroRealm.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/util/ShiroUtils.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/.idea/artifacts/bp_web_war_exploded.xml" afterPath="$PROJECT_DIR$/../bp-parent/.idea/artifacts/bp_web_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/.idea/compiler.xml" afterPath="$PROJECT_DIR$/../bp-parent/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/.idea/encodings.xml" afterPath="$PROJECT_DIR$/../bp-parent/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/.idea/misc.xml" afterPath="$PROJECT_DIR$/../bp-parent/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/.idea/modules.xml" afterPath="$PROJECT_DIR$/../bp-parent/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../bp-parent/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-common/bp-common.iml" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/bp-common.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-demo/bp-demo.iml" afterPath="$PROJECT_DIR$/../bp-parent/bp-demo/bp-demo.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-demo/pom.xml" afterPath="$PROJECT_DIR$/../bp-parent/bp-demo/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-parent.iml" afterPath="$PROJECT_DIR$/../bp-parent/bp-parent.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-poi/bp-poi.iml" afterPath="$PROJECT_DIR$/../bp-parent/bp-poi/bp-poi.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/bp-service.iml" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/bp-service.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/pom.xml" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/im/service/WebSocketService.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/im/service/WebSocketService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-sys-model/bp-sys-model.iml" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-model/bp-sys-model.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-sys-service/bp-sys-service.iml" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/bp-sys-service.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/pom.xml" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/Application.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/Swagger2.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/Swagger2.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bp-parent/pom.xml" afterPath="$PROJECT_DIR$/../bp-parent/pom.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_7.xml" afterPath="$PROJECT_DIR$/../bp-parent/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_1.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/poi/ExcelUtil.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/web/poi/ExcelUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/poi/entity/ColumnParam.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/web/poi/entity/ColumnParam.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/poi/entity/ColumnStyle.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/web/poi/entity/ColumnStyle.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/poi/entity/ExcelType.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/web/poi/entity/ExcelType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/poi/entity/HeadRowStyle.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/web/poi/entity/HeadRowStyle.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/poi/entity/TableParam.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/web/poi/entity/TableParam.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/poi/func/ConvertValue.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/web/poi/func/ConvertValue.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/poi/func/impl/ConvertValueBoolean.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/web/poi/func/impl/ConvertValueBoolean.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/poi/func/impl/ConvertValueShort.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/web/poi/func/impl/ConvertValueShort.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-poi/src/main/java/com/lhyzp/poi/util/StringUtils.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/src/main/java/com/lhyzp/common/utils/StringUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/model/SysDept.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-model/src/main/java/com/lhyzp/sys/model/SysDept.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/model/SysEnum.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-model/src/main/java/com/lhyzp/sys/model/SysEnum.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/model/SysRole.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-model/src/main/java/com/lhyzp/sys/model/SysRole.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/model/SysUser.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-model/src/main/java/com/lhyzp/sys/model/SysUser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/model/SystemModule.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-model/src/main/java/com/lhyzp/sys/model/SysModule.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/service/SysEnumService.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/SysEnumService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/service/SysUserService.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/SysUserService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/service/impl/SysDeptServiceImpl.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/impl/SysDeptServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/system/service/impl/SysUserServiceImpl.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/impl/SysUserServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/common/BaseMapper.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/src/main/java/com/lhyzp/common/base/BaseMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/common/BaseService.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/src/main/java/com/lhyzp/common/base/BaseService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/goods/model/GoodsOrderItem.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/goods/model/GoodsOrderItem.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/goods/model/GoodsStock.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/goods/model/GoodsStock.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/goods/repository/GoodsOrderItemRepository.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/goods/repository/GoodsOrderItemRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/goods/repository/GoodsStockRepository.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/goods/repository/GoodsStockRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/goods/service/impl/GoodsStockServiceImpl.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/java/com/lhyzp/biz/goods/service/impl/GoodsStockServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/resources/mapping/system/SysDeptMapper.xml" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/resources/mapping/system/SysDeptMapper.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/resources/mapping/system/SysEnumMapper.xml" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/resources/mapping/system/SysEnumMapper.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/resources/mapping/system/SysRoleMapper.xml" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/resources/mapping/system/SysRoleMapper.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/resources/mapping/system/SysUserMapper.xml" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/resources/mapping/system/SysUserMapper.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-service/src/main/resources/mapping/system/SystemModuleMapper.xml" afterPath="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/resources/mapping/system/SysModuleMapper.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/bp-utils.iml" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/bp-common.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/annotation/OpLog.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/src/main/java/com/lhyzp/common/annotation/OpLog.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/bases/DataTable.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/src/main/java/com/lhyzp/common/base/DataTable.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/bases/ResponseMessage.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/src/main/java/com/lhyzp/common/base/ResponseMessage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/exception/CustomException.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/src/main/java/com/lhyzp/common/exception/CustomException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/DateFormatUtils.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/src/main/java/com/lhyzp/common/utils/DateFormatUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/DateUtils.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/src/main/java/com/lhyzp/common/utils/DateUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/EncryptUtils.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/src/main/java/com/lhyzp/common/utils/EncryptUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-utils/src/main/java/com/lhyzp/utils/MD5Utils.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-common/src/main/java/com/lhyzp/common/utils/MD5Utils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/goods/controller/GoodsOrderItemController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/api/goods/controller/GoodsOrderItemController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/goods/controller/GoodsStockController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/api/goods/controller/GoodsStockController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/AccountController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/api/sys/controller/AccountController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/SysDeptController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/api/sys/controller/SysDeptController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/SysEnumController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/api/sys/controller/SysEnumController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/SysModuleController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/api/sys/controller/SysModuleController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/api/sys/controller/SysRoleController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/api/sys/controller/SysRoleController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/auth/AuthController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/auth/AuthController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/config/DruidConfiguration.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/config/DruidConfiguration.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/config/RedisSessionConfig.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/config/RedisSessionConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/config/WebSocketConfig.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/config/WebSocketConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/exception/Error404Controller.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/exception/Error404Controller.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/filter/OpLogAspect.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/filter/OpLogAspect.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/filter/XSSRequestWrapper.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/filter/XSSRequestWrapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/filter/XssFilter.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/filter/XssFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/page/controller/HomeController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/page/controller/HomeController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/page/controller/ImPageComtroller.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/page/controller/ImPageComtroller.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/shiro/ShiroConfiguration.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/shiro/ShiroConfiguration.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/websocket/ImController.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/websocket/ImController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/DynamicLoader.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/web/common/DynamicLoader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/DynamicLoaderTestCase.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/web/common/DynamicLoaderTestCase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/EncryptDemo.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/web/common/EncryptDemo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/Hello.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/web/common/Hello.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/HelloAnnotation.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/web/common/HelloAnnotation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/Test.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/web/common/Test.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/TestRedis.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/web/common/TestRedis.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/proxy/ProxyHandler.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/web/common/proxy/ProxyHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/proxy/RealSubject.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/web/common/proxy/RealSubject.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/proxy/Subject.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/web/common/proxy/Subject.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/proxy/Test2.java" afterPath="$PROJECT_DIR$/../bp-parent/bp-web/src/test/java/com/lhyzp/web/common/proxy/Test2.java" />
     </list>
     <ignored path="$PROJECT_DIR$/../bp-parent/out/" />
     <ignored path="$PROJECT_DIR$/../bp-parent/target/" />
@@ -240,7 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/SysDeptService.java" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/SysEnumService.java" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/SysRoleService.java" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/java/com/lhyzp/sys/service/SysUserService.java" />
@@ -288,9 +183,10 @@
         <option value="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/resources/mapping/system/SysEnumMapper.xml" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/resources/mapping/system/SysDeptMapper.xml" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-sys-service/src/main/resources/mapping/system/SysRoleMapper.xml" />
-        <option value="$PROJECT_DIR$/../bp-parent/pom.xml" />
-        <option value="$PROJECT_DIR$/../bp-parent/bp-web/pom.xml" />
         <option value="$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/Application.java" />
+        <option value="$PROJECT_DIR$/../bp-parent/bp-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../bp-parent/bp-web/pom.xml" />
+        <option value="$PROJECT_DIR$/../bp-parent/pom.xml" />
       </list>
     </option>
   </component>
@@ -401,6 +297,250 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lhyzp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lhyzp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lhyzp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp-demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="redis" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1139,14 +1279,7 @@
       <workItem from="1515732060812" duration="271000" />
       <workItem from="1515732376087" duration="327000" />
       <workItem from="1515732708075" duration="75000" />
-      <workItem from="1515732788277" duration="3901000" />
-    </task>
-    <task id="LOCAL-00070" summary="添加spring data jpa">
-      <created>1510913722581</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1510913722581</updated>
+      <workItem from="1515732788277" duration="5135000" />
     </task>
     <task id="LOCAL-00071" summary="添加spring data jpa">
       <created>1510915015049</created>
@@ -1484,7 +1617,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513931295709</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="添加poi 导出模块">
+      <created>1515738274984</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1515738274984</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1520,7 +1660,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="497486000" />
+    <option name="totallyTimeSpent" value="498720000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1595,7 +1735,6 @@
     <MESSAGE value="设计模式" />
     <MESSAGE value="Excel工具类编写" />
     <MESSAGE value="添加spring data jpa" />
-    <MESSAGE value="添加poi 导出模块" />
     <MESSAGE value="二维码" />
     <MESSAGE value="模板引擎生成文件" />
     <MESSAGE value="ID加解密hashids" />
@@ -1604,7 +1743,8 @@
     <MESSAGE value="修改" />
     <MESSAGE value="jar" />
     <MESSAGE value="资源模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="资源模块" />
+    <MESSAGE value="添加poi 导出模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加poi 导出模块" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1617,24 +1757,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/api/sys/controller/SysDeptController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/api/sys/controller/SysEnumController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="35" lean-forward="false" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/api/sys/controller/SysModuleController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1688,30 +1810,6 @@
     <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/config/DruidConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/config/RedisCacheConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/config/RedisSessionConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/config/WebSocketConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
           <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
           <folding />
         </state>
@@ -2061,18 +2159,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/pom.xml">
+    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/config/RedisSessionConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="14" column="42" lean-forward="false" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+        <state relative-caret-position="57">
+          <caret line="3" column="98" lean-forward="true" selection-start-line="3" selection-start-column="98" selection-end-line="3" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/config/RedisCacheConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/src/main/java/com/lhyzp/web/config/WebSocketConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-demo/src/main/java/redis/JedisDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-demo/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../bp-parent/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="39" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="39" />
+        <state relative-caret-position="1041">
+          <caret line="70" column="21" lean-forward="false" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bp-parent/bp-web/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="147" column="21" lean-forward="false" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
           <folding />
         </state>
       </provider>
