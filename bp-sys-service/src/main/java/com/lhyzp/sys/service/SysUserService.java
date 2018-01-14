@@ -19,6 +19,4 @@ public interface SysUserService extends BaseService<SysUser> {
      */
     SysUser findByEmail(String email);
 
-    List<SysUser> list(Map<String,Object> map);
-
 }
