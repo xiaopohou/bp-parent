@@ -10,6 +10,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 /**
+ * 数据字典
  * Created by Administrator on 2017-11-8.
  */
 @RestController
