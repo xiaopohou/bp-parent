@@ -25,4 +25,9 @@ public class HomeController{
     public String blog(){
         return "blog/article";
     }
+
+    @RequestMapping("shiro/dialect")
+    public String shiro(){
+        return "shiro-dialect";
+    }
 }
