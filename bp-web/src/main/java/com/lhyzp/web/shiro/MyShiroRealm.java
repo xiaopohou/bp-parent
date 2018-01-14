@@ -57,15 +57,9 @@ public class MyShiroRealm extends AuthorizingRealm {
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(
                 user, //用户
                 user.getPassword(), //数据库加密的密码
-                ByteSource.Util.bytes(email),//盐
+                ByteSource.Util.bytes(email),//salt盐   采用明文访问时，不需要此句
                 getName()
         );
-        //明文: 若存在，将此用户存放到登录认证info中，无需自己做密码对比，Shiro会为我们进行密码对比校验
-      //SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-      //     user, //用户
-      //     password, //密码
-      //       getName()  //realm name
-      //);
         return info;
 
     }
