@@ -20,7 +20,7 @@ public class SystemPageController extends BaseController {
      */
     @GetMapping("module")
     public String modulePage(){
-        return "mapping/system/module";
+        return "system/module";
     }
     /**
      * 用户管理页
@@ -28,7 +28,7 @@ public class SystemPageController extends BaseController {
      */
     @GetMapping("user")
     public String userPage(){
-        return "mapping/system/user";
+        return "system/user";
     }
 
     /**
@@ -37,7 +37,7 @@ public class SystemPageController extends BaseController {
      */
     @GetMapping("dept")
     public String deptPage(){
-        return "mapping/system/dept";
+        return "system/dept";
     }
 
     /**
@@ -46,7 +46,7 @@ public class SystemPageController extends BaseController {
      */
     @GetMapping("role")
     public String rolePage(){
-        return "mapping/system/role";
+        return "system/role";
     }
     /**
      * 数据字典管理页
@@ -54,6 +54,6 @@ public class SystemPageController extends BaseController {
      */
     @GetMapping("enum")
     public String enumPage(){
-        return "mapping/system/enum";
+        return "system/enum";
     }
 }
