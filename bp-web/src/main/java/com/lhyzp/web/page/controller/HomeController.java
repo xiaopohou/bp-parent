@@ -20,4 +20,9 @@ public class HomeController{
     public String login(){
         return "login";
     }
+
+    @RequestMapping("blog")
+    public String blog(){
+        return "blog/article";
+    }
 }
