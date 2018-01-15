@@ -38,8 +38,10 @@ public class AccountController extends BaseController {
             return msg(2,"账号或密码不正确");
         }catch (LockedAccountException e) {
             return msg(3,e.getMessage());
+        }catch (ExcessiveAttemptsException e) {
+            return msg(4,"密码错误次数超过5次,帐号被锁定");
         }catch (AuthenticationException e) {
-            return msg(4,"账户验证失败");
+            return msg(5,"账户验证失败");
         }
 
         return success();
