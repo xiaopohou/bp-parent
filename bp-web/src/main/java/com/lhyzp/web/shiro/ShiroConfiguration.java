@@ -1,5 +1,6 @@
 package com.lhyzp.web.shiro;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
@@ -86,7 +87,7 @@ public class ShiroConfiguration {
 
         //注入记住我管理器;
         securityManager.setRememberMeManager(rememberMeManager());
-        
+
         //注入缓存管理器;注意:开发时请先关闭，如不关闭热启动会报错
         //securityManager.setCacheManager(ehCacheManager());
 
@@ -120,6 +121,7 @@ public class ShiroConfiguration {
 
     /**
      * 开启shiro aop注解支持. 使用代理方式;所以需要开启代码支持;
+     *
      * @param securityManager
      * @return
      */
@@ -132,10 +134,11 @@ public class ShiroConfiguration {
 
     /**
      * shiro缓存管理器;
+     *
      * @return
      */
     @Bean
-    public EhCacheManager ehCacheManager(){
+    public EhCacheManager ehCacheManager() {
         EhCacheManager cacheManager = new EhCacheManager();
         cacheManager.setCacheManagerConfigFile("classpath:config/ehcache-shiro.xml");
         return cacheManager;
@@ -144,10 +147,11 @@ public class ShiroConfiguration {
 
     /**
      * cookie对象;
+     *
      * @return
-     * */
+     */
     @Bean
-    public SimpleCookie rememberMeCookie(){
+    public SimpleCookie rememberMeCookie() {
         //System.out.println("ShiroConfiguration.rememberMeCookie()");
         //这个参数是cookie的名称，对应前端的checkbox的name = rememberMe
         SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
@@ -155,16 +159,27 @@ public class ShiroConfiguration {
         simpleCookie.setMaxAge(259200);
         return simpleCookie;
     }
+
     /**
      * cookie管理对象;
+     *
      * @return
      */
     @Bean
-    public CookieRememberMeManager rememberMeManager(){
+    public CookieRememberMeManager rememberMeManager() {
         //System.out.println("ShiroConfiguration.rememberMeManager()");
         CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
         cookieRememberMeManager.setCookie(rememberMeCookie());
         return cookieRememberMeManager;
     }
 
+    /**
+     * ShiroDialect，为了在thymeleaf里使用shiro的标签的bean
+     *
+     * @return
+     */
+    @Bean
+    public ShiroDialect shiroDialect() {
+        return new ShiroDialect();
+    }
 }
