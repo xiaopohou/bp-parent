@@ -2,15 +2,16 @@ package com.lhyzp.web.base;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.github.pagehelper.Page;
 import com.lhyzp.common.base.DataTable;
 import com.lhyzp.common.base.ResponseMessage;
 import com.lhyzp.sys.model.SysUser;
 import com.lhyzp.web.utils.ShiroUtils;
-import org.springframework.data.domain.Page;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 基础controller
@@ -48,11 +49,11 @@ public abstract class BaseController {
      * @param list
      * @return
      */
-    public String json(Page<?> list){
+    public String json( List<?> list,Page<Object> page){
         DataTable dt=new DataTable();
-        dt.setRows(list.getContent());
-        dt.setPage(list.getNumber());
-        dt.setTotal(list.getTotalElements());
+        dt.setRows(list);
+        dt.setPage(page.getPageNum());
+        dt.setTotal(page.getTotal());
         return JSON.toJSONString(dt, SerializerFeature.DisableCircularReferenceDetect);
     }
 

@@ -1,16 +1,19 @@
 package com.lhyzp.web.api.sys.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.google.common.collect.Maps;
+import com.lhyzp.sys.model.SysModule;
 import com.lhyzp.sys.model.SysUser;
+import com.lhyzp.sys.service.SysModuleService;
+import com.lhyzp.web.base.BaseController;
 import org.apache.poi.hpsf.DocumentSummaryInformation;
 import org.apache.poi.hpsf.SummaryInformation;
 import org.apache.poi.hssf.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.thymeleaf.TemplateEngine;
@@ -21,6 +24,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 模块
@@ -28,82 +33,36 @@ import java.util.Date;
  */
 @RestController
 @RequestMapping("api/module")
-public class SysModuleController {
+public class SysModuleController extends BaseController{
 
-    @GetMapping
-    public String list(){
-        return "[]";
+    @Autowired
+    private SysModuleService sysModuleService;
+
+    @PostMapping
+    public String addOrUpdate(SysModule module){
+
+        return "";
     }
 
-    @GetMapping("excel")
-    public void excelDemo() throws IOException {
-        //String filePath="C:\\Users\\Administrator\\Desktop\\sample.xls";//文件路径
+    @GetMapping
+    public String list(@RequestParam(value = "pageNum",defaultValue = "0")Integer pageNum,
+                       @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
+        Map<String,Object> map= Maps.newHashMap();
+        Page<Object> page = PageHelper.startPage(pageNum, pageSize);
+        List<SysModule> list = sysModuleService.list(map);
+        return json(list,page);
+    }
 
+    @GetMapping("{id}")
+    public String getObject(@PathVariable("id")Integer id){
+        SysModule module = sysModuleService.getObject(id);
+        return json(module);
+    }
 
-        /*创建Workbook和Sheet*/
-        HSSFWorkbook workbook = new HSSFWorkbook();//创建Excel文件(Workbook)
-        HSSFSheet sheet = workbook.createSheet("Test");//创建工作表(Sheet)
-
-
-
-        /*创建文档摘要信息*/
-        workbook.createInformationProperties();//创建文档信息
-        DocumentSummaryInformation dsi= workbook.getDocumentSummaryInformation();//摘要信息
-        dsi.setCategory("类别:Excel文件");//类别
-        dsi.setManager("周鹏");//管理者
-        dsi.setCompany("公司:--");//公司
-        SummaryInformation si = workbook.getSummaryInformation();//摘要信息
-        si.setSubject("主题:--");//主题
-        si.setTitle("标题:测试文档");//标题
-        si.setAuthor("周鹏");//作者
-        si.setComments("POI测试文档");//备注
-
-
-        /*创建单元格*/
-        HSSFRow row = sheet.createRow(0);// 创建行,从0开始
-        HSSFCell cell = row.createCell(0);// 创建行的单元格,也是从0开始
-        cell.setCellValue("李志伟");// 设置单元格内容
-        row.createCell(1).setCellValue(false);// 设置单元格内容,重载
-        row.createCell(2).setCellValue(new Date());// 设置单元格内容,重载
-        row.createCell(3).setCellValue(12.345);// 设置单元格内容,重载
-
-        //设置为居中加粗
-        //HSSFCellStyle style = workbook.createCellStyle();
-        //HSSFFont font = workbook.createFont();
-        //font.setBold(true);
-        //style.setFont(font);
-        //style.setAlignment(HorizontalAlignment.CENTER);
-        //
-        //cell = row.createCell(0);
-        //cell.setCellValue("序号");
-        //cell.setCellStyle(style);
-        //
-        //cell = row.createCell(1);
-        //cell.setCellValue("金额");
-        //cell.setCellStyle(style);
-        //
-        //cell = row.createCell(2);
-        //cell.setCellValue("描述");
-        //cell.setCellStyle(style);
-        //
-        //cell = row.createCell(3);
-        //cell.setCellValue("日期");
-        //cell.setCellStyle(style);
-
-        //FileOutputStream out = new FileOutputStream(filePath);
-        //workbook.write(out);//保存Excel文件
-        //out.close();//关闭文件流
-        //System.out.println("OK!");
-
-
-        String excelName="excel名称.xls";
-
-
-        HttpServletResponse response=((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
-        response.setHeader("content-Type", "application/vnd.ms-excel;charset=UTF-8");
-        excelName=new String(excelName.getBytes("gbk"),"iso8859-1");
-        response.setHeader("Content-Disposition", "attachment;filename="+excelName);
-        workbook.write(response.getOutputStream());
+    @DeleteMapping("{id}")
+    public String delete(@PathVariable("id")Integer id){
+        sysModuleService.delete(id);
+        return success();
     }
 
     @GetMapping("th")
