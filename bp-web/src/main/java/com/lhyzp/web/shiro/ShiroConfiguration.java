@@ -89,7 +89,7 @@ public class ShiroConfiguration {
         securityManager.setRememberMeManager(rememberMeManager());
 
         //注入缓存管理器;注意:开发时请先关闭，如不关闭热启动会报错
-        //securityManager.setCacheManager(ehCacheManager());
+        securityManager.setCacheManager(ehCacheManager());
 
         return securityManager;
     }
@@ -112,7 +112,7 @@ public class ShiroConfiguration {
      */
     @Bean
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
-        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+        HashedCredentialsMatcher hashedCredentialsMatcher = new RetryLimitHashedCredentialsMatcher(ehCacheManager());//new HashedCredentialsMatcher();
         hashedCredentialsMatcher.setHashAlgorithmName("md5");// 散列算法:这里使用MD5算法;
         hashedCredentialsMatcher.setHashIterations(2);// 散列的次数，比如散列两次，相当于md5(md5(""));
         hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);//表示是否存储散列后的密码为16进制，需要和生成密码时的一样，默认是base64；
