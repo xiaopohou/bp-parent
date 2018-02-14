@@ -181,6 +181,14 @@
 			<version>3.3.1</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+
+
 		<!--网页静态资源  webjars-locator：引入时不用写版本号-->
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -202,6 +210,8 @@
 			<artifactId>nprogress</artifactId>
 			<version>0.2.0</version>
 		</dependency>
+
+
 
     </dependencies>
 
