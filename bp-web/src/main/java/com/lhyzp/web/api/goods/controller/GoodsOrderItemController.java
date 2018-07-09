@@ -29,6 +29,8 @@ public class GoodsOrderItemController extends BaseController {
 
     @PostMapping
     public String addOrUpdate(GoodsOrderItem model) throws InterruptedException {
+
+
         //检查库存数量
         GoodsStock stock = goodsStockService.findById(model.getStock().getId());
         if(stock.getAmount()<model.getAmount()){
