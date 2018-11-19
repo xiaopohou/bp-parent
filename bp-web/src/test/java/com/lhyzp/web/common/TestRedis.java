@@ -127,7 +127,7 @@ public class TestRedis {
     @Test
     public void test3() throws IOException {
         CloseableHttpClient httpclient = HttpClients.createDefault(); //创建httpclient
-        HttpGet httpGet = new HttpGet("http://www.lhyzp.com"); //创建get 请求
+        HttpGet httpGet = new HttpGet("http://www.baidu.com"); //创建get 请求
         CloseableHttpResponse response = httpclient.execute(httpGet); //通过httpcleint 发送get 请求
         if(response != null)
         {

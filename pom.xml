@@ -18,7 +18,6 @@
     <modules>
         <module>bp-common</module>
         <module>bp-demo</module>
-        <module>bp-poi</module>
         <module>bp-sys-model</module>
         <module>bp-sys-service</module>
         <module>bp-service</module>

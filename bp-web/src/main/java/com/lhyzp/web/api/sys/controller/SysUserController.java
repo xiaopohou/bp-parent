@@ -6,15 +6,9 @@ import com.google.common.collect.Maps;
 import com.google.zxing.WriterException;
 import com.lhyzp.common.annotation.OpLog;
 import com.lhyzp.web.base.BaseController;
-import com.lhyzp.web.poi.ExcelUtil;
 import com.lhyzp.sys.model.SysUser;
 import com.lhyzp.sys.service.SysUserService;
-import com.lhyzp.web.poi.entity.ColumnParam;
-import com.lhyzp.web.poi.entity.TableParam;
-import com.lhyzp.web.poi.func.impl.ConvertValueBoolean;
 import com.lhyzp.web.utils.QRCodeUtil;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -85,60 +79,60 @@ public class SysUserController extends BaseController {
         //MatrixToImageWriter.writeToStream(bitMatrix,"png",response.getOutputStream());
 
     }
-    @RequestMapping("/export2")
-    public void export2(HttpServletResponse response) throws IOException, IllegalAccessException, IntrospectionException, InvocationTargetException {
-        TableParam tableParam=new TableParam();
-        List<ColumnParam> columnParams= Lists.newArrayList(
-                new ColumnParam("ID","id",5),
-                new ColumnParam("姓名","userName",15),
-                new ColumnParam("邮箱","email",15),
-                new ColumnParam("手机","phone",15),
-                new ColumnParam("身份证号","idCard",25),
-                new ColumnParam("创建日期","createDate",25,"yyyy-MM-dd HH:mm:ss"),
-                new ColumnParam("启用","active",new ConvertValueBoolean())
-        );
-        tableParam.setColumnParams(columnParams);
-
-        List<SysUser> list = sysUserService.list(null);
-
-        List<Map<String,Object>> mapList=Lists.newArrayList();
-        Map<String,Object> map=Maps.newHashMap();
-        map.put("id",100);
-        map.put("userName","赵丽颖");
-        map.put("email","zhaoliyin@lhyzp.com");
-        map.put("phone","15196785021");
-        map.put("createDate",new Date());
-        map.put("active",true);
-        mapList.add(map);
-        Workbook workbook = ExcelUtil.exportExcelMap(tableParam,mapList);
-
-        String excelName="excel名称.xlsx";
-        response.setHeader("content-Type", "application/vnd.ms-excel;charset=UTF-8");
-        excelName=new String(excelName.getBytes("gbk"),"iso8859-1");
-        response.setHeader("Content-Disposition", "attachment;filename="+excelName);
-        workbook.write(response.getOutputStream());
-
-    }
-    @GetMapping("import")
-    public void importExcel() throws IOException, InstantiationException, IllegalAccessException, IntrospectionException, InvocationTargetException, ParseException, InvalidFormatException {
-        TableParam tableParam=new TableParam();
-        List<ColumnParam> columnParams= Lists.newArrayList(
-                new ColumnParam("ID","id",5),
-                new ColumnParam("姓名","userName",15),
-                new ColumnParam("邮箱","email",15),
-                new ColumnParam("手机","phone",15),
-                new ColumnParam("身份证号","idCard",25),
-                new ColumnParam("创建日期","createDate",25,"yyyy-MM-dd"),
-                new ColumnParam("启用","active",new ConvertValueBoolean())
-        );
-        tableParam.setColumnParams(columnParams);
-
-        List<SysUser> list = (List<SysUser>) ExcelUtil.importExcel("C:\\Users\\Administrator\\Downloads\\excel名称.xls", tableParam,SysUser.class);
-
-        list.forEach(user-> System.out.println(user.toString()));
-
-
-    }
+    //@RequestMapping("/export2")
+    //public void export2(HttpServletResponse response) throws IOException, IllegalAccessException, IntrospectionException, InvocationTargetException {
+    //    TableParam tableParam=new TableParam();
+    //    List<ColumnParam> columnParams= Lists.newArrayList(
+    //            new ColumnParam("ID","id",5),
+    //            new ColumnParam("姓名","userName",15),
+    //            new ColumnParam("邮箱","email",15),
+    //            new ColumnParam("手机","phone",15),
+    //            new ColumnParam("身份证号","idCard",25),
+    //            new ColumnParam("创建日期","createDate",25,"yyyy-MM-dd HH:mm:ss"),
+    //            new ColumnParam("启用","active",new ConvertValueBoolean())
+    //    );
+    //    tableParam.setColumnParams(columnParams);
+    //
+    //    List<SysUser> list = sysUserService.list(null);
+    //
+    //    List<Map<String,Object>> mapList=Lists.newArrayList();
+    //    Map<String,Object> map=Maps.newHashMap();
+    //    map.put("id",100);
+    //    map.put("userName","赵丽颖");
+    //    map.put("email","zhaoliyin@lhyzp.com");
+    //    map.put("phone","15196785021");
+    //    map.put("createDate",new Date());
+    //    map.put("active",true);
+    //    mapList.add(map);
+    //    Workbook workbook = ExcelUtil.exportExcelMap(tableParam,mapList);
+    //
+    //    String excelName="excel名称.xlsx";
+    //    response.setHeader("content-Type", "application/vnd.ms-excel;charset=UTF-8");
+    //    excelName=new String(excelName.getBytes("gbk"),"iso8859-1");
+    //    response.setHeader("Content-Disposition", "attachment;filename="+excelName);
+    //    workbook.write(response.getOutputStream());
+    //
+    //}
+    //@GetMapping("import")
+    //public void importExcel() throws IOException, InstantiationException, IllegalAccessException, IntrospectionException, InvocationTargetException, ParseException, InvalidFormatException {
+    //    TableParam tableParam=new TableParam();
+    //    List<ColumnParam> columnParams= Lists.newArrayList(
+    //            new ColumnParam("ID","id",5),
+    //            new ColumnParam("姓名","userName",15),
+    //            new ColumnParam("邮箱","email",15),
+    //            new ColumnParam("手机","phone",15),
+    //            new ColumnParam("身份证号","idCard",25),
+    //            new ColumnParam("创建日期","createDate",25,"yyyy-MM-dd"),
+    //            new ColumnParam("启用","active",new ConvertValueBoolean())
+    //    );
+    //    tableParam.setColumnParams(columnParams);
+    //
+    //    List<SysUser> list = (List<SysUser>) ExcelUtil.importExcel("C:\\Users\\Administrator\\Downloads\\excel名称.xls", tableParam,SysUser.class);
+    //
+    //    list.forEach(user-> System.out.println(user.toString()));
+    //
+    //
+    //}
 
     @GetMapping
     public String list(@RequestParam(value="page",required = false,defaultValue = "0")Integer page,
